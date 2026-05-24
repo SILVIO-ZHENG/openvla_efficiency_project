@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+pyyaml
+python-dotenv
+tqdm
+jupyter
+ipykernel
