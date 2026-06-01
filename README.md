@@ -76,12 +76,6 @@ DF-02-01
 
 ## Current Stage
 
-Current branch:
-
-```text
-DF-01-02
-```
-
 Current task:
 
 ```text
