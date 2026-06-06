@@ -74,20 +74,6 @@ DF-01-02
 DF-02-01
 ```
 
-## Current Stage
-
-Current branch:
-
-```text
-DF-01-02
-```
-
-Current task:
-
-```text
-Write README, requirements, and cloud/HPC environment notes.
-```
-
 ## Notes
 
 Large files should not be committed to GitHub, including:
