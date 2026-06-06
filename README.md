@@ -74,6 +74,17 @@ DF-01-02
 DF-02-01
 ```
 
+<<<<<<< HEAD
+=======
+## Current Stage
+
+Current task:
+
+```text
+Write README, requirements, and cloud/HPC environment notes.
+```
+
+>>>>>>> origin/main
 ## Notes
 
 Large files should not be committed to GitHub, including:
