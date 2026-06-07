@@ -1,0 +1,25 @@
+# 中文：DF-02-03 云端 baseline smoke test 配置
+# English: DF-02-03 cloud baseline smoke test configuration
+
+run_id: df_02_03_cloud_smoke_test_001
+
+model:
+  model_id: openvla/openvla-7b
+  dtype: bfloat16
+  device: cuda:0
+  unnorm_key: bridge_orig
+
+inference:
+  instruction_csv: "data/sample_images/test_instructions.csv"
+  sample_limit: 10
+  warmup_runs: 1
+  num_runs: 1
+
+outputs:
+  log_path: logs/df_02_03_cloud_smoke_test_log.md
+  csv_path: results/tables/df_02_03_cloud_smoke_test_metrics.csv
+
+notes:
+  purpose: "This run is only a cloud GPU / HPC smoke test. It is not the final evaluation result."
+  local_machine_role: "Code editing, Git management, and dry-run only."
+  cloud_machine_role: "Real OpenVLA model loading and ten-sample batch baseline inference."
