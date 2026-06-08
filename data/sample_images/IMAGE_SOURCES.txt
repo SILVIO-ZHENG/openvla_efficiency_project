@@ -1,0 +1,14 @@
+These sample images are from the public BridgeData V2 project page teaser images.
+BridgeData V2 project page: https://rail-berkeley.github.io/bridgedata/
+The project page states that all data is provided under Creative Commons Attribution 4.0 International License.
+
+test_01_laundry_basket.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_laundry_machine_put_clothes_in_laundry_machine.jpg
+test_02_dishwasher_cups.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_realkitchen1_dishwasher_pick_up_any_cup.jpg
+test_03_tool_chest.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_tool_chest_pick_up_closest_rainbow_Allen_key_set.jpg
+test_04_tabletop_spoon.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v2_datacol2_tabletop_dark_wood_many_skills_00.jpg
+test_05_beet_pot_sink.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_toykitchen6_put_beet_in_pot_sink.jpg
+test_06_banana_pot.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_toykitchen4_put_banana_in_pot_or_pan.jpg
+test_07_blueberry_plate.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/flap_toykitchen_sequential_tasks_toykitchen2_put_blueberry_on_plate_and_spoon_in_pot_or_pan_in_sink.jpg
+test_08_sponge_plate.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_realkitchen1_counter_pick_up_sponge_and_wipe_plate.jpg
+test_09_set_table.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/rss_toykitchen2_set_table_00.jpg
+test_10_knife_cutting_board.jpg: https://rail-berkeley.github.io/bridgedata/teaser_videos/bridge_data_v1_berkeley_toysink2_bww_put_knife_on_cutting_board.jpg

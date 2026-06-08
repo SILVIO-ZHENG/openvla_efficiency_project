@@ -1,0 +1,11 @@
+image_path,instruction,note
+data/sample_images/test_01_laundry_basket.jpg,put clothes into the laundry machine,BridgeData V2 teaser image: laundry machine task
+data/sample_images/test_02_dishwasher_cups.jpg,pick up any cup,BridgeData V2 teaser image: dishwasher cups task
+data/sample_images/test_03_tool_chest.jpg,pick up the closest Allen key set,BridgeData V2 teaser image: tool chest task
+data/sample_images/test_04_tabletop_spoon.jpg,pick up the spoon,BridgeData V2 teaser image: tabletop task
+data/sample_images/test_05_beet_pot_sink.jpg,put the beet in the pot,BridgeData V2 teaser image: toy kitchen sink task
+data/sample_images/test_06_banana_pot.jpg,put the banana in the pot,BridgeData V2 teaser image: toy kitchen pot task
+data/sample_images/test_07_blueberry_plate.jpg,put the blueberry on the plate,BridgeData V2 teaser image: toy kitchen sequential task
+data/sample_images/test_08_sponge_plate.jpg,pick up the sponge and wipe the plate,BridgeData V2 teaser image: real kitchen counter task
+data/sample_images/test_09_set_table.jpg,set the table,BridgeData V2 teaser image: set table task
+data/sample_images/test_10_knife_cutting_board.jpg,put the knife on the cutting board,BridgeData V2 teaser image: toy sink task
