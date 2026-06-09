@@ -1,0 +1,107 @@
+# 中文：DF-03-01 baseline evaluation 配置草稿
+# English: Draft configuration for DF-03-01 baseline evaluation
+
+task_id: "DF-03-01"
+task_name: "Dataset and baseline evaluation planning"
+
+# 中文：模型配置
+# English: Model configuration
+model:
+  model_id: "openvla/openvla-7b"
+  device: "cuda:0"
+  dtype: "bfloat16"
+
+  # 中文：LIBERO 的 action unnormalization key 暂时不能直接假设为 bridge_orig
+  # English: The LIBERO action unnormalization key should not be assumed as bridge_orig yet
+  unnorm_key: null
+  unnorm_key_status: "TBD_confirm_in_DF_03_02"
+  previous_smoke_test_unnorm_key: "bridge_orig"
+  unnorm_key_note: "bridge_orig was used in DF-02-03 smoke test, but LIBERO-specific action statistics must be checked before formal baseline evaluation."
+
+# 中文：数据集配置
+# English: Dataset configuration
+dataset:
+  dataset_name: "openvla/modified_libero_rlds"
+  dataset_type: "rlds"
+  local_cloud_path: "/root/autodl-tmp/datasets/openvla_modified_libero_rlds"
+  preferred_split: "val_or_validation"
+  fallback_split: "train"
+  fallback_strategy: "fixed_held_out_subset"
+  random_seed: 42
+  use_for_stage: "small_dataset_baseline"
+  larger_dataset_stage: "later_extension"
+
+# 中文：为什么暂时不用 124GB 数据集
+# English: Reason for not using the 124GB dataset at this stage
+dataset_strategy:
+  first_stage: "modified_libero_rlds"
+  second_stage: "small subset of larger real-world robot dataset"
+  third_stage: "optional full larger dataset if compute and storage allow"
+  reason: "Start from a smaller OpenVLA-related dataset to reduce engineering risk and build a stable evaluation pipeline first."
+
+# 中文：计划的 baseline evaluation 设置
+# English: Planned baseline evaluation settings
+evaluation:
+  planned_limit_first_run: 50
+  warmup_runs: 1
+  num_runs: 5
+  latency_report: "average_over_measured_runs"
+  save_csv: true
+  save_markdown_log: true
+
+# 中文：计划输出文件
+# English: Planned output files
+outputs:
+  dataset_download_check_log: "logs/df_03_01_dataset_download_check.md"
+  future_baseline_csv: "results/tables/df_03_02_libero_baseline_metrics.csv"
+  future_baseline_log: "logs/df_03_02_libero_baseline_eval_log.md"
+
+# 中文：计划记录的指标
+# English: Planned metrics
+metrics:
+  - sample_id
+  - dataset_name
+  - dataset_split
+  - task_name
+  - episode_id
+  - instruction
+  - image_path_or_id
+  - action_raw
+  - action_parsed
+  - action_parse_success
+  - action_parse_error
+  - latency_ms
+  - peak_vram_allocated_gb
+  - peak_vram_reserved_gb
+  - dtype
+  - device
+  - model_id
+  - notes
+
+# 中文：action_parse_success 的定义
+# English: Definition of action_parse_success
+action_parse_success_definition:
+  true_conditions:
+    - "The model returns a non-empty output."
+    - "The output can be parsed into a numerical action vector."
+    - "The parsed action vector has the expected action dimension."
+    - "All action values are finite numbers, not NaN or Inf."
+    - "The action values are within the expected valid range after normalization or clipping checks."
+  false_conditions:
+    - "The model produces no usable output."
+    - "The output cannot be converted into a numerical action vector."
+    - "The action dimension is wrong."
+    - "The action contains NaN or Inf."
+    - "The action values are clearly outside the expected range."
+    - "An exception happens during model inference or action parsing."
+  note: "This metric only checks whether the model output is valid as an action vector. It does not measure real robot or simulator task success."
+
+# 中文：限制说明
+# English: Limitations
+limitations:
+  - "DF-03-01 is a planning task, not a final evaluation task."
+  - "Action parse success is not the same as robot task success."
+  - "Latency and VRAM should be compared on the same GPU type whenever possible."
+  - "The larger 124GB dataset should be used later as a subset first, not as the first full-scale experiment."
+  - "The correct LIBERO action unnormalization key must be confirmed before formal baseline evaluation."
+  - "Latency should be averaged over multiple measured runs because a single run may be unstable."
