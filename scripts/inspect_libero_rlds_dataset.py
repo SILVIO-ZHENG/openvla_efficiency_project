@@ -139,6 +139,23 @@ def extract_split_names(dataset_info: Dict[str, Any]) -> List[str]:
     return []
 
 
+# This function converts TFDS split count values into integers safely.
+# It handles both integer values and string values from dataset_info.json.
+def safe_int_sum(values: Any) -> int:
+    if not isinstance(values, list):
+        return 0
+
+    total = 0
+
+    for value in values:
+        try:
+            total += int(value)
+        except Exception:
+            continue
+
+    return total
+
+
 # This function extracts the episode count for the selected split from common TFDS metadata formats.
 def extract_split_count(dataset_info: Dict[str, Any], split_name: str) -> int:
     splits = dataset_info.get("splits", [])
@@ -158,11 +175,11 @@ def extract_split_count(dataset_info: Dict[str, Any], split_name: str) -> int:
             if "num_examples" in split:
                 return int(split["num_examples"])
 
-            if "shardLengths" in split and isinstance(split["shardLengths"], list):
-                return int(sum(split["shardLengths"]))
+            if "shardLengths" in split:
+                return safe_int_sum(split["shardLengths"])
 
-            if "shard_lengths" in split and isinstance(split["shard_lengths"], list):
-                return int(sum(split["shard_lengths"]))
+            if "shard_lengths" in split:
+                return safe_int_sum(split["shard_lengths"])
 
     # This branch handles split metadata stored as a dictionary.
     if isinstance(splits, dict):
@@ -175,11 +192,11 @@ def extract_split_count(dataset_info: Dict[str, Any], split_name: str) -> int:
             if "num_examples" in split:
                 return int(split["num_examples"])
 
-            if "shardLengths" in split and isinstance(split["shardLengths"], list):
-                return int(sum(split["shardLengths"]))
+            if "shardLengths" in split:
+                return safe_int_sum(split["shardLengths"])
 
-            if "shard_lengths" in split and isinstance(split["shard_lengths"], list):
-                return int(sum(split["shard_lengths"]))
+            if "shard_lengths" in split:
+                return safe_int_sum(split["shard_lengths"])
 
     return 0
 
