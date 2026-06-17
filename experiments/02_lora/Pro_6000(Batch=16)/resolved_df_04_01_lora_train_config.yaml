@@ -1,0 +1,76 @@
+run:
+  run_id: df_04_01_lora_full_train_seed42_rank32
+  branch_name: DF-04-01
+  random_seed: 42
+  mode: full_train
+paths:
+  project_root: /root/autodl-tmp/openvla_efficiency_project
+  official_openvla_root: /root/autodl-tmp/openvla
+  official_finetune_py: /root/autodl-tmp/openvla/vla-scripts/finetune.py
+  dataset_root: /root/autodl-tmp/datasets/openvla_modified_libero_rlds
+  split_json: /root/autodl-tmp/openvla_efficiency_project/results/splits/df_03_02_libero_episode_split_seed42.json
+  output_dir: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32
+  log_path: /root/autodl-tmp/openvla_efficiency_project/logs/df_04_01_lora_training_log.md
+  summary_csv: /root/autodl-tmp/openvla_efficiency_project/results/tables/df_04_01_lora_training_summary.csv
+  metadata_json: /root/autodl-tmp/openvla_efficiency_project/results/metadata/df_04_01_lora_training_metadata.json
+model:
+  model_id: /root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f
+  torch_dtype: bfloat16
+  device: cuda
+dataset:
+  hf_dataset_name: openvla/modified_libero_rlds
+  mixture_name: modified_libero_all_no_noops
+  split_scope: per_sub_dataset
+  source_split: train
+  train_count: 1353
+  val_count: 167
+  test_count: 173
+  split_seed: 42
+lora:
+  rank: 32
+  alpha: 16
+  dropout: 0.0
+  target_modules: all-linear
+training:
+  batch_size: 16
+  max_steps: 200000
+  save_steps: 5000
+  learning_rate: 0.0005
+  grad_accumulation_steps: 1
+  image_aug: true
+  shuffle_buffer_size: 100000
+  save_latest_checkpoint_only: true
+  use_quantization: false
+  expected_train_episodes: 1353
+  epochs: null
+logging:
+  print_every_episodes: 500
+  wandb_project: openvla_efficiency
+  required_fields:
+  - training_time_hours
+  - total_training_steps
+  - final_train_loss
+  - best_val_loss
+  - best_checkpoint_step
+  - gradient_norm
+  - train_loss_curve
+  - val_loss_curve
+  - learning_rate
+  - batch_size
+  - epochs
+  - trainable_params
+  - lora_rank
+  - lora_alpha
+  - adapter_path
+  - metadata
+  - gpu_info
+  - failure_reason
+notes:
+  official_trainer: The wrapper calls the official OpenVLA finetune.py script through
+    subprocess.
+  split_patch: OPENVLA_EPISODE_SPLIT_JSON is used by the patched official dataset.py
+    loader.
+  lora_alpha_note: Official OpenVLA finetune.py exposes lora_rank and lora_dropout,
+    but not lora_alpha. lora_alpha is recorded for project metadata.
+  logging_note: The wrapper captures stdout and parses available loss, step, gradient,
+    and learning-rate fields. Missing fields are kept as null rather than guessed.
