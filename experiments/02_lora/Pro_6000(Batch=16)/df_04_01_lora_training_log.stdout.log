@@ -1,0 +1,1563 @@
+Command:
+torchrun --standalone --nnodes 1 --nproc-per-node 1 /root/autodl-tmp/openvla/vla-scripts/finetune.py --vla_path /root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f --data_root_dir /root/autodl-tmp/datasets/openvla_modified_libero_rlds --dataset_name modified_libero_all_no_noops --run_root_dir /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32 --adapter_tmp_dir /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/adapter_tmp --batch_size 16 --max_steps 200000 --save_steps 5000 --learning_rate 0.0005 --grad_accumulation_steps 1 --image_aug True --shuffle_buffer_size 100000 --save_latest_checkpoint_only True --use_lora True --lora_rank 32 --lora_dropout 0.0 --use_quantization False --wandb_project openvla_efficiency --run_id_note df_04_01_lora_full_train_seed42_rank32
+
+OPENVLA_EPISODE_SPLIT_JSON=/root/autodl-tmp/openvla_efficiency_project/results/splits/df_03_02_libero_episode_split_seed42.json
+
+2026-06-14 07:30:29.855454: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-06-14 07:30:29.890788: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-06-14 07:30:29.890815: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-06-14 07:30:29.891712: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-06-14 07:30:29.896781: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-06-14 07:30:30.575004: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2026-06-14 07:30:33.226345: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+Fine-tuning OpenVLA Model `/root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f` on `modified_libero_all_no_noops`
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.90it/s]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  5.39it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  6.33it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.79it/s]
+trainable params: 110,828,288 || all params: 7,652,065,472 || trainable%: 1.4483
+2026-06-14 07:30:47.862618: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+06/14 [07:30:48] INFO     | >> [*] Loading existing dataset statistics from                                       data_utils.py:208
+                          /root/autodl-tmp/datasets/openvla_modified_libero_rlds/libero_spatial_no_noops/1.0.0/da                  
+                          taset_statistics_5ad9bf9c82f25d4bc0dd3e276d798f32432d05fe96eb146460d66732f31b558d.json.                  
+2026-06-14 07:30:48.177145: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.217625: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.540200: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+                 INFO     | >> [*] Loading existing dataset statistics from                                       data_utils.py:208
+                          /root/autodl-tmp/datasets/openvla_modified_libero_rlds/libero_object_no_noops/1.0.0/dat                  
+                          aset_statistics_70d1e0f99563f144533243cead11bef435349c6bbc4bba1e32401172b856bd61.json.                   
+2026-06-14 07:30:48.634649: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.667794: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.758769: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+                 INFO     | >> [*] Loading existing dataset statistics from                                       data_utils.py:208
+                          /root/autodl-tmp/datasets/openvla_modified_libero_rlds/libero_goal_no_noops/1.0.0/datas                  
+                          et_statistics_4986d5f28f8e1bdeb2bcdadb9095f3f31806f7f148179bafee264efdd230f48a.json.                     
+2026-06-14 07:30:48.842214: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.875204: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:48.966305: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+06/14 [07:30:49] INFO     | >> [*] Loading existing dataset statistics from                                       data_utils.py:208
+                          /root/autodl-tmp/datasets/openvla_modified_libero_rlds/libero_10_no_noops/1.0.0/dataset                  
+                          _statistics_30cce6d81f7b59879c1e55f2110ed02b40f1fd5f493acc2b3b1f8a0db4e4f16e.json.                       
+2026-06-14 07:30:49.050685: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:49.083724: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+
+######################################################################################
+# Loading the following 4 datasets (incl. sampling weight):                         #
+# libero_spatial_no_noops: =================================================0.193699 #
+# libero_object_no_noops: ==================================================0.244945 #
+# libero_goal_no_noops: ====================================================0.190306 #
+# libero_10_no_noops: ======================================================0.371049 #
+######################################################################################
+
+                 INFO     | >> [*] Threads per Dataset: [1 1 1 1]                                                    dataset.py:568
+                 INFO     | >> [*] Reads per Dataset: [1 1 1 1]                                                      dataset.py:569
+                 INFO     | >> [*] Constructing datasets...                                                          dataset.py:572
+2026-06-14 07:30:49.180458: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:49.213736: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:49.817035: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:49.850357: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:50.002429: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:50.036927: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:50.194911: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-06-14 07:30:50.228650: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+06/14 [07:30:50] INFO     | >> [*] Applying frame transforms on dataset...                                           dataset.py:612
+                 INFO     | >> [*] Saved dataset statistics file at path                                          data_utils.py:293
+                          /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_ra                  
+                          nk32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.000                  
+                          5+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug/dataset_stati                  
+                          stics.json                                                                                               
+W&B disabled - using local experiment logs only.
+
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1781393451.345790   10668 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -7 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -8 } dim { size: -9 } dim { size: -7 } } }
+W0000 00:00:1781393451.346067   10668 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -6 } } } inputs { dtype: DT_FLOAT shape { dim { size: -3 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -3 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -3 } dim { size: -10 } dim { size: -11 } dim { size: -6 } } }
+
+[DF-04-01 TRAIN] step=500 train_loss=3.134253 action_accuracy=0.339286 l1_loss=0.194118 learning_rate=0.0005 gradient_norm=1.3357008964555777 elapsed_time_hours=0.1154 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=1000 train_loss=3.056984 action_accuracy=0.303571 l1_loss=0.149650 learning_rate=0.0005 gradient_norm=0.8148697649070011 elapsed_time_hours=0.2298 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=1500 train_loss=2.558796 action_accuracy=0.428571 l1_loss=0.150770 learning_rate=0.0005 gradient_norm=0.6963226683739957 elapsed_time_hours=0.3445 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=2000 train_loss=3.054539 action_accuracy=0.321429 l1_loss=0.184874 learning_rate=0.0005 gradient_norm=0.7411592077665989 elapsed_time_hours=0.4594 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=2500 train_loss=2.981268 action_accuracy=0.321429 l1_loss=0.167227 learning_rate=0.0005 gradient_norm=1.0755133888598702 elapsed_time_hours=0.5740 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=3000 train_loss=3.070300 action_accuracy=0.294643 l1_loss=0.173319 learning_rate=0.0005 gradient_norm=0.7536886685108316 elapsed_time_hours=0.6886 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=3500 train_loss=2.808158 action_accuracy=0.366071 l1_loss=0.135294 learning_rate=0.0005 gradient_norm=0.7645168253408089 elapsed_time_hours=0.8036 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=4000 train_loss=2.600437 action_accuracy=0.428571 l1_loss=0.120798 learning_rate=0.0005 gradient_norm=0.7268703472896526 elapsed_time_hours=0.9193 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=4500 train_loss=2.746786 action_accuracy=0.339286 l1_loss=0.137815 learning_rate=0.0005 gradient_norm=1.0205636697351157 elapsed_time_hours=1.0346 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=5000 train_loss=2.676648 action_accuracy=0.410714 l1_loss=0.137675 learning_rate=0.0005 gradient_norm=0.8338576646654632 elapsed_time_hours=1.1496 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 5000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.75it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.85it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.20it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.94it/s]
+Saved Model Checkpoint for Step 5000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=5500 train_loss=2.822228 action_accuracy=0.366071 l1_loss=0.140266 learning_rate=0.0005 gradient_norm=0.8037437370567141 elapsed_time_hours=1.2736 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=6000 train_loss=2.512444 action_accuracy=0.401786 l1_loss=0.127801 learning_rate=0.0005 gradient_norm=0.8637790007301972 elapsed_time_hours=1.3885 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=6500 train_loss=2.699550 action_accuracy=0.366071 l1_loss=0.135924 learning_rate=0.0005 gradient_norm=0.7283144968676544 elapsed_time_hours=1.5034 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=7000 train_loss=2.664567 action_accuracy=0.339286 l1_loss=0.121639 learning_rate=0.0005 gradient_norm=0.9190768565138553 elapsed_time_hours=1.6182 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=7500 train_loss=2.834693 action_accuracy=0.330357 l1_loss=0.168137 learning_rate=0.0005 gradient_norm=0.9244373458680724 elapsed_time_hours=1.7332 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=8000 train_loss=2.486140 action_accuracy=0.419643 l1_loss=0.110714 learning_rate=0.0005 gradient_norm=0.866913528591841 elapsed_time_hours=1.8492 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=8500 train_loss=2.537401 action_accuracy=0.410714 l1_loss=0.121008 learning_rate=0.0005 gradient_norm=0.9184648693065626 elapsed_time_hours=1.9652 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=9000 train_loss=2.545422 action_accuracy=0.437500 l1_loss=0.130462 learning_rate=0.0005 gradient_norm=0.9136331308093515 elapsed_time_hours=2.0812 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=9500 train_loss=2.450765 action_accuracy=0.392857 l1_loss=0.115616 learning_rate=0.0005 gradient_norm=0.9783301682220563 elapsed_time_hours=2.1972 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=10000 train_loss=2.407422 action_accuracy=0.446429 l1_loss=0.119958 learning_rate=0.0005 gradient_norm=1.0210381548637997 elapsed_time_hours=2.3135 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 10000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.46it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  2.98it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.29it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s]
+Saved Model Checkpoint for Step 10000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=10500 train_loss=2.534347 action_accuracy=0.375000 l1_loss=0.105112 learning_rate=0.0005 gradient_norm=1.1905451114329777 elapsed_time_hours=2.4434 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=11000 train_loss=2.532970 action_accuracy=0.437500 l1_loss=0.124860 learning_rate=0.0005 gradient_norm=1.1121833771121155 elapsed_time_hours=2.5587 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=11500 train_loss=2.318933 action_accuracy=0.419643 l1_loss=0.076681 learning_rate=0.0005 gradient_norm=1.000919695676627 elapsed_time_hours=2.6737 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=12000 train_loss=2.359875 action_accuracy=0.410714 l1_loss=0.084244 learning_rate=0.0005 gradient_norm=1.2037929795392068 elapsed_time_hours=2.7888 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=12500 train_loss=2.758116 action_accuracy=0.375000 l1_loss=0.120518 learning_rate=0.0005 gradient_norm=1.24070370020961 elapsed_time_hours=2.9038 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=13000 train_loss=2.667440 action_accuracy=0.366071 l1_loss=0.138725 learning_rate=0.0005 gradient_norm=1.4507501316515876 elapsed_time_hours=3.0190 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=13500 train_loss=2.637433 action_accuracy=0.366071 l1_loss=0.121359 learning_rate=0.0005 gradient_norm=1.5767397364657392 elapsed_time_hours=3.1341 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=14000 train_loss=2.561659 action_accuracy=0.401786 l1_loss=0.136064 learning_rate=0.0005 gradient_norm=1.1936841491956607 elapsed_time_hours=3.2495 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=14500 train_loss=2.757990 action_accuracy=0.312500 l1_loss=0.108473 learning_rate=0.0005 gradient_norm=1.5614007141691084 elapsed_time_hours=3.3646 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=15000 train_loss=2.319893 action_accuracy=0.464286 l1_loss=0.110504 learning_rate=0.0005 gradient_norm=1.281491656191077 elapsed_time_hours=3.4799 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 15000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.77it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.41it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.74it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.56it/s]
+Saved Model Checkpoint for Step 15000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=15500 train_loss=2.360888 action_accuracy=0.401786 l1_loss=0.101331 learning_rate=0.0005 gradient_norm=1.4043806500624547 elapsed_time_hours=3.6091 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=16000 train_loss=2.367657 action_accuracy=0.419643 l1_loss=0.072619 learning_rate=0.0005 gradient_norm=1.4117271316877988 elapsed_time_hours=3.7238 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=16500 train_loss=2.508510 action_accuracy=0.401786 l1_loss=0.113095 learning_rate=0.0005 gradient_norm=1.6579552336227543 elapsed_time_hours=3.8388 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=17000 train_loss=2.565196 action_accuracy=0.348214 l1_loss=0.109524 learning_rate=0.0005 gradient_norm=1.4912046984380898 elapsed_time_hours=3.9538 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=17500 train_loss=2.475917 action_accuracy=0.392857 l1_loss=0.106863 learning_rate=0.0005 gradient_norm=1.7078546440851932 elapsed_time_hours=4.0686 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=18000 train_loss=2.423862 action_accuracy=0.392857 l1_loss=0.099230 learning_rate=0.0005 gradient_norm=1.415203564410905 elapsed_time_hours=4.1833 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=18500 train_loss=2.320189 action_accuracy=0.383929 l1_loss=0.113025 learning_rate=0.0005 gradient_norm=1.5563001009885598 elapsed_time_hours=4.2980 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=19000 train_loss=2.476230 action_accuracy=0.339286 l1_loss=0.084314 learning_rate=0.0005 gradient_norm=1.6568236892546058 elapsed_time_hours=4.4128 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=19500 train_loss=2.381676 action_accuracy=0.419643 l1_loss=0.096639 learning_rate=0.0005 gradient_norm=1.648042165413286 elapsed_time_hours=4.5276 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=20000 train_loss=2.355702 action_accuracy=0.446429 l1_loss=0.111415 learning_rate=0.0005 gradient_norm=1.5692377059154023 elapsed_time_hours=4.6423 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 20000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.64it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.67it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.18it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.88it/s]
+Saved Model Checkpoint for Step 20000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=20500 train_loss=2.485578 action_accuracy=0.375000 l1_loss=0.098739 learning_rate=0.0005 gradient_norm=1.95899081138481 elapsed_time_hours=4.7692 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=21000 train_loss=2.171056 action_accuracy=0.455357 l1_loss=0.067717 learning_rate=0.0005 gradient_norm=1.4568616335725129 elapsed_time_hours=4.8839 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=21500 train_loss=2.267994 action_accuracy=0.392857 l1_loss=0.111695 learning_rate=0.0005 gradient_norm=1.8622368747767513 elapsed_time_hours=4.9987 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=22000 train_loss=2.334275 action_accuracy=0.446429 l1_loss=0.086695 learning_rate=0.0005 gradient_norm=1.7007082880676794 elapsed_time_hours=5.1136 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=22500 train_loss=2.251369 action_accuracy=0.428571 l1_loss=0.099440 learning_rate=0.0005 gradient_norm=1.7311958585217007 elapsed_time_hours=5.2283 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=23000 train_loss=2.294188 action_accuracy=0.410714 l1_loss=0.076401 learning_rate=0.0005 gradient_norm=1.8140076323689227 elapsed_time_hours=5.3429 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=23500 train_loss=2.082199 action_accuracy=0.437500 l1_loss=0.071849 learning_rate=0.0005 gradient_norm=1.7062543760922195 elapsed_time_hours=5.4578 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=24000 train_loss=2.095283 action_accuracy=0.437500 l1_loss=0.051331 learning_rate=0.0005 gradient_norm=1.79059379579548 elapsed_time_hours=5.5728 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=24500 train_loss=2.199311 action_accuracy=0.446429 l1_loss=0.091246 learning_rate=0.0005 gradient_norm=1.8256901421828666 elapsed_time_hours=5.6875 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=25000 train_loss=2.226967 action_accuracy=0.383929 l1_loss=0.072199 learning_rate=0.0005 gradient_norm=1.679960989761549 elapsed_time_hours=5.8024 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 25000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.56it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.66it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.29it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.93it/s]
+Saved Model Checkpoint for Step 25000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=25500 train_loss=2.122283 action_accuracy=0.455357 l1_loss=0.068067 learning_rate=0.0005 gradient_norm=1.6395379640952839 elapsed_time_hours=5.9267 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=26000 train_loss=2.495773 action_accuracy=0.383929 l1_loss=0.090196 learning_rate=0.0005 gradient_norm=2.0571508617081746 elapsed_time_hours=6.0415 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=26500 train_loss=2.451201 action_accuracy=0.330357 l1_loss=0.080392 learning_rate=0.0005 gradient_norm=1.9719731487467096 elapsed_time_hours=6.1563 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=27000 train_loss=2.061996 action_accuracy=0.401786 l1_loss=0.061485 learning_rate=0.0005 gradient_norm=2.0840918527680024 elapsed_time_hours=6.2712 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=27500 train_loss=2.117491 action_accuracy=0.419643 l1_loss=0.078852 learning_rate=0.0005 gradient_norm=2.054666265197315 elapsed_time_hours=6.3862 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=28000 train_loss=2.336411 action_accuracy=0.375000 l1_loss=0.076331 learning_rate=0.0005 gradient_norm=2.223650537455487 elapsed_time_hours=6.5012 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=28500 train_loss=2.477707 action_accuracy=0.383929 l1_loss=0.092577 learning_rate=0.0005 gradient_norm=2.563296023868787 elapsed_time_hours=6.6163 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=29000 train_loss=1.984777 action_accuracy=0.473214 l1_loss=0.073179 learning_rate=0.0005 gradient_norm=1.7672451130396198 elapsed_time_hours=6.7311 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=29500 train_loss=2.053602 action_accuracy=0.455357 l1_loss=0.075630 learning_rate=0.0005 gradient_norm=1.9864901111161226 elapsed_time_hours=6.8457 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=30000 train_loss=2.077924 action_accuracy=0.383929 l1_loss=0.042997 learning_rate=0.0005 gradient_norm=2.128925730376622 elapsed_time_hours=6.9602 peak_vram_gb=56.96441888809204
+
+Saving Model Checkpoint for Step 30000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.73it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.85it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.37it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.05it/s]
+Saved Model Checkpoint for Step 30000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=30500 train_loss=2.198782 action_accuracy=0.401786 l1_loss=0.060504 learning_rate=0.0005 gradient_norm=2.116725172529414 elapsed_time_hours=7.0848 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=31000 train_loss=2.076318 action_accuracy=0.419643 l1_loss=0.082353 learning_rate=0.0005 gradient_norm=1.9830090956426407 elapsed_time_hours=7.1996 peak_vram_gb=56.96441888809204
+
+[DF-04-01 TRAIN] step=31500 train_loss=2.296269 action_accuracy=0.339286 l1_loss=0.083964 learning_rate=0.0005 gradient_norm=2.3529984024557313 elapsed_time_hours=7.3143 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=32000 train_loss=2.051479 action_accuracy=0.392857 l1_loss=0.054062 learning_rate=0.0005 gradient_norm=2.0302689444258037 elapsed_time_hours=7.4292 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=32500 train_loss=2.256865 action_accuracy=0.419643 l1_loss=0.081793 learning_rate=0.0005 gradient_norm=2.0431203686465254 elapsed_time_hours=7.5440 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=33000 train_loss=1.760326 action_accuracy=0.508929 l1_loss=0.057703 learning_rate=0.0005 gradient_norm=2.284349899231142 elapsed_time_hours=7.6585 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=33500 train_loss=2.056647 action_accuracy=0.437500 l1_loss=0.070448 learning_rate=0.0005 gradient_norm=2.1698554391877716 elapsed_time_hours=7.7733 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=34000 train_loss=2.353420 action_accuracy=0.383929 l1_loss=0.081863 learning_rate=0.0005 gradient_norm=2.4107197262925943 elapsed_time_hours=7.8884 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=34500 train_loss=2.117585 action_accuracy=0.401786 l1_loss=0.069678 learning_rate=0.0005 gradient_norm=2.2070990292645556 elapsed_time_hours=8.0035 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=35000 train_loss=1.907579 action_accuracy=0.500000 l1_loss=0.064006 learning_rate=0.0005 gradient_norm=2.1231618624608366 elapsed_time_hours=8.1188 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 35000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.61it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.68it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.21it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.90it/s]
+Saved Model Checkpoint for Step 35000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=35500 train_loss=1.969686 action_accuracy=0.428571 l1_loss=0.074230 learning_rate=0.0005 gradient_norm=2.1563283984023918 elapsed_time_hours=8.2437 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=36000 train_loss=1.899776 action_accuracy=0.482143 l1_loss=0.054692 learning_rate=0.0005 gradient_norm=2.3086454969044055 elapsed_time_hours=8.3591 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=36500 train_loss=1.937752 action_accuracy=0.446429 l1_loss=0.052661 learning_rate=0.0005 gradient_norm=2.232575104756875 elapsed_time_hours=8.4744 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=37000 train_loss=1.880624 action_accuracy=0.491071 l1_loss=0.043347 learning_rate=0.0005 gradient_norm=2.225026197033653 elapsed_time_hours=8.5896 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=37500 train_loss=2.073282 action_accuracy=0.401786 l1_loss=0.047969 learning_rate=0.0005 gradient_norm=2.2305900863203054 elapsed_time_hours=8.7048 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=38000 train_loss=1.947838 action_accuracy=0.437500 l1_loss=0.064776 learning_rate=0.0005 gradient_norm=2.3294080629548644 elapsed_time_hours=8.8200 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=38500 train_loss=2.018427 action_accuracy=0.464286 l1_loss=0.057703 learning_rate=0.0005 gradient_norm=2.6693247362120265 elapsed_time_hours=8.9352 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=39000 train_loss=1.823823 action_accuracy=0.491071 l1_loss=0.049090 learning_rate=0.0005 gradient_norm=2.485739066280936 elapsed_time_hours=9.0504 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=39500 train_loss=2.122002 action_accuracy=0.410714 l1_loss=0.082493 learning_rate=0.0005 gradient_norm=2.7660334321476485 elapsed_time_hours=9.1656 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=40000 train_loss=2.021365 action_accuracy=0.428571 l1_loss=0.058333 learning_rate=0.0005 gradient_norm=2.4759994850811315 elapsed_time_hours=9.2809 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 40000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.63it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.46it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.97it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.70it/s]
+Saved Model Checkpoint for Step 40000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=40500 train_loss=1.865085 action_accuracy=0.455357 l1_loss=0.075000 learning_rate=0.0005 gradient_norm=2.5400990939113703 elapsed_time_hours=9.4062 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=41000 train_loss=1.865719 action_accuracy=0.464286 l1_loss=0.063796 learning_rate=0.0005 gradient_norm=2.426678542400582 elapsed_time_hours=9.5213 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=41500 train_loss=1.971473 action_accuracy=0.464286 l1_loss=0.053291 learning_rate=0.0005 gradient_norm=2.532198142832099 elapsed_time_hours=9.6365 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=42000 train_loss=1.883451 action_accuracy=0.482143 l1_loss=0.056162 learning_rate=0.0005 gradient_norm=2.510580808174417 elapsed_time_hours=9.7515 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=42500 train_loss=1.877454 action_accuracy=0.464286 l1_loss=0.063585 learning_rate=0.0005 gradient_norm=2.456601044917185 elapsed_time_hours=9.8667 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=43000 train_loss=2.076722 action_accuracy=0.410714 l1_loss=0.059804 learning_rate=0.0005 gradient_norm=2.9603223091587094 elapsed_time_hours=9.9817 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=43500 train_loss=1.548832 action_accuracy=0.562500 l1_loss=0.043277 learning_rate=0.0005 gradient_norm=2.4263639999899516 elapsed_time_hours=10.0969 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=44000 train_loss=2.146042 action_accuracy=0.383929 l1_loss=0.068487 learning_rate=0.0005 gradient_norm=2.8831048884373596 elapsed_time_hours=10.2118 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=44500 train_loss=1.963425 action_accuracy=0.428571 l1_loss=0.058754 learning_rate=0.0005 gradient_norm=2.593262546638295 elapsed_time_hours=10.3269 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=45000 train_loss=1.803310 action_accuracy=0.473214 l1_loss=0.057563 learning_rate=0.0005 gradient_norm=2.5912249970838195 elapsed_time_hours=10.4422 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 45000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.62it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.40it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.90it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.64it/s]
+Saved Model Checkpoint for Step 45000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=45500 train_loss=1.700182 action_accuracy=0.500000 l1_loss=0.037465 learning_rate=0.0005 gradient_norm=2.5002056031343693 elapsed_time_hours=10.5673 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=46000 train_loss=1.694767 action_accuracy=0.473214 l1_loss=0.039426 learning_rate=0.0005 gradient_norm=2.914465005099407 elapsed_time_hours=10.6824 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=46500 train_loss=1.943975 action_accuracy=0.446429 l1_loss=0.056723 learning_rate=0.0005 gradient_norm=2.7891662292698842 elapsed_time_hours=10.7976 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=47000 train_loss=1.854021 action_accuracy=0.455357 l1_loss=0.045098 learning_rate=0.0005 gradient_norm=2.488295548675755 elapsed_time_hours=10.9128 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=47500 train_loss=1.563107 action_accuracy=0.562500 l1_loss=0.039076 learning_rate=0.0005 gradient_norm=2.510765179567675 elapsed_time_hours=11.0277 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=48000 train_loss=1.687363 action_accuracy=0.500000 l1_loss=0.032843 learning_rate=0.0005 gradient_norm=2.7313120532952126 elapsed_time_hours=11.1428 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=48500 train_loss=1.826727 action_accuracy=0.437500 l1_loss=0.039146 learning_rate=0.0005 gradient_norm=2.8289588464932116 elapsed_time_hours=11.2579 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=49000 train_loss=1.795301 action_accuracy=0.464286 l1_loss=0.041106 learning_rate=0.0005 gradient_norm=2.7970995210815373 elapsed_time_hours=11.3730 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=49500 train_loss=1.933628 action_accuracy=0.437500 l1_loss=0.049790 learning_rate=0.0005 gradient_norm=2.8014264202555523 elapsed_time_hours=11.4884 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=50000 train_loss=1.657054 action_accuracy=0.526786 l1_loss=0.045728 learning_rate=0.0005 gradient_norm=2.740062735649575 elapsed_time_hours=11.6038 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 50000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.70it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.78it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.42it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.07it/s]
+Saved Model Checkpoint for Step 50000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=50500 train_loss=2.039891 action_accuracy=0.419643 l1_loss=0.052381 learning_rate=0.0005 gradient_norm=3.0837064753954078 elapsed_time_hours=11.7291 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=51000 train_loss=1.810732 action_accuracy=0.500000 l1_loss=0.053081 learning_rate=0.0005 gradient_norm=3.102257172481023 elapsed_time_hours=11.8441 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=51500 train_loss=1.690019 action_accuracy=0.437500 l1_loss=0.038305 learning_rate=0.0005 gradient_norm=2.7408077469362504 elapsed_time_hours=11.9593 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=52000 train_loss=1.868699 action_accuracy=0.455357 l1_loss=0.065686 learning_rate=0.0005 gradient_norm=3.3486758969422987 elapsed_time_hours=12.0747 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=52500 train_loss=1.687834 action_accuracy=0.473214 l1_loss=0.054062 learning_rate=0.0005 gradient_norm=3.0499230456468007 elapsed_time_hours=12.1900 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=53000 train_loss=1.696174 action_accuracy=0.526786 l1_loss=0.054482 learning_rate=0.0005 gradient_norm=2.8132337796377547 elapsed_time_hours=12.3052 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=53500 train_loss=1.767425 action_accuracy=0.455357 l1_loss=0.057213 learning_rate=0.0005 gradient_norm=3.273471169871866 elapsed_time_hours=12.4207 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=54000 train_loss=1.687654 action_accuracy=0.508929 l1_loss=0.045448 learning_rate=0.0005 gradient_norm=3.1059725665372766 elapsed_time_hours=12.5361 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=54500 train_loss=2.140233 action_accuracy=0.348214 l1_loss=0.050770 learning_rate=0.0005 gradient_norm=3.6981358481685023 elapsed_time_hours=12.6518 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=55000 train_loss=1.573213 action_accuracy=0.508929 l1_loss=0.047059 learning_rate=0.0005 gradient_norm=2.8895019818627845 elapsed_time_hours=12.7676 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 55000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.61it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.65it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.15it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.85it/s]
+Saved Model Checkpoint for Step 55000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=55500 train_loss=1.702722 action_accuracy=0.544643 l1_loss=0.038585 learning_rate=0.0005 gradient_norm=3.3024740981284264 elapsed_time_hours=12.8928 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=56000 train_loss=2.020421 action_accuracy=0.392857 l1_loss=0.069538 learning_rate=0.0005 gradient_norm=3.5543904876107573 elapsed_time_hours=13.0079 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=56500 train_loss=1.674094 action_accuracy=0.508929 l1_loss=0.047549 learning_rate=0.0005 gradient_norm=3.0171726225174287 elapsed_time_hours=13.1230 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=57000 train_loss=1.633600 action_accuracy=0.482143 l1_loss=0.039846 learning_rate=0.0005 gradient_norm=3.010077121291417 elapsed_time_hours=13.2381 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=57500 train_loss=1.522741 action_accuracy=0.571429 l1_loss=0.037605 learning_rate=0.0005 gradient_norm=3.0722433116094816 elapsed_time_hours=13.3533 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=58000 train_loss=1.740028 action_accuracy=0.517857 l1_loss=0.052521 learning_rate=0.0005 gradient_norm=3.337392066969045 elapsed_time_hours=13.4684 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=58500 train_loss=1.520431 action_accuracy=0.517857 l1_loss=0.038515 learning_rate=0.0005 gradient_norm=2.918048376250636 elapsed_time_hours=13.5836 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=59000 train_loss=1.597453 action_accuracy=0.500000 l1_loss=0.040196 learning_rate=0.0005 gradient_norm=3.1231316713994315 elapsed_time_hours=13.6989 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=59500 train_loss=1.676774 action_accuracy=0.437500 l1_loss=0.038796 learning_rate=0.0005 gradient_norm=3.372226599411824 elapsed_time_hours=13.8138 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=60000 train_loss=1.521225 action_accuracy=0.526786 l1_loss=0.037465 learning_rate=0.0005 gradient_norm=3.1782316354220215 elapsed_time_hours=13.9287 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 60000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.66it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.75it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.31it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.99it/s]
+Saved Model Checkpoint for Step 60000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=60500 train_loss=1.493179 action_accuracy=0.500000 l1_loss=0.029972 learning_rate=0.0005 gradient_norm=3.0546412570022095 elapsed_time_hours=14.0657 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=61000 train_loss=1.620905 action_accuracy=0.473214 l1_loss=0.058403 learning_rate=0.0005 gradient_norm=3.2069021179757033 elapsed_time_hours=14.1804 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=61500 train_loss=1.484573 action_accuracy=0.544643 l1_loss=0.030392 learning_rate=0.0005 gradient_norm=3.044463201102012 elapsed_time_hours=14.2949 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=62000 train_loss=1.665936 action_accuracy=0.455357 l1_loss=0.036765 learning_rate=0.0005 gradient_norm=3.4000255400643087 elapsed_time_hours=14.4097 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=62500 train_loss=1.856583 action_accuracy=0.437500 l1_loss=0.052521 learning_rate=0.0005 gradient_norm=3.6465636175085625 elapsed_time_hours=14.5245 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=63000 train_loss=1.566169 action_accuracy=0.491071 l1_loss=0.026751 learning_rate=0.0005 gradient_norm=3.217675186561692 elapsed_time_hours=14.6400 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=63500 train_loss=1.770485 action_accuracy=0.491071 l1_loss=0.040196 learning_rate=0.0005 gradient_norm=3.603746167260574 elapsed_time_hours=14.7553 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=64000 train_loss=1.521206 action_accuracy=0.616071 l1_loss=0.036765 learning_rate=0.0005 gradient_norm=3.2911327627475493 elapsed_time_hours=14.8709 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=64500 train_loss=1.551019 action_accuracy=0.482143 l1_loss=0.053151 learning_rate=0.0005 gradient_norm=3.195568401457252 elapsed_time_hours=14.9861 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=65000 train_loss=1.624730 action_accuracy=0.500000 l1_loss=0.043487 learning_rate=0.0005 gradient_norm=3.516274816969968 elapsed_time_hours=15.1011 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 65000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.70it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.81it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.41it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.07it/s]
+Saved Model Checkpoint for Step 65000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=65500 train_loss=1.554318 action_accuracy=0.553571 l1_loss=0.030462 learning_rate=0.0005 gradient_norm=3.467228977926148 elapsed_time_hours=15.2266 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=66000 train_loss=1.722419 action_accuracy=0.482143 l1_loss=0.057773 learning_rate=0.0005 gradient_norm=3.8450061979453336 elapsed_time_hours=15.3417 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=66500 train_loss=1.625221 action_accuracy=0.482143 l1_loss=0.043347 learning_rate=0.0005 gradient_norm=3.3825465479797674 elapsed_time_hours=15.4566 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=67000 train_loss=1.680218 action_accuracy=0.491071 l1_loss=0.041317 learning_rate=0.0005 gradient_norm=3.466141004283643 elapsed_time_hours=15.5736 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=67500 train_loss=1.484951 action_accuracy=0.482143 l1_loss=0.039776 learning_rate=0.0005 gradient_norm=4.009479812487279 elapsed_time_hours=15.6947 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=68000 train_loss=1.297871 action_accuracy=0.571429 l1_loss=0.024930 learning_rate=0.0005 gradient_norm=3.2660934618301356 elapsed_time_hours=15.8100 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=68500 train_loss=1.390233 action_accuracy=0.589286 l1_loss=0.033193 learning_rate=0.0005 gradient_norm=3.6751747570675817 elapsed_time_hours=15.9252 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=69000 train_loss=1.495257 action_accuracy=0.517857 l1_loss=0.049860 learning_rate=0.0005 gradient_norm=3.929591983373525 elapsed_time_hours=16.0402 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=69500 train_loss=1.473964 action_accuracy=0.535714 l1_loss=0.039706 learning_rate=0.0005 gradient_norm=3.718480285493725 elapsed_time_hours=16.1549 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=70000 train_loss=1.558293 action_accuracy=0.517857 l1_loss=0.046849 learning_rate=0.0005 gradient_norm=3.9232477195097974 elapsed_time_hours=16.2702 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 70000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.54it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.46it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.88it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.63it/s]
+Saved Model Checkpoint for Step 70000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=70500 train_loss=1.485888 action_accuracy=0.517857 l1_loss=0.033333 learning_rate=0.0005 gradient_norm=3.4061872943881117 elapsed_time_hours=16.3963 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=71000 train_loss=1.458808 action_accuracy=0.544643 l1_loss=0.038725 learning_rate=0.0005 gradient_norm=3.412032371821955 elapsed_time_hours=16.5114 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=71500 train_loss=1.412838 action_accuracy=0.526786 l1_loss=0.024510 learning_rate=0.0005 gradient_norm=3.5714758327230314 elapsed_time_hours=16.6265 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=72000 train_loss=1.248443 action_accuracy=0.571429 l1_loss=0.026541 learning_rate=0.0005 gradient_norm=3.193754345123159 elapsed_time_hours=16.7418 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=72500 train_loss=1.543045 action_accuracy=0.535714 l1_loss=0.049720 learning_rate=0.0005 gradient_norm=4.013520760893601 elapsed_time_hours=16.8573 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=73000 train_loss=1.427315 action_accuracy=0.517857 l1_loss=0.026471 learning_rate=0.0005 gradient_norm=3.592733401392738 elapsed_time_hours=16.9728 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=73500 train_loss=1.464049 action_accuracy=0.535714 l1_loss=0.029132 learning_rate=0.0005 gradient_norm=3.890876780461637 elapsed_time_hours=17.0881 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=74000 train_loss=1.241357 action_accuracy=0.598214 l1_loss=0.018067 learning_rate=0.0005 gradient_norm=3.401369665806492 elapsed_time_hours=17.2035 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=74500 train_loss=1.302971 action_accuracy=0.589286 l1_loss=0.031443 learning_rate=0.0005 gradient_norm=4.008429945955639 elapsed_time_hours=17.3184 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=75000 train_loss=1.434789 action_accuracy=0.508929 l1_loss=0.038515 learning_rate=0.0005 gradient_norm=4.1578500688730635 elapsed_time_hours=17.4334 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 75000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.49it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.51it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.19it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.83it/s]
+Saved Model Checkpoint for Step 75000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=75500 train_loss=1.359750 action_accuracy=0.562500 l1_loss=0.022969 learning_rate=0.0005 gradient_norm=3.9101239662479332 elapsed_time_hours=17.5584 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=76000 train_loss=1.567679 action_accuracy=0.526786 l1_loss=0.044118 learning_rate=0.0005 gradient_norm=4.155267657799573 elapsed_time_hours=17.6733 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=76500 train_loss=1.714197 action_accuracy=0.517857 l1_loss=0.059244 learning_rate=0.0005 gradient_norm=4.488624516052127 elapsed_time_hours=17.7881 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=77000 train_loss=1.417676 action_accuracy=0.607143 l1_loss=0.040056 learning_rate=0.0005 gradient_norm=4.078110902963313 elapsed_time_hours=17.9031 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=77500 train_loss=1.107027 action_accuracy=0.625000 l1_loss=0.028291 learning_rate=0.0005 gradient_norm=3.461947897058388 elapsed_time_hours=18.0185 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=78000 train_loss=1.318541 action_accuracy=0.553571 l1_loss=0.031583 learning_rate=0.0005 gradient_norm=3.9342867063376894 elapsed_time_hours=18.1335 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=78500 train_loss=1.226508 action_accuracy=0.616071 l1_loss=0.026050 learning_rate=0.0005 gradient_norm=3.282281608763349 elapsed_time_hours=18.2484 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=79000 train_loss=1.311722 action_accuracy=0.589286 l1_loss=0.035854 learning_rate=0.0005 gradient_norm=3.7061525219793645 elapsed_time_hours=18.3635 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=79500 train_loss=1.252926 action_accuracy=0.616071 l1_loss=0.029762 learning_rate=0.0005 gradient_norm=3.758912617134909 elapsed_time_hours=18.4786 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=80000 train_loss=1.202859 action_accuracy=0.642857 l1_loss=0.031373 learning_rate=0.0005 gradient_norm=3.611750190579656 elapsed_time_hours=18.5935 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 80000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.57it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.60it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.06it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.78it/s]
+Saved Model Checkpoint for Step 80000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=80500 train_loss=1.265902 action_accuracy=0.571429 l1_loss=0.042927 learning_rate=0.0005 gradient_norm=4.337321498699945 elapsed_time_hours=18.7191 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=81000 train_loss=1.370403 action_accuracy=0.553571 l1_loss=0.029202 learning_rate=0.0005 gradient_norm=3.5910879334205297 elapsed_time_hours=18.8341 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=81500 train_loss=1.443432 action_accuracy=0.562500 l1_loss=0.043417 learning_rate=0.0005 gradient_norm=4.119313767738728 elapsed_time_hours=18.9494 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=82000 train_loss=1.381195 action_accuracy=0.553571 l1_loss=0.034664 learning_rate=0.0005 gradient_norm=4.220655253096709 elapsed_time_hours=19.0647 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=82500 train_loss=1.304181 action_accuracy=0.580357 l1_loss=0.015896 learning_rate=0.0005 gradient_norm=3.8737736124501985 elapsed_time_hours=19.1798 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=83000 train_loss=1.293078 action_accuracy=0.571429 l1_loss=0.028151 learning_rate=0.0005 gradient_norm=4.398032454555027 elapsed_time_hours=19.2948 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=83500 train_loss=1.270813 action_accuracy=0.553571 l1_loss=0.031373 learning_rate=0.0005 gradient_norm=4.018084174551613 elapsed_time_hours=19.4099 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=84000 train_loss=1.070840 action_accuracy=0.625000 l1_loss=0.033683 learning_rate=0.0005 gradient_norm=3.7030352865351883 elapsed_time_hours=19.5252 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=84500 train_loss=1.417359 action_accuracy=0.562500 l1_loss=0.033473 learning_rate=0.0005 gradient_norm=4.612805458616047 elapsed_time_hours=19.6409 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=85000 train_loss=0.991243 action_accuracy=0.705357 l1_loss=0.028221 learning_rate=0.0005 gradient_norm=3.581332278547269 elapsed_time_hours=19.7562 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 85000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.49it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.41it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.83it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.58it/s]
+Saved Model Checkpoint for Step 85000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=85500 train_loss=1.379293 action_accuracy=0.535714 l1_loss=0.038445 learning_rate=0.0005 gradient_norm=4.639551638722749 elapsed_time_hours=19.8819 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=86000 train_loss=1.277977 action_accuracy=0.616071 l1_loss=0.038725 learning_rate=0.0005 gradient_norm=4.273007417252416 elapsed_time_hours=19.9972 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=86500 train_loss=1.126696 action_accuracy=0.651786 l1_loss=0.023669 learning_rate=0.0005 gradient_norm=3.9308528327187338 elapsed_time_hours=20.1129 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=87000 train_loss=1.364182 action_accuracy=0.526786 l1_loss=0.025420 learning_rate=0.0005 gradient_norm=4.327879092196279 elapsed_time_hours=20.2290 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=87500 train_loss=1.132773 action_accuracy=0.625000 l1_loss=0.028151 learning_rate=0.0005 gradient_norm=4.120964714827935 elapsed_time_hours=20.3442 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=88000 train_loss=1.177813 action_accuracy=0.589286 l1_loss=0.034524 learning_rate=0.0005 gradient_norm=4.076462646195565 elapsed_time_hours=20.4593 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=88500 train_loss=1.180744 action_accuracy=0.625000 l1_loss=0.022059 learning_rate=0.0005 gradient_norm=4.1710383256505255 elapsed_time_hours=20.5748 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=89000 train_loss=1.106857 action_accuracy=0.669643 l1_loss=0.019748 learning_rate=0.0005 gradient_norm=3.7565649895642155 elapsed_time_hours=20.6904 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=89500 train_loss=1.363139 action_accuracy=0.571429 l1_loss=0.025210 learning_rate=0.0005 gradient_norm=4.696363558890298 elapsed_time_hours=20.8056 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=90000 train_loss=1.373827 action_accuracy=0.580357 l1_loss=0.034664 learning_rate=0.0005 gradient_norm=4.680833630949447 elapsed_time_hours=20.9209 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 90000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.57it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.61it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.17it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.85it/s]
+Saved Model Checkpoint for Step 90000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=90500 train_loss=1.140652 action_accuracy=0.580357 l1_loss=0.021289 learning_rate=0.0005 gradient_norm=4.3223579418992255 elapsed_time_hours=21.0471 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=91000 train_loss=1.187385 action_accuracy=0.616071 l1_loss=0.031793 learning_rate=0.0005 gradient_norm=4.799172879442408 elapsed_time_hours=21.1625 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=91500 train_loss=1.050079 action_accuracy=0.660714 l1_loss=0.022549 learning_rate=0.0005 gradient_norm=4.620467004713912 elapsed_time_hours=21.2778 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=92000 train_loss=1.127971 action_accuracy=0.625000 l1_loss=0.019118 learning_rate=0.0005 gradient_norm=4.190543347341957 elapsed_time_hours=21.3936 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=92500 train_loss=1.130695 action_accuracy=0.589286 l1_loss=0.021289 learning_rate=0.0005 gradient_norm=4.402763155749553 elapsed_time_hours=21.5092 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=93000 train_loss=1.131611 action_accuracy=0.625000 l1_loss=0.034874 learning_rate=0.0005 gradient_norm=4.626791552957819 elapsed_time_hours=21.6248 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=93500 train_loss=1.231089 action_accuracy=0.598214 l1_loss=0.024650 learning_rate=0.0005 gradient_norm=4.991909999109083 elapsed_time_hours=21.7405 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=94000 train_loss=1.129503 action_accuracy=0.633929 l1_loss=0.022409 learning_rate=0.0005 gradient_norm=4.565756088748303 elapsed_time_hours=21.8559 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=94500 train_loss=1.112345 action_accuracy=0.607143 l1_loss=0.020098 learning_rate=0.0005 gradient_norm=4.26254588993297 elapsed_time_hours=21.9711 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=95000 train_loss=1.356247 action_accuracy=0.526786 l1_loss=0.034944 learning_rate=0.0005 gradient_norm=5.017837236103961 elapsed_time_hours=22.0865 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 95000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.59it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.56it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.11it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.80it/s]
+Saved Model Checkpoint for Step 95000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=95500 train_loss=1.304364 action_accuracy=0.553571 l1_loss=0.036905 learning_rate=0.0005 gradient_norm=4.716629939655843 elapsed_time_hours=22.2120 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=96000 train_loss=1.040098 action_accuracy=0.616071 l1_loss=0.033333 learning_rate=0.0005 gradient_norm=4.853664071635566 elapsed_time_hours=22.3271 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=96500 train_loss=0.979302 action_accuracy=0.669643 l1_loss=0.019608 learning_rate=0.0005 gradient_norm=3.8173765923027196 elapsed_time_hours=22.4421 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=97000 train_loss=1.169636 action_accuracy=0.616071 l1_loss=0.031303 learning_rate=0.0005 gradient_norm=4.633593073308851 elapsed_time_hours=22.5574 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=97500 train_loss=1.318768 action_accuracy=0.535714 l1_loss=0.025000 learning_rate=0.0005 gradient_norm=5.177337289188858 elapsed_time_hours=22.6729 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=98000 train_loss=1.175093 action_accuracy=0.625000 l1_loss=0.020518 learning_rate=0.0005 gradient_norm=4.980827733857026 elapsed_time_hours=22.7883 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=98500 train_loss=1.064484 action_accuracy=0.660714 l1_loss=0.033403 learning_rate=0.0005 gradient_norm=4.290329179011116 elapsed_time_hours=22.9040 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=99000 train_loss=0.931046 action_accuracy=0.678571 l1_loss=0.023109 learning_rate=0.0005 gradient_norm=4.244317890147255 elapsed_time_hours=23.0196 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=99500 train_loss=1.165609 action_accuracy=0.598214 l1_loss=0.050350 learning_rate=0.0005 gradient_norm=4.955250930324357 elapsed_time_hours=23.1348 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=100000 train_loss=0.776758 action_accuracy=0.776786 l1_loss=0.012185 learning_rate=0.0005 gradient_norm=3.960337291168134 elapsed_time_hours=23.2499 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 100000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.66it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.59it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.27it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.93it/s]
+Saved Model Checkpoint for Step 100000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=100500 train_loss=0.818139 action_accuracy=0.696429 l1_loss=0.023669 learning_rate=0.0005 gradient_norm=4.244633695175043 elapsed_time_hours=23.3754 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=101000 train_loss=0.984041 action_accuracy=0.678571 l1_loss=0.039426 learning_rate=0.0005 gradient_norm=4.050693390054883 elapsed_time_hours=23.4906 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=101500 train_loss=1.041446 action_accuracy=0.732143 l1_loss=0.020518 learning_rate=0.0005 gradient_norm=4.994097315033006 elapsed_time_hours=23.6057 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=102000 train_loss=1.038038 action_accuracy=0.633929 l1_loss=0.018697 learning_rate=0.0005 gradient_norm=5.11550868101069 elapsed_time_hours=23.7208 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=102500 train_loss=0.961170 action_accuracy=0.687500 l1_loss=0.016176 learning_rate=0.0005 gradient_norm=4.380286563203154 elapsed_time_hours=23.8359 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=103000 train_loss=1.121365 action_accuracy=0.589286 l1_loss=0.020938 learning_rate=0.0005 gradient_norm=5.047539955458602 elapsed_time_hours=23.9512 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=103500 train_loss=1.075858 action_accuracy=0.660714 l1_loss=0.020378 learning_rate=0.0005 gradient_norm=4.148139004016974 elapsed_time_hours=24.0664 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=104000 train_loss=1.069980 action_accuracy=0.625000 l1_loss=0.026961 learning_rate=0.0005 gradient_norm=4.8338406553481805 elapsed_time_hours=24.1816 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=104500 train_loss=1.154258 action_accuracy=0.633929 l1_loss=0.037675 learning_rate=0.0005 gradient_norm=5.309324773091091 elapsed_time_hours=24.2967 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=105000 train_loss=0.925463 action_accuracy=0.705357 l1_loss=0.027101 learning_rate=0.0005 gradient_norm=4.153351738281886 elapsed_time_hours=24.4129 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 105000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.74it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.60it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.02it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.77it/s]
+Saved Model Checkpoint for Step 105000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=105500 train_loss=0.853764 action_accuracy=0.723214 l1_loss=0.014146 learning_rate=0.0005 gradient_norm=4.045903880293829 elapsed_time_hours=24.5399 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=106000 train_loss=1.117689 action_accuracy=0.607143 l1_loss=0.032633 learning_rate=0.0005 gradient_norm=4.901212805000902 elapsed_time_hours=24.6554 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=106500 train_loss=0.996222 action_accuracy=0.651786 l1_loss=0.025490 learning_rate=0.0005 gradient_norm=4.6181515599078224 elapsed_time_hours=24.7707 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=107000 train_loss=0.858582 action_accuracy=0.741071 l1_loss=0.013025 learning_rate=0.0005 gradient_norm=4.260697858162547 elapsed_time_hours=24.8859 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=107500 train_loss=0.818975 action_accuracy=0.714286 l1_loss=0.014356 learning_rate=0.0005 gradient_norm=4.274991576071176 elapsed_time_hours=25.0011 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=108000 train_loss=0.900821 action_accuracy=0.723214 l1_loss=0.040546 learning_rate=0.0005 gradient_norm=4.493744442040635 elapsed_time_hours=25.1165 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=108500 train_loss=1.076194 action_accuracy=0.607143 l1_loss=0.024160 learning_rate=0.0005 gradient_norm=5.175936677843737 elapsed_time_hours=25.2317 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=109000 train_loss=0.681882 action_accuracy=0.767857 l1_loss=0.017857 learning_rate=0.0005 gradient_norm=3.7765049212572013 elapsed_time_hours=25.3468 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=109500 train_loss=0.673082 action_accuracy=0.750000 l1_loss=0.016877 learning_rate=0.0005 gradient_norm=4.249217338560901 elapsed_time_hours=25.4619 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=110000 train_loss=0.955182 action_accuracy=0.687500 l1_loss=0.020658 learning_rate=0.0005 gradient_norm=4.362289505228517 elapsed_time_hours=25.5771 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 110000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.65it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.68it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.07it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.81it/s]
+Saved Model Checkpoint for Step 110000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=110500 train_loss=0.779011 action_accuracy=0.723214 l1_loss=0.024790 learning_rate=0.0005 gradient_norm=3.8682872362233676 elapsed_time_hours=25.7029 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=111000 train_loss=0.882350 action_accuracy=0.696429 l1_loss=0.018557 learning_rate=0.0005 gradient_norm=4.84569554415294 elapsed_time_hours=25.8182 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=111500 train_loss=0.816902 action_accuracy=0.732143 l1_loss=0.023109 learning_rate=0.0005 gradient_norm=4.887391318310069 elapsed_time_hours=25.9339 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=112000 train_loss=0.973455 action_accuracy=0.642857 l1_loss=0.021639 learning_rate=0.0005 gradient_norm=4.83825166208013 elapsed_time_hours=26.0492 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=112500 train_loss=0.993069 action_accuracy=0.669643 l1_loss=0.030042 learning_rate=0.0005 gradient_norm=4.97769722138581 elapsed_time_hours=26.1646 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=113000 train_loss=0.870903 action_accuracy=0.776786 l1_loss=0.018557 learning_rate=0.0005 gradient_norm=5.022546125942487 elapsed_time_hours=26.2798 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=113500 train_loss=1.084875 action_accuracy=0.633929 l1_loss=0.026681 learning_rate=0.0005 gradient_norm=5.655649662575015 elapsed_time_hours=26.3950 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=114000 train_loss=0.686219 action_accuracy=0.750000 l1_loss=0.010994 learning_rate=0.0005 gradient_norm=4.112349334526577 elapsed_time_hours=26.5103 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=114500 train_loss=0.962250 action_accuracy=0.687500 l1_loss=0.024370 learning_rate=0.0005 gradient_norm=5.172516253259355 elapsed_time_hours=26.6256 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=115000 train_loss=0.720728 action_accuracy=0.812500 l1_loss=0.015406 learning_rate=0.0005 gradient_norm=4.809990180642312 elapsed_time_hours=26.7410 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 115000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.58it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.55it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.91it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.67it/s]
+Saved Model Checkpoint for Step 115000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=115500 train_loss=1.031465 action_accuracy=0.642857 l1_loss=0.021008 learning_rate=0.0005 gradient_norm=4.764968164802859 elapsed_time_hours=26.8670 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=116000 train_loss=0.809154 action_accuracy=0.687500 l1_loss=0.016317 learning_rate=0.0005 gradient_norm=4.313538075566169 elapsed_time_hours=26.9824 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=116500 train_loss=0.917340 action_accuracy=0.660714 l1_loss=0.021289 learning_rate=0.0005 gradient_norm=5.1310263731750165 elapsed_time_hours=27.0976 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=117000 train_loss=0.856844 action_accuracy=0.678571 l1_loss=0.017507 learning_rate=0.0005 gradient_norm=4.800481891324208 elapsed_time_hours=27.2129 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=117500 train_loss=0.974829 action_accuracy=0.651786 l1_loss=0.027171 learning_rate=0.0005 gradient_norm=5.498065399880648 elapsed_time_hours=27.3282 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=118000 train_loss=0.701820 action_accuracy=0.767857 l1_loss=0.014706 learning_rate=0.0005 gradient_norm=4.502536182106236 elapsed_time_hours=27.4436 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=118500 train_loss=0.749080 action_accuracy=0.758929 l1_loss=0.017717 learning_rate=0.0005 gradient_norm=4.226051024070834 elapsed_time_hours=27.5590 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=119000 train_loss=0.854026 action_accuracy=0.714286 l1_loss=0.013585 learning_rate=0.0005 gradient_norm=4.455144859184005 elapsed_time_hours=27.6741 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=119500 train_loss=0.808009 action_accuracy=0.750000 l1_loss=0.011765 learning_rate=0.0005 gradient_norm=4.17544997301308 elapsed_time_hours=27.7893 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=120000 train_loss=0.705640 action_accuracy=0.785714 l1_loss=0.012955 learning_rate=0.0005 gradient_norm=4.813796477223964 elapsed_time_hours=27.9045 peak_vram_gb=56.964460372924805
+
+Saving Model Checkpoint for Step 120000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.80it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.85it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.24it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.98it/s]
+Saved Model Checkpoint for Step 120000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=120500 train_loss=0.928630 action_accuracy=0.723214 l1_loss=0.013445 learning_rate=0.0005 gradient_norm=5.352316320930129 elapsed_time_hours=28.0301 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=121000 train_loss=0.940125 action_accuracy=0.741071 l1_loss=0.019258 learning_rate=0.0005 gradient_norm=5.160057428342852 elapsed_time_hours=28.1456 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=121500 train_loss=0.732870 action_accuracy=0.732143 l1_loss=0.011625 learning_rate=0.0005 gradient_norm=4.610901799897136 elapsed_time_hours=28.2610 peak_vram_gb=56.964460372924805
+
+[DF-04-01 TRAIN] step=122000 train_loss=0.805661 action_accuracy=0.678571 l1_loss=0.030042 learning_rate=0.0005 gradient_norm=5.076343145013955 elapsed_time_hours=28.3766 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=122500 train_loss=0.733902 action_accuracy=0.741071 l1_loss=0.022619 learning_rate=0.0005 gradient_norm=5.092886774670925 elapsed_time_hours=28.4919 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=123000 train_loss=0.671766 action_accuracy=0.785714 l1_loss=0.011905 learning_rate=0.0005 gradient_norm=3.9688004812124476 elapsed_time_hours=28.6072 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=123500 train_loss=0.744809 action_accuracy=0.750000 l1_loss=0.020168 learning_rate=0.0005 gradient_norm=4.974478637011149 elapsed_time_hours=28.7226 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=124000 train_loss=0.731795 action_accuracy=0.750000 l1_loss=0.017647 learning_rate=0.0005 gradient_norm=4.943203481480057 elapsed_time_hours=28.8379 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=124500 train_loss=0.769906 action_accuracy=0.767857 l1_loss=0.021148 learning_rate=0.0005 gradient_norm=5.139229468174985 elapsed_time_hours=28.9532 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=125000 train_loss=0.541273 action_accuracy=0.812500 l1_loss=0.008894 learning_rate=0.0005 gradient_norm=3.3478223300586536 elapsed_time_hours=29.0686 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 125000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.54it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.64it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.25it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.90it/s]
+Saved Model Checkpoint for Step 125000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=125500 train_loss=0.694806 action_accuracy=0.767857 l1_loss=0.014496 learning_rate=0.0005 gradient_norm=4.592052381746738 elapsed_time_hours=29.1943 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=126000 train_loss=0.826892 action_accuracy=0.678571 l1_loss=0.015266 learning_rate=0.0005 gradient_norm=5.156713495997733 elapsed_time_hours=29.3095 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=126500 train_loss=0.669986 action_accuracy=0.741071 l1_loss=0.013445 learning_rate=0.0005 gradient_norm=4.059010364625297 elapsed_time_hours=29.4248 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=127000 train_loss=0.721354 action_accuracy=0.750000 l1_loss=0.022269 learning_rate=0.0005 gradient_norm=4.9298925570613115 elapsed_time_hours=29.5399 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=127500 train_loss=0.868160 action_accuracy=0.678571 l1_loss=0.023109 learning_rate=0.0005 gradient_norm=5.663445052064252 elapsed_time_hours=29.6551 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=128000 train_loss=0.573956 action_accuracy=0.848214 l1_loss=0.016667 learning_rate=0.0005 gradient_norm=4.92919440030698 elapsed_time_hours=29.7702 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=128500 train_loss=0.597777 action_accuracy=0.785714 l1_loss=0.021359 learning_rate=0.0005 gradient_norm=5.61820715022477 elapsed_time_hours=29.8854 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=129000 train_loss=0.598278 action_accuracy=0.812500 l1_loss=0.012955 learning_rate=0.0005 gradient_norm=3.97374594420406 elapsed_time_hours=30.0007 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=129500 train_loss=0.516529 action_accuracy=0.803571 l1_loss=0.014076 learning_rate=0.0005 gradient_norm=4.420227580318624 elapsed_time_hours=30.1160 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=130000 train_loss=0.703618 action_accuracy=0.732143 l1_loss=0.028011 learning_rate=0.0005 gradient_norm=4.769748100290165 elapsed_time_hours=30.2314 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 130000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.75it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.78it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.24it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.96it/s]
+Saved Model Checkpoint for Step 130000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=130500 train_loss=0.758903 action_accuracy=0.732143 l1_loss=0.021078 learning_rate=0.0005 gradient_norm=5.259937499832021 elapsed_time_hours=30.3574 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=131000 train_loss=0.754875 action_accuracy=0.750000 l1_loss=0.016877 learning_rate=0.0005 gradient_norm=4.877988623930323 elapsed_time_hours=30.4728 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=131500 train_loss=0.625488 action_accuracy=0.750000 l1_loss=0.013796 learning_rate=0.0005 gradient_norm=5.1862457899945165 elapsed_time_hours=30.5884 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=132000 train_loss=0.856091 action_accuracy=0.705357 l1_loss=0.017087 learning_rate=0.0005 gradient_norm=5.718713470175224 elapsed_time_hours=30.7042 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=132500 train_loss=0.588326 action_accuracy=0.803571 l1_loss=0.005882 learning_rate=0.0005 gradient_norm=4.054075724516009 elapsed_time_hours=30.8196 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=133000 train_loss=0.644785 action_accuracy=0.803571 l1_loss=0.015056 learning_rate=0.0005 gradient_norm=4.874953146512202 elapsed_time_hours=30.9352 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=133500 train_loss=0.732050 action_accuracy=0.741071 l1_loss=0.016176 learning_rate=0.0005 gradient_norm=5.222722726365304 elapsed_time_hours=31.0509 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=134000 train_loss=0.677017 action_accuracy=0.758929 l1_loss=0.010854 learning_rate=0.0005 gradient_norm=4.745041063183472 elapsed_time_hours=31.1667 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=134500 train_loss=0.663543 action_accuracy=0.758929 l1_loss=0.014916 learning_rate=0.0005 gradient_norm=5.0859115237762555 elapsed_time_hours=31.2825 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=135000 train_loss=0.567659 action_accuracy=0.830357 l1_loss=0.007773 learning_rate=0.0005 gradient_norm=4.504276378504744 elapsed_time_hours=31.3981 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 135000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.67it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.71it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.29it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.97it/s]
+Saved Model Checkpoint for Step 135000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=135500 train_loss=0.560409 action_accuracy=0.785714 l1_loss=0.029412 learning_rate=0.0005 gradient_norm=4.493689751580757 elapsed_time_hours=31.5241 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=136000 train_loss=0.684936 action_accuracy=0.741071 l1_loss=0.013585 learning_rate=0.0005 gradient_norm=4.7995112583862936 elapsed_time_hours=31.6396 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=136500 train_loss=0.642154 action_accuracy=0.758929 l1_loss=0.017647 learning_rate=0.0005 gradient_norm=5.204435688835661 elapsed_time_hours=31.7552 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=137000 train_loss=0.736949 action_accuracy=0.723214 l1_loss=0.019538 learning_rate=0.0005 gradient_norm=4.895211665028636 elapsed_time_hours=31.8711 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=137500 train_loss=0.666428 action_accuracy=0.732143 l1_loss=0.019118 learning_rate=0.0005 gradient_norm=4.76702056639746 elapsed_time_hours=31.9883 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=138000 train_loss=0.589101 action_accuracy=0.803571 l1_loss=0.010784 learning_rate=0.0005 gradient_norm=4.713805515836394 elapsed_time_hours=32.1159 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=138500 train_loss=0.686413 action_accuracy=0.767857 l1_loss=0.024650 learning_rate=0.0005 gradient_norm=5.784697013018772 elapsed_time_hours=32.2314 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=139000 train_loss=0.585840 action_accuracy=0.830357 l1_loss=0.009734 learning_rate=0.0005 gradient_norm=4.372950250064772 elapsed_time_hours=32.3468 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=139500 train_loss=0.533878 action_accuracy=0.839286 l1_loss=0.016877 learning_rate=0.0005 gradient_norm=4.751651501103308 elapsed_time_hours=32.4623 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=140000 train_loss=0.572955 action_accuracy=0.803571 l1_loss=0.012745 learning_rate=0.0005 gradient_norm=4.618639266904698 elapsed_time_hours=32.5779 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 140000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.72it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.79it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.36it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.03it/s]
+Saved Model Checkpoint for Step 140000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=140500 train_loss=0.617475 action_accuracy=0.803571 l1_loss=0.009944 learning_rate=0.0005 gradient_norm=4.581473219642561 elapsed_time_hours=32.7040 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=141000 train_loss=0.491466 action_accuracy=0.821429 l1_loss=0.005882 learning_rate=0.0005 gradient_norm=4.184946270206882 elapsed_time_hours=32.8195 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=141500 train_loss=0.725068 action_accuracy=0.750000 l1_loss=0.011275 learning_rate=0.0005 gradient_norm=4.998469239354872 elapsed_time_hours=32.9350 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=142000 train_loss=0.547990 action_accuracy=0.776786 l1_loss=0.012535 learning_rate=0.0005 gradient_norm=5.01183721919592 elapsed_time_hours=33.0513 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=142500 train_loss=0.490797 action_accuracy=0.812500 l1_loss=0.008754 learning_rate=0.0005 gradient_norm=3.4908853804244044 elapsed_time_hours=33.1672 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=143000 train_loss=0.577722 action_accuracy=0.785714 l1_loss=0.010994 learning_rate=0.0005 gradient_norm=4.845384132063499 elapsed_time_hours=33.2834 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=143500 train_loss=0.637791 action_accuracy=0.794643 l1_loss=0.023249 learning_rate=0.0005 gradient_norm=4.944509804664713 elapsed_time_hours=33.3996 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=144000 train_loss=0.592414 action_accuracy=0.785714 l1_loss=0.020168 learning_rate=0.0005 gradient_norm=4.732560537873419 elapsed_time_hours=33.5164 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=144500 train_loss=0.554252 action_accuracy=0.794643 l1_loss=0.008053 learning_rate=0.0005 gradient_norm=4.809857325800665 elapsed_time_hours=33.6326 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=145000 train_loss=0.636560 action_accuracy=0.821429 l1_loss=0.015616 learning_rate=0.0005 gradient_norm=5.724984853361181 elapsed_time_hours=33.7485 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 145000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.48it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.21it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.70it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.45it/s]
+Saved Model Checkpoint for Step 145000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=145500 train_loss=0.575329 action_accuracy=0.803571 l1_loss=0.012605 learning_rate=0.0005 gradient_norm=4.264225571985793 elapsed_time_hours=33.8749 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=146000 train_loss=1.015039 action_accuracy=0.651786 l1_loss=0.026821 learning_rate=0.0005 gradient_norm=8.077850852488833 elapsed_time_hours=33.9905 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=146500 train_loss=0.549644 action_accuracy=0.794643 l1_loss=0.014776 learning_rate=0.0005 gradient_norm=5.791871399955391 elapsed_time_hours=34.1061 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=147000 train_loss=0.395024 action_accuracy=0.866071 l1_loss=0.011485 learning_rate=0.0005 gradient_norm=4.518475492238701 elapsed_time_hours=34.2221 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=147500 train_loss=0.400589 action_accuracy=0.821429 l1_loss=0.011204 learning_rate=0.0005 gradient_norm=3.7726404557608557 elapsed_time_hours=34.3383 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=148000 train_loss=0.732275 action_accuracy=0.750000 l1_loss=0.012325 learning_rate=0.0005 gradient_norm=6.092035419029821 elapsed_time_hours=34.4544 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=148500 train_loss=0.690886 action_accuracy=0.758929 l1_loss=0.014986 learning_rate=0.0005 gradient_norm=5.2663222818147055 elapsed_time_hours=34.5703 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=149000 train_loss=0.467379 action_accuracy=0.812500 l1_loss=0.012955 learning_rate=0.0005 gradient_norm=5.173549056829711 elapsed_time_hours=34.6862 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=149500 train_loss=0.607044 action_accuracy=0.750000 l1_loss=0.016947 learning_rate=0.0005 gradient_norm=5.090313034479568 elapsed_time_hours=34.8022 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=150000 train_loss=0.440893 action_accuracy=0.839286 l1_loss=0.008123 learning_rate=0.0005 gradient_norm=3.9249549340966046 elapsed_time_hours=34.9183 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 150000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.46it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.29it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.74it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.49it/s]
+Saved Model Checkpoint for Step 150000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=150500 train_loss=0.600731 action_accuracy=0.803571 l1_loss=0.010714 learning_rate=0.0005 gradient_norm=4.714452516046087 elapsed_time_hours=35.0448 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=151000 train_loss=0.465152 action_accuracy=0.839286 l1_loss=0.017087 learning_rate=0.0005 gradient_norm=5.616474405303944 elapsed_time_hours=35.1607 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=151500 train_loss=0.735813 action_accuracy=0.723214 l1_loss=0.024930 learning_rate=0.0005 gradient_norm=6.7173878619322815 elapsed_time_hours=35.2764 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=152000 train_loss=0.368206 action_accuracy=0.883929 l1_loss=0.005252 learning_rate=0.0005 gradient_norm=3.800888801146909 elapsed_time_hours=35.3934 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=152500 train_loss=0.390761 action_accuracy=0.866071 l1_loss=0.012675 learning_rate=0.0005 gradient_norm=4.331380817376352 elapsed_time_hours=35.5098 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=153000 train_loss=0.492211 action_accuracy=0.821429 l1_loss=0.009104 learning_rate=0.0005 gradient_norm=4.821066142784222 elapsed_time_hours=35.6260 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=153500 train_loss=0.521023 action_accuracy=0.830357 l1_loss=0.010224 learning_rate=0.0005 gradient_norm=4.842018462831431 elapsed_time_hours=35.7420 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=154000 train_loss=0.710257 action_accuracy=0.776786 l1_loss=0.015476 learning_rate=0.0005 gradient_norm=5.842322878709824 elapsed_time_hours=35.8581 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=154500 train_loss=0.652785 action_accuracy=0.812500 l1_loss=0.013515 learning_rate=0.0005 gradient_norm=5.35854085696823 elapsed_time_hours=35.9737 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=155000 train_loss=0.543108 action_accuracy=0.821429 l1_loss=0.008473 learning_rate=0.0005 gradient_norm=4.5477896174550905 elapsed_time_hours=36.0894 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 155000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.67it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.48it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.08it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.79it/s]
+Saved Model Checkpoint for Step 155000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=155500 train_loss=0.498206 action_accuracy=0.821429 l1_loss=0.008683 learning_rate=0.0005 gradient_norm=4.840588508544686 elapsed_time_hours=36.2154 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=156000 train_loss=0.537801 action_accuracy=0.821429 l1_loss=0.007143 learning_rate=0.0005 gradient_norm=4.077104298586827 elapsed_time_hours=36.3311 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=156500 train_loss=0.442912 action_accuracy=0.848214 l1_loss=0.007493 learning_rate=0.0005 gradient_norm=4.030758075810663 elapsed_time_hours=36.4471 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=157000 train_loss=0.536218 action_accuracy=0.839286 l1_loss=0.014916 learning_rate=0.0005 gradient_norm=6.063066583381095 elapsed_time_hours=36.5629 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=157500 train_loss=0.415766 action_accuracy=0.839286 l1_loss=0.006303 learning_rate=0.0005 gradient_norm=4.443482732095394 elapsed_time_hours=36.6786 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=158000 train_loss=0.425728 action_accuracy=0.883929 l1_loss=0.004622 learning_rate=0.0005 gradient_norm=4.065151447971066 elapsed_time_hours=36.7941 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=158500 train_loss=0.508276 action_accuracy=0.821429 l1_loss=0.011975 learning_rate=0.0005 gradient_norm=4.780024954121047 elapsed_time_hours=36.9093 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=159000 train_loss=0.528042 action_accuracy=0.830357 l1_loss=0.013235 learning_rate=0.0005 gradient_norm=5.147005599073639 elapsed_time_hours=37.0247 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=159500 train_loss=0.425479 action_accuracy=0.866071 l1_loss=0.005042 learning_rate=0.0005 gradient_norm=3.8077874284557187 elapsed_time_hours=37.1400 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=160000 train_loss=0.517900 action_accuracy=0.839286 l1_loss=0.010364 learning_rate=0.0005 gradient_norm=5.126112435329362 elapsed_time_hours=37.2559 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 160000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.59it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.51it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.03it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.74it/s]
+Saved Model Checkpoint for Step 160000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=160500 train_loss=0.567459 action_accuracy=0.794643 l1_loss=0.014916 learning_rate=0.0005 gradient_norm=5.641364604680247 elapsed_time_hours=37.3826 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=161000 train_loss=0.554881 action_accuracy=0.785714 l1_loss=0.017367 learning_rate=0.0005 gradient_norm=5.695310719995717 elapsed_time_hours=37.4989 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=161500 train_loss=0.448644 action_accuracy=0.830357 l1_loss=0.010154 learning_rate=0.0005 gradient_norm=4.726982805976776 elapsed_time_hours=37.6151 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=162000 train_loss=0.407817 action_accuracy=0.875000 l1_loss=0.010084 learning_rate=0.0005 gradient_norm=4.110146603264409 elapsed_time_hours=37.7316 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=162500 train_loss=0.518875 action_accuracy=0.830357 l1_loss=0.014286 learning_rate=0.0005 gradient_norm=5.590105708212521 elapsed_time_hours=37.8476 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=163000 train_loss=0.453978 action_accuracy=0.848214 l1_loss=0.006583 learning_rate=0.0005 gradient_norm=3.821419620527338 elapsed_time_hours=37.9635 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=163500 train_loss=0.403452 action_accuracy=0.821429 l1_loss=0.010364 learning_rate=0.0005 gradient_norm=4.446471765349588 elapsed_time_hours=38.0792 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=164000 train_loss=0.324673 action_accuracy=0.875000 l1_loss=0.007913 learning_rate=0.0005 gradient_norm=3.74397552039581 elapsed_time_hours=38.1949 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=164500 train_loss=0.417135 action_accuracy=0.839286 l1_loss=0.011275 learning_rate=0.0005 gradient_norm=4.399696414256186 elapsed_time_hours=38.3103 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=165000 train_loss=0.387267 action_accuracy=0.875000 l1_loss=0.003852 learning_rate=0.0005 gradient_norm=3.428785674433462 elapsed_time_hours=38.4258 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 165000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.59it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.53it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.09it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.79it/s]
+Saved Model Checkpoint for Step 165000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=165500 train_loss=0.452699 action_accuracy=0.830357 l1_loss=0.008263 learning_rate=0.0005 gradient_norm=4.435078537971837 elapsed_time_hours=38.5521 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=166000 train_loss=0.376225 action_accuracy=0.830357 l1_loss=0.015476 learning_rate=0.0005 gradient_norm=4.673095272748367 elapsed_time_hours=38.6679 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=166500 train_loss=0.445177 action_accuracy=0.848214 l1_loss=0.009174 learning_rate=0.0005 gradient_norm=4.686572734349578 elapsed_time_hours=38.7838 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=167000 train_loss=0.399877 action_accuracy=0.857143 l1_loss=0.006022 learning_rate=0.0005 gradient_norm=4.840798471809449 elapsed_time_hours=38.9000 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=167500 train_loss=0.373554 action_accuracy=0.830357 l1_loss=0.005112 learning_rate=0.0005 gradient_norm=4.028594556894463 elapsed_time_hours=39.0163 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=168000 train_loss=0.396951 action_accuracy=0.857143 l1_loss=0.012045 learning_rate=0.0005 gradient_norm=3.5838189746037923 elapsed_time_hours=39.1319 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=168500 train_loss=0.305034 action_accuracy=0.892857 l1_loss=0.006513 learning_rate=0.0005 gradient_norm=3.579777923204659 elapsed_time_hours=39.2474 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=169000 train_loss=0.404121 action_accuracy=0.848214 l1_loss=0.009034 learning_rate=0.0005 gradient_norm=4.033864402969004 elapsed_time_hours=39.3630 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=169500 train_loss=0.428923 action_accuracy=0.892857 l1_loss=0.004552 learning_rate=0.0005 gradient_norm=3.616463532542874 elapsed_time_hours=39.4785 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=170000 train_loss=0.421974 action_accuracy=0.857143 l1_loss=0.016877 learning_rate=0.0005 gradient_norm=4.219555056519061 elapsed_time_hours=39.5939 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 170000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.65it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.72it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.31it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.98it/s]
+Saved Model Checkpoint for Step 170000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=170500 train_loss=0.449591 action_accuracy=0.830357 l1_loss=0.010224 learning_rate=0.0005 gradient_norm=4.265104204609644 elapsed_time_hours=39.7200 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=171000 train_loss=0.547553 action_accuracy=0.839286 l1_loss=0.010574 learning_rate=0.0005 gradient_norm=5.045089192339721 elapsed_time_hours=39.8357 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=171500 train_loss=0.404081 action_accuracy=0.848214 l1_loss=0.011415 learning_rate=0.0005 gradient_norm=4.713504832578395 elapsed_time_hours=39.9512 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=172000 train_loss=0.379139 action_accuracy=0.848214 l1_loss=0.007143 learning_rate=0.0005 gradient_norm=4.458492570892812 elapsed_time_hours=40.0668 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=172500 train_loss=0.358633 action_accuracy=0.857143 l1_loss=0.010644 learning_rate=0.0005 gradient_norm=3.5484127770056157 elapsed_time_hours=40.1825 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=173000 train_loss=0.422200 action_accuracy=0.821429 l1_loss=0.006513 learning_rate=0.0005 gradient_norm=4.5123720623929415 elapsed_time_hours=40.2986 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=173500 train_loss=0.366368 action_accuracy=0.830357 l1_loss=0.010434 learning_rate=0.0005 gradient_norm=4.915375125660022 elapsed_time_hours=40.4150 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=174000 train_loss=0.330332 action_accuracy=0.857143 l1_loss=0.007913 learning_rate=0.0005 gradient_norm=3.8551757087514735 elapsed_time_hours=40.5313 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=174500 train_loss=0.278738 action_accuracy=0.901786 l1_loss=0.009314 learning_rate=0.0005 gradient_norm=4.109797638464022 elapsed_time_hours=40.6476 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=175000 train_loss=0.411874 action_accuracy=0.839286 l1_loss=0.012395 learning_rate=0.0005 gradient_norm=4.50559135710767 elapsed_time_hours=40.7635 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 175000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.60it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.60it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.08it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.80it/s]
+Saved Model Checkpoint for Step 175000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=175500 train_loss=0.396627 action_accuracy=0.857143 l1_loss=0.009174 learning_rate=0.0005 gradient_norm=4.595844922059747 elapsed_time_hours=40.8902 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=176000 train_loss=0.268719 action_accuracy=0.910714 l1_loss=0.006092 learning_rate=0.0005 gradient_norm=3.0244446068104516 elapsed_time_hours=41.0061 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=176500 train_loss=0.405712 action_accuracy=0.830357 l1_loss=0.008613 learning_rate=0.0005 gradient_norm=4.7578689399786995 elapsed_time_hours=41.1218 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=177000 train_loss=0.305985 action_accuracy=0.910714 l1_loss=0.005112 learning_rate=0.0005 gradient_norm=3.4030605357948196 elapsed_time_hours=41.2376 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=177500 train_loss=0.450412 action_accuracy=0.857143 l1_loss=0.007213 learning_rate=0.0005 gradient_norm=4.719881117193577 elapsed_time_hours=41.3536 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=178000 train_loss=0.386676 action_accuracy=0.848214 l1_loss=0.012395 learning_rate=0.0005 gradient_norm=5.110135848316343 elapsed_time_hours=41.4695 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=178500 train_loss=0.321536 action_accuracy=0.875000 l1_loss=0.007773 learning_rate=0.0005 gradient_norm=4.612749598283475 elapsed_time_hours=41.5857 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=179000 train_loss=0.370273 action_accuracy=0.803571 l1_loss=0.012255 learning_rate=0.0005 gradient_norm=4.677861234337398 elapsed_time_hours=41.7019 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=179500 train_loss=0.328380 action_accuracy=0.857143 l1_loss=0.003992 learning_rate=0.0005 gradient_norm=3.7857503900253726 elapsed_time_hours=41.8182 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=180000 train_loss=0.310881 action_accuracy=0.839286 l1_loss=0.011064 learning_rate=0.0005 gradient_norm=4.925359261172417 elapsed_time_hours=41.9346 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 180000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.73it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.23it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.39it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.28it/s]
+Saved Model Checkpoint for Step 180000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=180500 train_loss=0.498552 action_accuracy=0.839286 l1_loss=0.016737 learning_rate=0.0005 gradient_norm=4.791073247401297 elapsed_time_hours=42.0618 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=181000 train_loss=0.340802 action_accuracy=0.857143 l1_loss=0.009594 learning_rate=0.0005 gradient_norm=4.967422476375666 elapsed_time_hours=42.1783 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=181500 train_loss=0.235803 action_accuracy=0.910714 l1_loss=0.006232 learning_rate=0.0005 gradient_norm=3.2522765583088917 elapsed_time_hours=42.2948 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=182000 train_loss=0.444633 action_accuracy=0.857143 l1_loss=0.006653 learning_rate=0.0005 gradient_norm=4.78815537578766 elapsed_time_hours=42.4111 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=182500 train_loss=0.274302 action_accuracy=0.883929 l1_loss=0.007073 learning_rate=0.0005 gradient_norm=3.934391868131868 elapsed_time_hours=42.5273 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=183000 train_loss=0.311107 action_accuracy=0.866071 l1_loss=0.005112 learning_rate=0.0005 gradient_norm=3.5419637492571554 elapsed_time_hours=42.6435 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=183500 train_loss=0.367190 action_accuracy=0.857143 l1_loss=0.008053 learning_rate=0.0005 gradient_norm=3.8983103693273313 elapsed_time_hours=42.7597 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=184000 train_loss=0.287964 action_accuracy=0.883929 l1_loss=0.004272 learning_rate=0.0005 gradient_norm=3.470346095149048 elapsed_time_hours=42.8760 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=184500 train_loss=0.248315 action_accuracy=0.901786 l1_loss=0.003221 learning_rate=0.0005 gradient_norm=3.344283103024615 elapsed_time_hours=42.9923 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=185000 train_loss=0.344797 action_accuracy=0.866071 l1_loss=0.006583 learning_rate=0.0005 gradient_norm=2.9447577192584062 elapsed_time_hours=43.1085 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 185000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.73it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.45it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.93it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.69it/s]
+Saved Model Checkpoint for Step 185000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=185500 train_loss=0.326484 action_accuracy=0.857143 l1_loss=0.006723 learning_rate=0.0005 gradient_norm=4.739361887723875 elapsed_time_hours=43.2351 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=186000 train_loss=0.313953 action_accuracy=0.857143 l1_loss=0.010154 learning_rate=0.0005 gradient_norm=4.0962564816849385 elapsed_time_hours=43.3511 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=186500 train_loss=0.421072 action_accuracy=0.857143 l1_loss=0.014706 learning_rate=0.0005 gradient_norm=4.948252025679729 elapsed_time_hours=43.4672 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=187000 train_loss=0.370669 action_accuracy=0.848214 l1_loss=0.006793 learning_rate=0.0005 gradient_norm=4.679843440802571 elapsed_time_hours=43.5832 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=187500 train_loss=0.377355 action_accuracy=0.848214 l1_loss=0.005182 learning_rate=0.0005 gradient_norm=3.7060776438397878 elapsed_time_hours=43.6992 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=188000 train_loss=0.377926 action_accuracy=0.875000 l1_loss=0.010294 learning_rate=0.0005 gradient_norm=5.020775236311816 elapsed_time_hours=43.8151 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=188500 train_loss=0.320284 action_accuracy=0.848214 l1_loss=0.007563 learning_rate=0.0005 gradient_norm=4.08900483621663 elapsed_time_hours=43.9309 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=189000 train_loss=0.286431 action_accuracy=0.892857 l1_loss=0.004622 learning_rate=0.0005 gradient_norm=3.45060968869816 elapsed_time_hours=44.0466 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=189500 train_loss=0.396519 action_accuracy=0.875000 l1_loss=0.005882 learning_rate=0.0005 gradient_norm=5.101818712763247 elapsed_time_hours=44.1621 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=190000 train_loss=0.250033 action_accuracy=0.910714 l1_loss=0.007843 learning_rate=0.0005 gradient_norm=3.8288171368360313 elapsed_time_hours=44.2777 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 190000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.63it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.64it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.25it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.91it/s]
+Saved Model Checkpoint for Step 190000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=190500 train_loss=0.258970 action_accuracy=0.901786 l1_loss=0.005252 learning_rate=0.0005 gradient_norm=2.913497872041158 elapsed_time_hours=44.4038 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=191000 train_loss=0.363212 action_accuracy=0.866071 l1_loss=0.011204 learning_rate=0.0005 gradient_norm=5.425215946578097 elapsed_time_hours=44.5194 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=191500 train_loss=0.250132 action_accuracy=0.901786 l1_loss=0.004972 learning_rate=0.0005 gradient_norm=4.531442375463157 elapsed_time_hours=44.6351 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=192000 train_loss=0.325633 action_accuracy=0.875000 l1_loss=0.008473 learning_rate=0.0005 gradient_norm=3.559373827053726 elapsed_time_hours=44.7507 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=192500 train_loss=0.351925 action_accuracy=0.883929 l1_loss=0.009384 learning_rate=0.0005 gradient_norm=5.302063936323612 elapsed_time_hours=44.8663 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=193000 train_loss=0.361153 action_accuracy=0.875000 l1_loss=0.007073 learning_rate=0.0005 gradient_norm=4.597726684806006 elapsed_time_hours=44.9817 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=193500 train_loss=0.228952 action_accuracy=0.892857 l1_loss=0.006443 learning_rate=0.0005 gradient_norm=3.4441787877984367 elapsed_time_hours=45.0975 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=194000 train_loss=0.419671 action_accuracy=0.866071 l1_loss=0.007773 learning_rate=0.0005 gradient_norm=5.766812927537638 elapsed_time_hours=45.2133 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=194500 train_loss=0.273690 action_accuracy=0.901786 l1_loss=0.014776 learning_rate=0.0005 gradient_norm=3.161396220515123 elapsed_time_hours=45.3293 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=195000 train_loss=0.355235 action_accuracy=0.866071 l1_loss=0.003782 learning_rate=0.0005 gradient_norm=4.146280477047231 elapsed_time_hours=45.4454 peak_vram_gb=56.96589469909668
+
+Saving Model Checkpoint for Step 195000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.05it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.56it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.78it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.65it/s]
+Saved Model Checkpoint for Step 195000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+[DF-04-01 TRAIN] step=195500 train_loss=0.285794 action_accuracy=0.892857 l1_loss=0.007353 learning_rate=0.0005 gradient_norm=4.957000941890744 elapsed_time_hours=45.5723 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=196000 train_loss=0.306570 action_accuracy=0.883929 l1_loss=0.006092 learning_rate=0.0005 gradient_norm=4.308680712407202 elapsed_time_hours=45.6884 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=196500 train_loss=0.279820 action_accuracy=0.883929 l1_loss=0.010084 learning_rate=0.0005 gradient_norm=3.1228226864849664 elapsed_time_hours=45.8047 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=197000 train_loss=0.223476 action_accuracy=0.910714 l1_loss=0.005672 learning_rate=0.0005 gradient_norm=2.5882087081760052 elapsed_time_hours=45.9207 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=197500 train_loss=0.251721 action_accuracy=0.875000 l1_loss=0.006232 learning_rate=0.0005 gradient_norm=4.006565283104217 elapsed_time_hours=46.0367 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=198000 train_loss=0.311102 action_accuracy=0.901786 l1_loss=0.005112 learning_rate=0.0005 gradient_norm=3.781731825880608 elapsed_time_hours=46.1528 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=198500 train_loss=0.375882 action_accuracy=0.875000 l1_loss=0.007213 learning_rate=0.0005 gradient_norm=4.0380612634152335 elapsed_time_hours=46.2685 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=199000 train_loss=0.191113 action_accuracy=0.901786 l1_loss=0.010434 learning_rate=0.0005 gradient_norm=3.7156781257818117 elapsed_time_hours=46.3844 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=199500 train_loss=0.306040 action_accuracy=0.857143 l1_loss=0.007003 learning_rate=0.0005 gradient_norm=3.408124546701741 elapsed_time_hours=46.5005 peak_vram_gb=56.96589469909668
+
+[DF-04-01 TRAIN] step=200000 train_loss=0.309302 action_accuracy=0.901786 l1_loss=0.005042 learning_rate=0.0005 gradient_norm=3.7245857237893585 elapsed_time_hours=46.6166 peak_vram_gb=56.96589469909668
+
+200001it [46:36:59,  1.18it/s]                            Saving Model Checkpoint for Step 200000
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s][A
+
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.36it/s][A
+
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.10it/s][A
+
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.44it/s][A
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  4.25it/s]
+Saved Model Checkpoint for Step 200000 at: /root/autodl-tmp/openvla_efficiency_project/adapters/df_04_01_lora_full_train_seed42_rank32/47a0ec7fc4ec123775a391911046cf33cf9ed83f+modified_libero_all_no_noops+b16+lr-0.0005+lora-r32+dropout-0.0--df_04_01_lora_full_train_seed42_rank32--image_aug
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+Max step 200000 reached! Stopping training...
+
+                              
+[rank0]:[W616 06:08:35.139359061 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
