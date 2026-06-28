@@ -42,7 +42,8 @@ data/processed/*
 *.ckpt
 *.safetensors
 checkpoints/
-models/
+/models/
+/src/models/
 weights/
 
 # 中文：实验输出一般不上传，除非是小的最终表格或图
