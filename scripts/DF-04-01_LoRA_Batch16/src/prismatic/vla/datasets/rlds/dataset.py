@@ -1,3 +1,43 @@
+# =============================================================================
+# DF-04-01 Dissertation Training Modifications
+# =============================================================================
+#
+# Notes:
+# This file is based on the official OpenVLA RLDS dataset.py file.
+# The following modifications were introduced for the MSc dissertation project.
+#
+# Modification 1:
+# Added support for the OPENVLA_EPISODE_SPLIT_JSON environment variable.
+# This allows the project to use a fixed episode-level train/validation split
+# instead of relying only on the official default TFDS split behavior.
+#
+# Modification 2:
+# Added JSON split loading logic inside make_dataset_from_rlds().
+# The split JSON stores train/val/test episode indices for each modified LIBERO
+# sub-dataset.
+#
+# Modification 3:
+# Added episode-index filtering with tf.data.Dataset.enumerate() and
+# tf.lookup.StaticHashTable.
+# This keeps only the selected episode indices for the requested train or
+# validation split.
+#
+# Modification 4:
+# Disabled shuffle at the RLDS source split stage when a fixed split JSON is
+# used. This keeps episode indexing stable and reproducible.
+#
+# Purpose:
+# The dissertation project needs a fixed 80/10/10 per-sub-dataset split with
+# seed=42 across the four modified LIBERO no-noops datasets. This patch makes
+# the official OpenVLA RLDS loader respect that fixed split during LoRA training.
+#
+# Author:
+# Silvio Zheng
+#
+# =============================================================================
+
+
+
 """
 dataset.py
 
