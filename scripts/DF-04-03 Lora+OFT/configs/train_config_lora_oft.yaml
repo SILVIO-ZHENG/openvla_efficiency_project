@@ -1,0 +1,193 @@
+# DF-04-03 LoRA+OFT full-training configuration.
+# All comments are English-only.
+#
+# The project wrapper reads this YAML and passes every supported runtime value
+# to scripts/finetune.py through explicit command-line arguments.
+#
+# Relative paths are resolved from the DF-04-03 LoRA+OFT bundle root.
+
+run:
+  task_id: "DF-04-03"
+  run_id: "df_04_03_lora_oft_full_train_seed42_rank32"
+  branch_name: "DF-04-03"
+  random_seed: 42
+  mode: "full_train"
+
+paths:
+  official_openvla_root: "src"
+  official_finetune_py: "scripts/finetune.py"
+  dataset_root: "/root/autodl-tmp/datasets/openvla_modified_libero_rlds"
+  split_json: "inputs/splits/libero_episode_split_seed42.json"
+
+  output_dir: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32"
+  log_path: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/df_04_03_lora_oft_training.md"
+  summary_csv: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/df_04_03_lora_oft_summary.csv"
+  metadata_json: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/df_04_03_lora_oft_metadata.json"
+  launch_resolved_config_yaml: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/launch_resolved_config.yaml"
+  runtime_resolved_config_json: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/runtime_resolved_config.json"
+  training_summary_json: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/training_summary.json"
+  validation_history_jsonl: "outputs/adapters/df_04_03_lora_oft_full_train_seed42_rank32/validation_history.jsonl"
+
+model:
+  hub_id: "openvla/openvla-7b"
+  local_path: "/root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f"
+  torch_dtype: "bfloat16"
+  device: "cuda"
+  local_files_only: true
+
+dataset:
+  hf_dataset_name: "openvla/modified_libero_rlds"
+  mixture_name: "modified_libero_all_no_noops"
+  split_scope: "per_sub_dataset"
+  source_split: "train"
+  train_split_name: "train"
+  val_split_name: "val"
+  test_split_name: "test"
+  expected_train_episodes: 1480
+  expected_val_episodes: 40
+  expected_test_episodes: 173
+  split_seed: 42
+
+normalization:
+  stats_json: "inputs/model_config/dataset_statistics_train_seed42.json"
+  stats_source: "train_only"
+  required_dataset_keys:
+    - "libero_spatial_no_noops"
+    - "libero_object_no_noops"
+    - "libero_goal_no_noops"
+    - "libero_10_no_noops"
+  allow_pipeline_debug_stats: false
+
+lora:
+  use_lora: true
+  rank: 32
+  alpha: 16
+  dropout: 0.0
+  target_modules: "all-linear"
+  init_lora_weights: "gaussian"
+
+oft:
+  use_l1_regression: true
+  use_diffusion: false
+  use_film: false
+  num_images_in_input: 2
+  use_proprio: true
+
+training:
+  batch_size: 12
+  max_steps: 200000
+  learning_rate: 0.0005
+  lr_warmup_steps: 0
+  num_steps_before_decay: 100000
+  grad_accumulation_steps: 1
+  image_aug: true
+  shuffle_buffer_size: 100000
+  use_quantization: false
+  validate_finite_values: false
+  world_size: 1
+
+validation:
+  start_step: 10000
+  interval_steps: 10000
+  max_batches: null
+  time_limit_seconds: 420
+  best_model_start_step: 10000
+  overfit_patience: 3
+  overfit_min_delta: 0.0
+
+checkpointing:
+  # Keep empty until exact resumable-checkpoint steps are approved.
+  # Example format: [100000, 200000]
+  resume_checkpoint_steps: []
+
+  # 0 means resumable checkpoints are not automatically pruned.
+  save_total_limit: 0
+
+  # null starts a new run rather than resuming an existing checkpoint.
+  resume_from_checkpoint: null
+
+logging:
+  # This controls training-console output only.
+  console_log_interval_steps: 500
+  wandb_project: "openvla_efficiency"
+
+  required_fields:
+    - "task_id"
+    - "run_id"
+    - "branch_name"
+    - "random_seed"
+    - "git_commit_hash"
+    - "command"
+    - "launch_resolved_config_yaml"
+    - "runtime_resolved_config_json"
+    - "status"
+    - "failure_reason"
+    - "training_time_hours"
+    - "total_training_steps"
+    - "final_train_loss"
+    - "best_val_loss"
+    - "best_checkpoint_step"
+    - "gradient_norm"
+    - "train_loss_curve"
+    - "val_loss_curve"
+    - "learning_rate_curve"
+    - "gradient_norm_curve"
+    - "per_device_batch_size"
+    - "world_size"
+    - "grad_accumulation_steps"
+    - "effective_global_batch_size"
+    - "learning_rate"
+    - "optimizer"
+    - "scheduler"
+    - "max_steps"
+    - "trainable_params"
+    - "total_params"
+    - "actual_lora_rank"
+    - "actual_lora_alpha"
+    - "actual_lora_dropout"
+    - "actual_target_modules"
+    - "actual_init_lora_weights"
+    - "actual_model_loaded_from"
+    - "actual_local_files_only"
+    - "torch_dtype"
+    - "device"
+    - "gpu_info"
+    - "normalization_stats_json"
+    - "normalization_stats_sha256"
+    - "normalization_stats_source"
+    - "episode_split_json"
+    - "episode_split_sha256"
+    - "split_seed"
+    - "train_count"
+    - "val_count"
+    - "test_count"
+    - "use_l1_regression"
+    - "use_diffusion"
+    - "use_film"
+    - "num_images_in_input"
+    - "use_proprio"
+    - "action_dim"
+    - "proprio_dim"
+    - "num_actions_chunk"
+    - "validation_start_step"
+    - "validation_interval_steps"
+    - "validation_max_batches"
+    - "validation_time_limit_seconds"
+    - "best_model_start_step"
+    - "validation_history"
+    - "overfitting"
+    - "best_adapter_path"
+    - "final_adapter_path"
+    - "resume_checkpoints"
+    - "training_peak_vram_allocated_gb"
+    - "training_peak_vram_reserved_gb"
+
+notes:
+  yaml_reader: "The project wrapper reads this YAML."
+  trainer_interface: "The wrapper passes supported values to finetune.py as explicit CLI arguments."
+  local_model_policy: "Training must use the already-downloaded local Hugging Face snapshot."
+  split_policy: "Keep the original seed-42 test split unchanged, retain the first 10 original validation episodes per LIBERO subset, and move the remaining original validation episodes into training: train=1480, val=40, test=173."
+  validation_schedule: "Start at step 10000, repeat every 10000 optimization steps, attempt a complete pass over the fixed 40-episode validation set, and stop after 420 seconds if necessary."
+  normalization_policy: "Use one JSON containing separate train-only statistics for all four modified LIBERO sub-datasets."
+  checkpoint_policy: "Resumable checkpoint steps remain empty until explicitly approved."
+  runtime_truth_policy: "Actual model, LoRA, parameter-count, validation, and memory fields must be read from runtime objects or produced runtime files rather than copied from requested YAML values."
