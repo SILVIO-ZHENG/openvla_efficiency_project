@@ -1,41 +1,41 @@
-# 中文：Python 缓存文件
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Python Ã§Â¼â€œÃ¥Â­ËœÃ¦â€“â€¡Ã¤Â»Â¶
 # English: Python cache files
 __pycache__/
 *.py[cod]
 *.pyo
 
-# 中文：虚拟环境
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¨â„¢Å¡Ã¦â€¹Å¸Ã§Å½Â¯Ã¥Â¢Æ’
 # English: Virtual environments
 .venv/
 venv/
 env/
 
-# 中文：PyCharm / IntelliJ 本地配置
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡PyCharm / IntelliJ Ã¦Å“Â¬Ã¥Å“Â°Ã©â€¦ÂÃ§Â½Â®
 # English: PyCharm / IntelliJ local settings
 .idea/
 
-# 中文：系统临时文件
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã§Â³Â»Ã§Â»Å¸Ã¤Â¸Â´Ã¦â€”Â¶Ã¦â€“â€¡Ã¤Â»Â¶
 # English: System temporary files
 .DS_Store
 Thumbs.db
 
-# 中文：环境变量文件，不上传账号、路径、token
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã§Å½Â¯Ã¥Â¢Æ’Ã¥ÂËœÃ©â€¡ÂÃ¦â€“â€¡Ã¤Â»Â¶Ã¯Â¼Å’Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â Ã¨Â´Â¦Ã¥ÂÂ·Ã£â‚¬ÂÃ¨Â·Â¯Ã¥Â¾â€žÃ£â‚¬Âtoken
 # English: Environment files, do not upload accounts, paths, or tokens
 .env
 .env.*
 
-# 中文：Jupyter 临时检查点
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Jupyter Ã¤Â¸Â´Ã¦â€”Â¶Ã¦Â£â‚¬Ã¦Å¸Â¥Ã§â€šÂ¹
 # English: Jupyter temporary checkpoints
 .ipynb_checkpoints/
 
-# 中文：大型数据文件不要上传到 GitHub
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Â¤Â§Ã¥Å¾â€¹Ã¦â€¢Â°Ã¦ÂÂ®Ã¦â€“â€¡Ã¤Â»Â¶Ã¤Â¸ÂÃ¨Â¦ÂÃ¤Â¸Å Ã¤Â¼Â Ã¥Ë†Â° GitHub
 # English: Do not upload large dataset files to GitHub
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# 中文：模型权重和 checkpoint 不上传
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¦Â¨Â¡Ã¥Å¾â€¹Ã¦ÂÆ’Ã©â€¡ÂÃ¥â€™Å’ checkpoint Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â 
 # English: Do not upload model weights and checkpoints
 *.pt
 *.pth
@@ -46,7 +46,7 @@ checkpoints/
 /src/models/
 weights/
 
-# 中文：实验输出一般不上传，除非是小的最终表格或图
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Â®Å¾Ã©ÂªÅ’Ã¨Â¾â€œÃ¥â€¡ÂºÃ¤Â¸â‚¬Ã¨Ë†Â¬Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â Ã¯Â¼Å’Ã©â„¢Â¤Ã©ÂÅ¾Ã¦ËœÂ¯Ã¥Â°ÂÃ§Å¡â€žÃ¦Å“â‚¬Ã§Â»Ë†Ã¨Â¡Â¨Ã¦Â Â¼Ã¦Ë†â€“Ã¥â€ºÂ¾
 # English: Do not upload large experiment outputs, except small final tables or figures
 results/logs/*
 results/tmp/*
@@ -54,16 +54,34 @@ wandb/
 runs/
 mlruns/
 
-# 中文：GPU / HPC 作业输出文件
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡GPU / HPC Ã¤Â½Å“Ã¤Â¸Å¡Ã¨Â¾â€œÃ¥â€¡ÂºÃ¦â€“â€¡Ã¤Â»Â¶
 # English: GPU / HPC job output files
 *.out
 *.err
 slurm-*.out
 
-# 中文：压缩包和大型二进制文件
+# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Å½â€¹Ã§Â¼Â©Ã¥Å’â€¦Ã¥â€™Å’Ã¥Â¤Â§Ã¥Å¾â€¹Ã¤ÂºÅ’Ã¨Â¿â€ºÃ¥Ë†Â¶Ã¦â€“â€¡Ã¤Â»Â¶
 # English: Archives and large binary files
 *.zip
 *.tar
 *.tar.gz
 *.7z
 *.rar
+/scripts/DF-04-02 Lora_Batch12/
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/adapter_model.safetensors
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/action_head.pt
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/proprio_projector.pt
+
+# BEGIN DF-04-03 GIT ARTIFACT RULES
+# Keep the entire DF-04-03 task trackable.
+!/scripts/DF-04-03 Lora+OFT/
+!/scripts/DF-04-03 Lora+OFT/**
+
+# Keep only the large trained model binaries local.
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/adapter_model.safetensors
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/action_head.pt
+/scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/proprio_projector.pt
+
+# Keep the complete DF-04-02 workspace local.
+/scripts/DF-04-02 Lora_Batch12/
+# END DF-04-03 GIT ARTIFACT RULES

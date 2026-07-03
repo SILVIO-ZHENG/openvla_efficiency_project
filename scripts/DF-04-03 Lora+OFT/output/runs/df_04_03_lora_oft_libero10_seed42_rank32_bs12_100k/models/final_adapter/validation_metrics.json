@@ -1,0 +1,6 @@
+{
+  "global_step": 100000,
+  "final_train_loss": 0.03951345384120941,
+  "best_val_loss": 0.10628223688418949,
+  "best_checkpoint_step": 100000
+}

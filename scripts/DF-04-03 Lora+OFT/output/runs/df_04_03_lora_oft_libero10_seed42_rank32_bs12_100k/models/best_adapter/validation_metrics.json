@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-07-03T15:15:34.045041+00:00",
+  "step": 100000,
+  "validation_type": "full",
+  "validation_completed": true,
+  "validation_stop_reason": "dataloader_exhausted",
+  "train_loss": 0.03951345384120941,
+  "val_loss": 0.10628223688418949,
+  "curr_action_l1_loss": 0.10637827107772296,
+  "next_actions_l1_loss": 0.10626851356543568,
+  "val_batches_count": 229,
+  "validation_time_seconds": 130.872916,
+  "overfitting": {
+    "overfitting_checked": true,
+    "overfitting_detected": false,
+    "overfitting_reason": "no_clear_overfitting_signal",
+    "overfitting_points_used": 3,
+    "previous_best_val_loss": 0.10642203546279642,
+    "recent_val_losses": [
+      0.1084502895960511,
+      0.10657725355478093,
+      0.10628223688418949
+    ],
+    "recent_train_losses": [
+      0.0794343501329422,
+      0.03520761430263519,
+      0.03951345384120941
+    ]
+  },
+  "best_val_loss": 0.10628223688418949,
+  "best_checkpoint_step": 100000
+}
