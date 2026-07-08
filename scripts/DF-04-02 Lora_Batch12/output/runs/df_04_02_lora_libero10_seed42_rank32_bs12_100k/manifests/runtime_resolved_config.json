@@ -1,0 +1,130 @@
+{
+  "created_at": "2026-07-05T00:48:57.414757+00:00",
+  "run_id_note": "df_04_02_lora_libero10_seed42_rank32_bs12_100k",
+  "random_seed": 42,
+  "tracking": {
+    "wandb_project": "openvla_efficiency",
+    "wandb_logging_enabled": false
+  },
+  "launch_config": {
+    "path": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/launch_resolved_config.yaml",
+    "sha256": "5d8cf3a26346e368523b6cf17cfdea881cedef4ddfd32864850f8cd5f06ea206"
+  },
+  "model": {
+    "hub_id": "openvla/openvla-7b",
+    "loaded_from": "/root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f",
+    "local_files_only": true,
+    "requested_torch_dtype": "bfloat16",
+    "requested_device": "cuda",
+    "torch_dtype": "torch.bfloat16",
+    "device": "cuda:0",
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+  },
+  "dataset": {
+    "name": "libero_10_no_noops",
+    "data_root_dir": "/root/autodl-tmp/datasets/openvla_modified_libero_rlds",
+    "episode_split_json": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/splits/libero_10_episode_split_seed42.json",
+    "episode_split_sha256": "050cb395f9db131c582b2de1d9334e463a8b5c9793b95bb3cdc7ac32ecbd9210",
+    "split_seed": 42,
+    "split_totals": {
+      "original_episode_count": 379,
+      "train_count": 330,
+      "val_count": 10,
+      "test_count": 39
+    },
+    "train_split_name": "train",
+    "val_split_name": "val",
+    "test_split_name": "test",
+    "normalization_stats_json": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/model_config/dataset_statistics_libero_10_train_seed42.json",
+    "normalization_stats_sha256": "c70512d198ed1be8fda4f3bebcd83057e38b816f9f070280cb443e9b6f2b2885",
+    "normalization_stats_source": "train_only",
+    "normalization_dataset_keys": [
+      "libero_10_no_noops"
+    ]
+  },
+  "input": {
+    "num_images_in_input": 2,
+    "use_wrist_image": true,
+    "use_proprio": true,
+    "proprio_dim": 8,
+    "normalization_type": "NormalizationType.BOUNDS_Q99"
+  },
+  "training_objective": "token_cross_entropy",
+  "action_target": {
+    "use_l1_regression": false,
+    "use_action_head": false,
+    "use_diffusion": false,
+    "use_film": false,
+    "action_dim": 7,
+    "num_actions_chunk": 1
+  },
+  "lora_config": {
+    "adapter_name": "default",
+    "r": 32,
+    "lora_alpha": 16,
+    "lora_dropout": 0.0,
+    "target_modules": [
+      "down_proj",
+      "fc1",
+      "fc2",
+      "fc3",
+      "gate_proj",
+      "k_proj",
+      "kv",
+      "lm_head",
+      "o_proj",
+      "proj",
+      "q",
+      "q_proj",
+      "qkv",
+      "up_proj",
+      "v_proj"
+    ],
+    "init_lora_weights": "gaussian",
+    "bias": "none",
+    "task_type": "None"
+  },
+  "training": {
+    "objective": "token_cross_entropy",
+    "per_device_batch_size": 12,
+    "world_size": 1,
+    "grad_accumulation_steps": 1,
+    "effective_global_batch_size": 12,
+    "learning_rate": 0.0005,
+    "lr_warmup_steps": 0,
+    "num_steps_before_decay": 100000,
+    "max_steps": 100000,
+    "image_aug": true,
+    "shuffle_buffer_size": 100000,
+    "validate_finite_values": false,
+    "optimizer": "AdamW",
+    "scheduler": "MultiStepLR",
+    "initial_global_step": 0
+  },
+  "validation": {
+    "validation_start_step": 10000,
+    "validation_interval_steps": 10000,
+    "validation_max_batches": null,
+    "validation_time_limit_seconds": 420,
+    "best_model_start_step": 10000,
+    "overfit_patience": 3,
+    "overfit_min_delta": 0.0
+  },
+  "checkpointing": {
+    "resume_checkpoint_steps": [],
+    "save_total_limit": 0,
+    "resume_from_checkpoint": "none"
+  },
+  "parameters": {
+    "vla_total_params": 7652065472,
+    "vla_trainable_params": 110828288,
+    "proprio_projector_total_params": 16818176,
+    "proprio_projector_trainable_params": 16818176,
+    "total_params": 7668883648,
+    "trainable_params": 127646464
+  },
+  "software": {
+    "torch_version": "2.11.0+cu128",
+    "cuda_version": "12.8"
+  }
+}

@@ -1,0 +1,356 @@
+Command:
+torchrun --standalone --nnodes 1 --nproc-per-node 1 '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/scripts/finetune.py' --vla_path /root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f --model_hub_id openvla/openvla-7b --local_files_only True --torch_dtype bfloat16 --device cuda --data_root_dir /root/autodl-tmp/datasets/openvla_modified_libero_rlds --dataset_name libero_10_no_noops --episode_split_json '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/splits/libero_10_episode_split_seed42.json' --train_split_name train --val_split_name val --test_split_name test --expected_train_episodes 330 --expected_val_episodes 10 --expected_test_episodes 39 --split_seed 42 --normalization_stats_json '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/model_config/dataset_statistics_libero_10_train_seed42.json' --normalization_stats_source train_only --allow_pipeline_debug_stats False --run_root_dir '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k' --runtime_resolved_config_path '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/runtime_resolved_config.json' --training_summary_path '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/training_summary.json' --validation_history_path '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/validation_history.jsonl' --launch_resolved_config_path '/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/launch_resolved_config.yaml' --training_objective token_cross_entropy --use_l1_regression False --use_action_head False --use_diffusion False --use_film False --num_images_in_input 2 --use_proprio True --batch_size 12 --max_steps 100000 --learning_rate 0.0005 --lr_warmup_steps 0 --num_steps_before_decay 100000 --grad_accumulation_steps 1 --image_aug True --shuffle_buffer_size 100000 --use_quantization False --validate_finite_values False --random_seed 42 --use_lora True --lora_rank 32 --lora_alpha 16 --lora_dropout 0.0 --lora_target_modules all-linear --init_lora_weights gaussian --console_log_interval_steps 500 --validation_start_step 10000 --validation_interval_steps 10000 --validation_max_batches none --validation_time_limit_seconds 420 --best_model_start_step 10000 --overfit_patience 3 --overfit_min_delta 0.0 --resume_checkpoint_steps '[]' --save_total_limit 0 --resume_from_checkpoint none --wandb_project openvla_efficiency --run_id_note df_04_02_lora_libero10_seed42_rank32_bs12_100k
+
+Offline model loading: enabled
+Local model path: /root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f
+Split JSON: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/splits/libero_10_episode_split_seed42.json
+Train split name: train
+
+2026-07-05 08:48:33.697549: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-05 08:48:33.737235: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 08:48:33.737255: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 08:48:33.738660: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2026-07-05 08:48:33.744711: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-07-05 08:48:34.412965: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+2026-07-05 08:48:38.871404: W tensorflow/core/common_runtime/gpu/gpu_device.cc:2256] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  3.54it/s]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  4.87it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.49it/s]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  5.10it/s]
+trainable params: 110,828,288 || all params: 7,652,065,472 || trainable%: 1.4483
+2026-07-05 08:48:54.487237: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-07-05 08:48:54.589081: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+
+######################################################################################
+# Loading the following 1 datasets (incl. sampling weight):                         #
+# libero_10_no_noops: ======================================================1.000000 #
+######################################################################################
+
+07/05 [08:48:55] INFO     | >> [*] Threads per Dataset: [1]                                                                                                                                                                     dataset.py:692
+                 INFO     | >> [*] Reads per Dataset: [1]                                                                                                                                                                       dataset.py:693
+                 INFO     | >> [*] Constructing datasets...                                                                                                                                                                     dataset.py:696
+2026-07-05 08:48:55.216169: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-07-05 08:48:55.256096: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+07/05 [08:48:56] INFO     | >> [*] Applying frame transforms on dataset...                                                                                                                                                      dataset.py:737
+2026-07-05 08:48:56.963224: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-07-05 08:48:57.004419: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+
+######################################################################################
+# Loading the following 1 datasets (incl. sampling weight):                         #
+# libero_10_no_noops: ======================================================1.000000 #
+######################################################################################
+
+07/05 [08:48:57] INFO     | >> [*] Threads per Dataset: [1]                                                                                                                                                                     dataset.py:692
+                 INFO     | >> [*] Reads per Dataset: [1]                                                                                                                                                                       dataset.py:693
+                 INFO     | >> [*] Constructing datasets...                                                                                                                                                                     dataset.py:696
+2026-07-05 08:48:57.120852: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+2026-07-05 08:48:57.160357: I tensorflow/core/grappler/optimizers/data/replicate_on_split.cc:32] Running replicate on split optimization
+                 INFO     | >> [*] Applying frame transforms on dataset...                                                                                                                                                      dataset.py:737
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+
+  0%|          | 0/100000 [00:00<?, ?it/s]WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+W0000 00:00:1783212537.764357    3427 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -10 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -14 } dim { size: -15 } dim { size: -10 } } }
+W0000 00:00:1783212537.764856    3427 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -11 } } } inputs { dtype: DT_FLOAT shape { dim { size: -3 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -3 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -3 } dim { size: -16 } dim { size: -17 } dim { size: -11 } } }
+W0000 00:00:1783212537.764948    3427 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -12 } } } inputs { dtype: DT_FLOAT shape { dim { size: -6 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -6 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -6 } dim { size: -24 } dim { size: -25 } dim { size: -12 } } }
+W0000 00:00:1783212537.765020    3427 op_level_cost_estimator.cc:699] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: 1 } dim { size: 224 } dim { size: 224 } dim { size: -13 } } } inputs { dtype: DT_FLOAT shape { dim { size: -7 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -7 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "GenuineIntel" model: "111" frequency: 2100 num_cores: 208 environment { key: "cpu_instruction_set" value: "AVX SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 49152 l2_cache_size: 2097152 l3_cache_size: 110100480 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -7 } dim { size: -26 } dim { size: -27 } dim { size: -13 } } }
+
+  0%|          | 500/100000 [10:58<36:31:59,  1.32s/it][DF-04-02 TRAIN] step=500 train_loss=3.1900012493133545 train_action_token_accuracy=0.4642857015132904 learning_rate=0.0005 gradient_norm=1.16095769405365 elapsed_time_hours=0.182857 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  1%|          | 1000/100000 [21:51<36:27:59,  1.33s/it][DF-04-02 TRAIN] step=1000 train_loss=2.6936967372894287 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=0.799360990524292 elapsed_time_hours=0.364278 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  2%|▏         | 1500/100000 [32:46<36:24:25,  1.33s/it][DF-04-02 TRAIN] step=1500 train_loss=2.577699661254883 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=0.8441497683525085 elapsed_time_hours=0.546292 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  2%|▏         | 2000/100000 [43:40<36:13:20,  1.33s/it][DF-04-02 TRAIN] step=2000 train_loss=2.7148218154907227 train_action_token_accuracy=0.4761904776096344 learning_rate=0.0005 gradient_norm=0.8613343238830566 elapsed_time_hours=0.727844 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  2%|▎         | 2500/100000 [54:31<35:50:59,  1.32s/it][DF-04-02 TRAIN] step=2500 train_loss=2.6868507862091064 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=0.9446834921836853 elapsed_time_hours=0.908735 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  3%|▎         | 3000/100000 [1:05:23<35:10:10,  1.31s/it][DF-04-02 TRAIN] step=3000 train_loss=3.3374106884002686 train_action_token_accuracy=0.3928571343421936 learning_rate=0.0005 gradient_norm=1.314322829246521 elapsed_time_hours=1.089903 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  4%|▎         | 3500/100000 [1:16:16<34:51:13,  1.30s/it][DF-04-02 TRAIN] step=3500 train_loss=2.729090929031372 train_action_token_accuracy=0.4523809552192688 learning_rate=0.0005 gradient_norm=1.1892101764678955 elapsed_time_hours=1.271125 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  4%|▍         | 4000/100000 [1:27:09<35:29:47,  1.33s/it][DF-04-02 TRAIN] step=4000 train_loss=2.8576724529266357 train_action_token_accuracy=0.4047619104385376 learning_rate=0.0005 gradient_norm=1.7657811641693115 elapsed_time_hours=1.452545 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  4%|▍         | 4500/100000 [1:38:01<34:40:36,  1.31s/it][DF-04-02 TRAIN] step=4500 train_loss=2.7266626358032227 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=1.2087805271148682 elapsed_time_hours=1.633836 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  5%|▌         | 5000/100000 [1:48:50<34:23:25,  1.30s/it][DF-04-02 TRAIN] step=5000 train_loss=2.306342601776123 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=1.0564781427383423 elapsed_time_hours=1.814021 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  6%|▌         | 5500/100000 [1:59:40<34:27:15,  1.31s/it][DF-04-02 TRAIN] step=5500 train_loss=2.5793354511260986 train_action_token_accuracy=0.4761904776096344 learning_rate=0.0005 gradient_norm=1.2857236862182617 elapsed_time_hours=1.994495 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  6%|▌         | 6000/100000 [2:10:31<34:08:11,  1.31s/it][DF-04-02 TRAIN] step=6000 train_loss=2.5199248790740967 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=1.403626561164856 elapsed_time_hours=2.175441 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  6%|▋         | 6500/100000 [2:21:26<34:43:43,  1.34s/it][DF-04-02 TRAIN] step=6500 train_loss=2.6385250091552734 train_action_token_accuracy=0.488095223903656 learning_rate=0.0005 gradient_norm=1.7113571166992188 elapsed_time_hours=2.357351 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  7%|▋         | 7000/100000 [2:32:22<33:59:09,  1.32s/it][DF-04-02 TRAIN] step=7000 train_loss=2.615338087081909 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=1.4782488346099854 elapsed_time_hours=2.539535 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  8%|▊         | 7500/100000 [2:43:17<34:52:17,  1.36s/it][DF-04-02 TRAIN] step=7500 train_loss=2.9676666259765625 train_action_token_accuracy=0.4166666567325592 learning_rate=0.0005 gradient_norm=1.6747905015945435 elapsed_time_hours=2.721406 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  8%|▊         | 8000/100000 [2:54:11<33:57:53,  1.33s/it][DF-04-02 TRAIN] step=8000 train_loss=2.5197594165802 train_action_token_accuracy=0.488095223903656 learning_rate=0.0005 gradient_norm=1.451119303703308 elapsed_time_hours=2.903182 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  8%|▊         | 8500/100000 [3:05:06<33:40:15,  1.32s/it][DF-04-02 TRAIN] step=8500 train_loss=2.4716837406158447 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=1.4918928146362305 elapsed_time_hours=3.085021 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+  9%|▉         | 9000/100000 [3:15:58<33:18:15,  1.32s/it][DF-04-02 TRAIN] step=9000 train_loss=2.3793442249298096 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=1.3189789056777954 elapsed_time_hours=3.266351 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 10%|▉         | 9500/100000 [3:26:55<33:19:47,  1.33s/it][DF-04-02 TRAIN] step=9500 train_loss=2.2791080474853516 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=1.7606371641159058 elapsed_time_hours=3.44869 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 10%|█         | 10000/100000 [3:37:52<33:00:19,  1.32s/it][DF-04-02 TRAIN] step=10000 train_loss=2.7119686603546143 train_action_token_accuracy=0.4166666567325592 learning_rate=0.0005 gradient_norm=2.0139620304107666 elapsed_time_hours=3.631198 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=10000 val_loss=2.9782669634001024 val_action_token_accuracy=0.4848045586324103 train_loss=2.7119686603546143 train_action_token_accuracy=0.4166666567325592 val_batches=239 overfitting_detected=False best_improved=True
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+
+ 10%|█         | 10500/100000 [3:50:51<32:39:50,  1.31s/it][DF-04-02 TRAIN] step=10500 train_loss=2.458207130432129 train_action_token_accuracy=0.4285714328289032 learning_rate=0.0005 gradient_norm=1.9491184949874878 elapsed_time_hours=3.847554 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 11%|█         | 11000/100000 [4:01:41<32:35:03,  1.32s/it][DF-04-02 TRAIN] step=11000 train_loss=2.0909268856048584 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=1.931199073791504 elapsed_time_hours=4.028061 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 12%|█▏        | 11500/100000 [4:12:33<32:16:42,  1.31s/it][DF-04-02 TRAIN] step=11500 train_loss=2.1905429363250732 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=1.848157525062561 elapsed_time_hours=4.209234 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 12%|█▏        | 12000/100000 [4:23:24<31:52:07,  1.30s/it][DF-04-02 TRAIN] step=12000 train_loss=2.3172473907470703 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=2.1126105785369873 elapsed_time_hours=4.390269 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 12%|█▎        | 12500/100000 [4:34:16<31:50:05,  1.31s/it][DF-04-02 TRAIN] step=12500 train_loss=2.385291814804077 train_action_token_accuracy=0.511904776096344 learning_rate=0.0005 gradient_norm=2.332151412963867 elapsed_time_hours=4.571182 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 13%|█▎        | 13000/100000 [4:45:07<31:42:06,  1.31s/it][DF-04-02 TRAIN] step=13000 train_loss=2.6861159801483154 train_action_token_accuracy=0.4285714328289032 learning_rate=0.0005 gradient_norm=2.7493526935577393 elapsed_time_hours=4.752148 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 14%|█▎        | 13500/100000 [4:56:00<31:41:02,  1.32s/it][DF-04-02 TRAIN] step=13500 train_loss=2.496175527572632 train_action_token_accuracy=0.4761904776096344 learning_rate=0.0005 gradient_norm=2.318166971206665 elapsed_time_hours=4.933456 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 14%|█▍        | 14000/100000 [5:06:51<31:19:22,  1.31s/it][DF-04-02 TRAIN] step=14000 train_loss=1.8378125429153442 train_action_token_accuracy=0.6071428656578064 learning_rate=0.0005 gradient_norm=1.8569300174713135 elapsed_time_hours=5.11444 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 14%|█▍        | 14500/100000 [5:17:41<31:04:51,  1.31s/it][DF-04-02 TRAIN] step=14500 train_loss=2.0125889778137207 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=2.225155830383301 elapsed_time_hours=5.294809 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 15%|█▌        | 15000/100000 [5:28:30<30:38:29,  1.30s/it][DF-04-02 TRAIN] step=15000 train_loss=2.1339426040649414 train_action_token_accuracy=0.4761904776096344 learning_rate=0.0005 gradient_norm=2.246026039123535 elapsed_time_hours=5.475263 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 16%|█▌        | 15500/100000 [5:39:20<30:42:32,  1.31s/it][DF-04-02 TRAIN] step=15500 train_loss=2.1899776458740234 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=2.343708038330078 elapsed_time_hours=5.655628 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 16%|█▌        | 16000/100000 [5:50:09<30:32:15,  1.31s/it][DF-04-02 TRAIN] step=16000 train_loss=2.002934455871582 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=2.0830299854278564 elapsed_time_hours=5.836041 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 16%|█▋        | 16500/100000 [6:00:59<30:09:45,  1.30s/it][DF-04-02 TRAIN] step=16500 train_loss=2.4793550968170166 train_action_token_accuracy=0.4523809552192688 learning_rate=0.0005 gradient_norm=2.5842959880828857 elapsed_time_hours=6.016498 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 17%|█▋        | 17000/100000 [6:11:49<29:56:21,  1.30s/it][DF-04-02 TRAIN] step=17000 train_loss=1.9116121530532837 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=2.317918062210083 elapsed_time_hours=6.197019 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 18%|█▊        | 17500/100000 [6:22:35<29:58:52,  1.31s/it][DF-04-02 TRAIN] step=17500 train_loss=2.3601019382476807 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=2.684593677520752 elapsed_time_hours=6.376443 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 18%|█▊        | 18000/100000 [6:33:22<29:27:28,  1.29s/it][DF-04-02 TRAIN] step=18000 train_loss=2.1584513187408447 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=2.6822807788848877 elapsed_time_hours=6.556183 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 18%|█▊        | 18500/100000 [6:44:09<29:35:42,  1.31s/it][DF-04-02 TRAIN] step=18500 train_loss=2.1870012283325195 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=2.9256443977355957 elapsed_time_hours=6.736087 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 19%|█▉        | 19000/100000 [6:54:57<29:22:21,  1.31s/it][DF-04-02 TRAIN] step=19000 train_loss=1.7265558242797852 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=2.182990550994873 elapsed_time_hours=6.915916 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 20%|█▉        | 19500/100000 [7:05:44<29:20:49,  1.31s/it][DF-04-02 TRAIN] step=19500 train_loss=2.2056472301483154 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=2.7870519161224365 elapsed_time_hours=7.095682 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 20%|██        | 20000/100000 [7:16:34<29:23:14,  1.32s/it][DF-04-02 TRAIN] step=20000 train_loss=1.9582653045654297 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=2.672738552093506 elapsed_time_hours=7.276126 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=20000 val_loss=3.269491254784572 val_action_token_accuracy=0.47610716784964513 train_loss=1.9582653045654297 train_action_token_accuracy=0.5357142686843872 val_batches=239 overfitting_detected=False best_improved=False
+
+ 20%|██        | 20500/100000 [7:29:24<29:02:58,  1.32s/it][DF-04-02 TRAIN] step=20500 train_loss=2.2145955562591553 train_action_token_accuracy=0.523809552192688 learning_rate=0.0005 gradient_norm=2.5844695568084717 elapsed_time_hours=7.490019 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 21%|██        | 21000/100000 [7:40:17<28:46:01,  1.31s/it][DF-04-02 TRAIN] step=21000 train_loss=2.07340145111084 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=2.9852309226989746 elapsed_time_hours=7.671551 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 22%|██▏       | 21500/100000 [7:51:10<28:28:17,  1.31s/it][DF-04-02 TRAIN] step=21500 train_loss=1.9976876974105835 train_action_token_accuracy=0.5 learning_rate=0.0005 gradient_norm=2.822615146636963 elapsed_time_hours=7.852784 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 22%|██▏       | 22000/100000 [8:02:01<28:35:52,  1.32s/it][DF-04-02 TRAIN] step=22000 train_loss=1.8825253248214722 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=2.4409778118133545 elapsed_time_hours=8.033688 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 22%|██▎       | 22500/100000 [8:12:57<28:53:04,  1.34s/it][DF-04-02 TRAIN] step=22500 train_loss=1.8170747756958008 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=2.528808832168579 elapsed_time_hours=8.215885 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 23%|██▎       | 23000/100000 [8:23:49<28:00:54,  1.31s/it][DF-04-02 TRAIN] step=23000 train_loss=1.6452507972717285 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=2.4072117805480957 elapsed_time_hours=8.397158 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 24%|██▎       | 23500/100000 [8:34:41<27:40:15,  1.30s/it][DF-04-02 TRAIN] step=23500 train_loss=1.7626906633377075 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=2.6269402503967285 elapsed_time_hours=8.578322 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 24%|██▍       | 24000/100000 [8:45:33<27:42:41,  1.31s/it][DF-04-02 TRAIN] step=24000 train_loss=2.0417041778564453 train_action_token_accuracy=0.5476190447807312 learning_rate=0.0005 gradient_norm=3.1523096561431885 elapsed_time_hours=8.759357 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 24%|██▍       | 24500/100000 [8:56:29<27:55:44,  1.33s/it][DF-04-02 TRAIN] step=24500 train_loss=1.6585699319839478 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=2.5391030311584473 elapsed_time_hours=8.941425 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 25%|██▌       | 25000/100000 [9:07:24<27:34:26,  1.32s/it][DF-04-02 TRAIN] step=25000 train_loss=1.7091121673583984 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=2.786259174346924 elapsed_time_hours=9.123462 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 26%|██▌       | 25500/100000 [9:18:19<27:17:04,  1.32s/it][DF-04-02 TRAIN] step=25500 train_loss=1.7296003103256226 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=2.3311498165130615 elapsed_time_hours=9.305438 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 26%|██▌       | 26000/100000 [9:29:12<27:04:30,  1.32s/it][DF-04-02 TRAIN] step=26000 train_loss=1.691947340965271 train_action_token_accuracy=0.5714285969734192 learning_rate=0.0005 gradient_norm=2.678645133972168 elapsed_time_hours=9.486792 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 26%|██▋       | 26500/100000 [9:40:07<26:48:42,  1.31s/it][DF-04-02 TRAIN] step=26500 train_loss=2.0143721103668213 train_action_token_accuracy=0.4523809552192688 learning_rate=0.0005 gradient_norm=2.991124391555786 elapsed_time_hours=9.668634 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 27%|██▋       | 27000/100000 [9:51:01<26:42:45,  1.32s/it][DF-04-02 TRAIN] step=27000 train_loss=1.8956856727600098 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=3.1587014198303223 elapsed_time_hours=9.850291 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 28%|██▊       | 27500/100000 [10:01:55<26:29:31,  1.32s/it][DF-04-02 TRAIN] step=27500 train_loss=1.7059416770935059 train_action_token_accuracy=0.6071428656578064 learning_rate=0.0005 gradient_norm=2.8874192237854004 elapsed_time_hours=10.031951 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 28%|██▊       | 28000/100000 [10:12:49<26:29:36,  1.32s/it][DF-04-02 TRAIN] step=28000 train_loss=1.5620994567871094 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=2.805990219116211 elapsed_time_hours=10.213776 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 28%|██▊       | 28500/100000 [10:23:44<26:11:16,  1.32s/it][DF-04-02 TRAIN] step=28500 train_loss=1.4629329442977905 train_action_token_accuracy=0.6071428656578064 learning_rate=0.0005 gradient_norm=2.462968587875366 elapsed_time_hours=10.395638 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 29%|██▉       | 29000/100000 [10:34:37<25:56:56,  1.32s/it][DF-04-02 TRAIN] step=29000 train_loss=1.444719910621643 train_action_token_accuracy=0.6904761791229248 learning_rate=0.0005 gradient_norm=2.5628955364227295 elapsed_time_hours=10.5771 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 30%|██▉       | 29500/100000 [10:45:32<25:45:40,  1.32s/it][DF-04-02 TRAIN] step=29500 train_loss=1.6854239702224731 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=3.2631471157073975 elapsed_time_hours=10.759127 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 30%|███       | 30000/100000 [10:56:26<25:37:51,  1.32s/it][DF-04-02 TRAIN] step=30000 train_loss=1.7077155113220215 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=2.787142515182495 elapsed_time_hours=10.940563 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=30000 val_loss=3.3957396508759534 val_action_token_accuracy=0.47335799260221934 train_loss=1.7077155113220215 train_action_token_accuracy=0.6547619104385376 val_batches=239 overfitting_detected=True best_improved=False
+
+ 30%|███       | 30500/100000 [11:09:16<25:04:30,  1.30s/it][DF-04-02 TRAIN] step=30500 train_loss=1.6995922327041626 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=2.9059228897094727 elapsed_time_hours=11.154608 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 31%|███       | 31000/100000 [11:20:09<24:58:23,  1.30s/it][DF-04-02 TRAIN] step=31000 train_loss=1.5928832292556763 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=2.9661009311676025 elapsed_time_hours=11.335851 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 32%|███▏      | 31500/100000 [11:31:01<24:54:26,  1.31s/it][DF-04-02 TRAIN] step=31500 train_loss=1.7553061246871948 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=3.1524879932403564 elapsed_time_hours=11.517206 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 32%|███▏      | 32000/100000 [11:41:54<24:43:38,  1.31s/it][DF-04-02 TRAIN] step=32000 train_loss=1.5256558656692505 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=2.9816977977752686 elapsed_time_hours=11.698493 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 32%|███▎      | 32500/100000 [11:52:45<24:44:01,  1.32s/it][DF-04-02 TRAIN] step=32500 train_loss=1.6679002046585083 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=3.3021514415740967 elapsed_time_hours=11.879274 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 33%|███▎      | 33000/100000 [12:03:36<24:27:38,  1.31s/it][DF-04-02 TRAIN] step=33000 train_loss=1.5598145723342896 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.4008679389953613 elapsed_time_hours=12.060129 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 34%|███▎      | 33500/100000 [12:14:27<24:12:32,  1.31s/it][DF-04-02 TRAIN] step=33500 train_loss=1.571398138999939 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=3.091447353363037 elapsed_time_hours=12.241055 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 34%|███▍      | 34000/100000 [12:25:18<23:58:28,  1.31s/it][DF-04-02 TRAIN] step=34000 train_loss=1.7307004928588867 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=3.2123212814331055 elapsed_time_hours=12.421819 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 34%|███▍      | 34500/100000 [12:36:08<23:44:03,  1.30s/it][DF-04-02 TRAIN] step=34500 train_loss=1.5266236066818237 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=3.126013994216919 elapsed_time_hours=12.602503 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 35%|███▌      | 35000/100000 [12:46:59<23:47:20,  1.32s/it][DF-04-02 TRAIN] step=35000 train_loss=1.663739800453186 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.327638626098633 elapsed_time_hours=12.783174 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 36%|███▌      | 35500/100000 [12:57:50<23:28:20,  1.31s/it][DF-04-02 TRAIN] step=35500 train_loss=1.291131854057312 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=2.524217367172241 elapsed_time_hours=12.963921 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 36%|███▌      | 36000/100000 [13:08:41<23:19:36,  1.31s/it][DF-04-02 TRAIN] step=36000 train_loss=1.4543331861495972 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=3.249235153198242 elapsed_time_hours=13.144838 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 36%|███▋      | 36500/100000 [13:19:32<22:54:23,  1.30s/it][DF-04-02 TRAIN] step=36500 train_loss=1.508636474609375 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.2181413173675537 elapsed_time_hours=13.325595 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 37%|███▋      | 37000/100000 [13:30:22<22:49:31,  1.30s/it][DF-04-02 TRAIN] step=37000 train_loss=1.4154585599899292 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=5.130782604217529 elapsed_time_hours=13.506184 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 38%|███▊      | 37500/100000 [13:41:12<22:46:51,  1.31s/it][DF-04-02 TRAIN] step=37500 train_loss=1.3133660554885864 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=3.1944847106933594 elapsed_time_hours=13.686772 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 38%|███▊      | 38000/100000 [13:52:01<22:15:36,  1.29s/it][DF-04-02 TRAIN] step=38000 train_loss=1.559719443321228 train_action_token_accuracy=0.5595238208770752 learning_rate=0.0005 gradient_norm=3.143467903137207 elapsed_time_hours=13.867189 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 38%|███▊      | 38500/100000 [14:02:51<22:22:30,  1.31s/it][DF-04-02 TRAIN] step=38500 train_loss=1.3330421447753906 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=2.8696811199188232 elapsed_time_hours=14.047721 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 39%|███▉      | 39000/100000 [14:13:42<22:17:28,  1.32s/it][DF-04-02 TRAIN] step=39000 train_loss=1.8179837465286255 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=3.6144816875457764 elapsed_time_hours=14.228578 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 40%|███▉      | 39500/100000 [14:24:34<22:05:25,  1.31s/it][DF-04-02 TRAIN] step=39500 train_loss=1.5403809547424316 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.356938123703003 elapsed_time_hours=14.409561 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 40%|████      | 40000/100000 [14:35:26<21:52:02,  1.31s/it][DF-04-02 TRAIN] step=40000 train_loss=1.927377700805664 train_action_token_accuracy=0.5357142686843872 learning_rate=0.0005 gradient_norm=3.7133424282073975 elapsed_time_hours=14.590593 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=40000 val_loss=3.68057040739259 val_action_token_accuracy=0.4767569729081276 train_loss=1.927377700805664 train_action_token_accuracy=0.5357142686843872 val_batches=239 overfitting_detected=True best_improved=False
+
+ 40%|████      | 40500/100000 [14:48:17<21:43:21,  1.31s/it][DF-04-02 TRAIN] step=40500 train_loss=0.786942720413208 train_action_token_accuracy=0.8095238208770752 learning_rate=0.0005 gradient_norm=2.3527913093566895 elapsed_time_hours=14.804949 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 41%|████      | 41000/100000 [14:59:10<21:22:37,  1.30s/it][DF-04-02 TRAIN] step=41000 train_loss=1.2171553373336792 train_action_token_accuracy=0.75 learning_rate=0.0005 gradient_norm=3.1814167499542236 elapsed_time_hours=14.986133 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 42%|████▏     | 41500/100000 [15:10:02<21:25:00,  1.32s/it][DF-04-02 TRAIN] step=41500 train_loss=1.6369476318359375 train_action_token_accuracy=0.5714285969734192 learning_rate=0.0005 gradient_norm=3.5029032230377197 elapsed_time_hours=15.167286 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 42%|████▏     | 42000/100000 [15:20:53<21:00:52,  1.30s/it][DF-04-02 TRAIN] step=42000 train_loss=1.3853168487548828 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=3.310468912124634 elapsed_time_hours=15.348184 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 42%|████▎     | 42500/100000 [15:31:44<21:02:18,  1.32s/it][DF-04-02 TRAIN] step=42500 train_loss=1.1599507331848145 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.5200679302215576 elapsed_time_hours=15.52903 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 43%|████▎     | 43000/100000 [15:42:36<20:43:25,  1.31s/it][DF-04-02 TRAIN] step=43000 train_loss=1.1213983297348022 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.1904683113098145 elapsed_time_hours=15.710122 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 44%|████▎     | 43500/100000 [15:53:28<20:29:56,  1.31s/it][DF-04-02 TRAIN] step=43500 train_loss=1.3431445360183716 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=3.6687533855438232 elapsed_time_hours=15.891294 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 44%|████▍     | 44000/100000 [16:04:19<20:25:07,  1.31s/it][DF-04-02 TRAIN] step=44000 train_loss=1.2133554220199585 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=3.239814281463623 elapsed_time_hours=16.072197 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 44%|████▍     | 44500/100000 [16:15:11<20:14:49,  1.31s/it][DF-04-02 TRAIN] step=44500 train_loss=1.254621148109436 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.4843475818634033 elapsed_time_hours=16.25315 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 45%|████▌     | 45000/100000 [16:26:03<19:59:36,  1.31s/it][DF-04-02 TRAIN] step=45000 train_loss=1.466668725013733 train_action_token_accuracy=0.6785714030265808 learning_rate=0.0005 gradient_norm=3.7855401039123535 elapsed_time_hours=16.434346 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 46%|████▌     | 45500/100000 [16:36:54<19:40:19,  1.30s/it][DF-04-02 TRAIN] step=45500 train_loss=1.1622520685195923 train_action_token_accuracy=0.7142857313156128 learning_rate=0.0005 gradient_norm=3.538301944732666 elapsed_time_hours=16.615276 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 46%|████▌     | 46000/100000 [16:47:46<19:52:31,  1.33s/it][DF-04-02 TRAIN] step=46000 train_loss=1.2221451997756958 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.138228416442871 elapsed_time_hours=16.796251 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 46%|████▋     | 46500/100000 [16:58:41<19:27:36,  1.31s/it][DF-04-02 TRAIN] step=46500 train_loss=1.1453161239624023 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.6327741146087646 elapsed_time_hours=16.978313 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 47%|████▋     | 47000/100000 [17:09:32<19:21:44,  1.32s/it][DF-04-02 TRAIN] step=47000 train_loss=1.26432466506958 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=3.4525198936462402 elapsed_time_hours=17.159142 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 48%|████▊     | 47500/100000 [17:20:22<19:00:39,  1.30s/it][DF-04-02 TRAIN] step=47500 train_loss=1.4250479936599731 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=4.046790599822998 elapsed_time_hours=17.3397 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 48%|████▊     | 48000/100000 [17:31:13<18:56:27,  1.31s/it][DF-04-02 TRAIN] step=48000 train_loss=1.4211198091506958 train_action_token_accuracy=0.6190476417541504 learning_rate=0.0005 gradient_norm=3.728531837463379 elapsed_time_hours=17.520336 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 48%|████▊     | 48500/100000 [17:42:04<18:54:12,  1.32s/it][DF-04-02 TRAIN] step=48500 train_loss=1.0769332647323608 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.382275104522705 elapsed_time_hours=17.701336 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 49%|████▉     | 49000/100000 [17:52:56<18:52:53,  1.33s/it][DF-04-02 TRAIN] step=49000 train_loss=1.2207542657852173 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=3.663245677947998 elapsed_time_hours=17.882263 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 50%|████▉     | 49500/100000 [18:03:47<18:22:27,  1.31s/it][DF-04-02 TRAIN] step=49500 train_loss=1.2434608936309814 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=3.4120640754699707 elapsed_time_hours=18.063311 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 50%|█████     | 50000/100000 [18:14:39<18:28:45,  1.33s/it][DF-04-02 TRAIN] step=50000 train_loss=1.290486216545105 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=4.191776275634766 elapsed_time_hours=18.244252 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=50000 val_loss=3.976862056734173 val_action_token_accuracy=0.4756073178046586 train_loss=1.290486216545105 train_action_token_accuracy=0.6666666865348816 val_batches=239 overfitting_detected=True best_improved=False
+
+ 50%|█████     | 50500/100000 [18:27:31<18:07:50,  1.32s/it][DF-04-02 TRAIN] step=50500 train_loss=1.308079719543457 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.7621071338653564 elapsed_time_hours=18.458646 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 51%|█████     | 51000/100000 [18:38:25<18:06:51,  1.33s/it][DF-04-02 TRAIN] step=51000 train_loss=1.2809439897537231 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=3.958263635635376 elapsed_time_hours=18.640395 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 52%|█████▏    | 51500/100000 [18:49:20<17:44:51,  1.32s/it][DF-04-02 TRAIN] step=51500 train_loss=1.2720168828964233 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=4.056103706359863 elapsed_time_hours=18.822261 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 52%|█████▏    | 52000/100000 [19:00:10<17:25:46,  1.31s/it][DF-04-02 TRAIN] step=52000 train_loss=1.2455074787139893 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.7510929107666016 elapsed_time_hours=19.002904 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 52%|█████▎    | 52500/100000 [19:11:02<17:18:09,  1.31s/it][DF-04-02 TRAIN] step=52500 train_loss=1.1194446086883545 train_action_token_accuracy=0.6904761791229248 learning_rate=0.0005 gradient_norm=3.323895215988159 elapsed_time_hours=19.183933 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 53%|█████▎    | 53000/100000 [19:21:53<17:08:15,  1.31s/it][DF-04-02 TRAIN] step=53000 train_loss=1.2461460828781128 train_action_token_accuracy=0.6190476417541504 learning_rate=0.0005 gradient_norm=3.9996330738067627 elapsed_time_hours=19.36497 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 54%|█████▎    | 53500/100000 [19:32:45<16:55:38,  1.31s/it][DF-04-02 TRAIN] step=53500 train_loss=0.8617653846740723 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.146914482116699 elapsed_time_hours=19.545968 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 54%|█████▍    | 54000/100000 [19:43:37<16:47:58,  1.31s/it][DF-04-02 TRAIN] step=54000 train_loss=1.2437928915023804 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.949646234512329 elapsed_time_hours=19.726952 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 55%|█████▍    | 54500/100000 [19:54:27<16:31:48,  1.31s/it][DF-04-02 TRAIN] step=54500 train_loss=1.1619826555252075 train_action_token_accuracy=0.6904761791229248 learning_rate=0.0005 gradient_norm=3.7813897132873535 elapsed_time_hours=19.907615 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 55%|█████▌    | 55000/100000 [20:05:17<16:22:54,  1.31s/it][DF-04-02 TRAIN] step=55000 train_loss=1.184861660003662 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=4.01849889755249 elapsed_time_hours=20.088266 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 56%|█████▌    | 55500/100000 [20:16:07<16:09:20,  1.31s/it][DF-04-02 TRAIN] step=55500 train_loss=1.1762884855270386 train_action_token_accuracy=0.6309523582458496 learning_rate=0.0005 gradient_norm=3.890296459197998 elapsed_time_hours=20.268826 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 56%|█████▌    | 56000/100000 [20:26:58<16:00:04,  1.31s/it][DF-04-02 TRAIN] step=56000 train_loss=1.0758804082870483 train_action_token_accuracy=0.6666666865348816 learning_rate=0.0005 gradient_norm=3.591864585876465 elapsed_time_hours=20.449455 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 56%|█████▋    | 56500/100000 [20:37:48<15:49:18,  1.31s/it][DF-04-02 TRAIN] step=56500 train_loss=1.5032609701156616 train_action_token_accuracy=0.5952380895614624 learning_rate=0.0005 gradient_norm=4.369577884674072 elapsed_time_hours=20.63005 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 57%|█████▋    | 57000/100000 [20:48:38<15:35:14,  1.30s/it][DF-04-02 TRAIN] step=57000 train_loss=1.284830927848816 train_action_token_accuracy=0.7142857313156128 learning_rate=0.0005 gradient_norm=4.140670299530029 elapsed_time_hours=20.810766 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 57%|█████▊    | 57500/100000 [20:59:27<15:24:21,  1.30s/it][DF-04-02 TRAIN] step=57500 train_loss=0.9317688941955566 train_action_token_accuracy=0.773809552192688 learning_rate=0.0005 gradient_norm=4.027206897735596 elapsed_time_hours=20.991031 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 58%|█████▊    | 58000/100000 [21:10:18<15:17:15,  1.31s/it][DF-04-02 TRAIN] step=58000 train_loss=0.779690682888031 train_action_token_accuracy=0.7857142686843872 learning_rate=0.0005 gradient_norm=3.290970802307129 elapsed_time_hours=21.171735 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 58%|█████▊    | 58500/100000 [21:21:08<15:03:13,  1.31s/it][DF-04-02 TRAIN] step=58500 train_loss=1.1631442308425903 train_action_token_accuracy=0.6785714030265808 learning_rate=0.0005 gradient_norm=4.439341068267822 elapsed_time_hours=21.35249 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 59%|█████▉    | 59000/100000 [21:31:58<14:49:15,  1.30s/it][DF-04-02 TRAIN] step=59000 train_loss=0.8166176676750183 train_action_token_accuracy=0.75 learning_rate=0.0005 gradient_norm=3.379682779312134 elapsed_time_hours=21.53286 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 60%|█████▉    | 59500/100000 [21:42:49<14:46:15,  1.31s/it][DF-04-02 TRAIN] step=59500 train_loss=0.9148826003074646 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.495962381362915 elapsed_time_hours=21.713691 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 60%|██████    | 60000/100000 [21:53:40<14:31:02,  1.31s/it][DF-04-02 TRAIN] step=60000 train_loss=0.8462486267089844 train_action_token_accuracy=0.75 learning_rate=0.0005 gradient_norm=3.4608395099639893 elapsed_time_hours=21.894535 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=60000 val_loss=4.128607668138448 val_action_token_accuracy=0.4814555633310007 train_loss=0.8462486267089844 train_action_token_accuracy=0.75 val_batches=239 overfitting_detected=True best_improved=False
+
+ 60%|██████    | 60500/100000 [22:06:31<14:23:14,  1.31s/it][DF-04-02 TRAIN] step=60500 train_loss=1.1571166515350342 train_action_token_accuracy=0.6428571343421936 learning_rate=0.0005 gradient_norm=3.8292016983032227 elapsed_time_hours=22.108817 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 61%|██████    | 61000/100000 [22:17:23<14:07:48,  1.30s/it][DF-04-02 TRAIN] step=61000 train_loss=0.9720885753631592 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.9345450401306152 elapsed_time_hours=22.289986 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 62%|██████▏   | 61500/100000 [22:28:14<13:57:42,  1.31s/it][DF-04-02 TRAIN] step=61500 train_loss=1.009509563446045 train_action_token_accuracy=0.7142857313156128 learning_rate=0.0005 gradient_norm=3.5139622688293457 elapsed_time_hours=22.470715 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 62%|██████▏   | 62000/100000 [22:39:06<13:46:54,  1.31s/it][DF-04-02 TRAIN] step=62000 train_loss=1.4142298698425293 train_action_token_accuracy=0.5833333134651184 learning_rate=0.0005 gradient_norm=4.561344146728516 elapsed_time_hours=22.651839 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 62%|██████▎   | 62500/100000 [22:49:56<13:39:08,  1.31s/it][DF-04-02 TRAIN] step=62500 train_loss=1.2524971961975098 train_action_token_accuracy=0.6547619104385376 learning_rate=0.0005 gradient_norm=4.099618911743164 elapsed_time_hours=22.832345 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 63%|██████▎   | 63000/100000 [23:00:47<13:25:58,  1.31s/it][DF-04-02 TRAIN] step=63000 train_loss=1.0150580406188965 train_action_token_accuracy=0.6904761791229248 learning_rate=0.0005 gradient_norm=4.165153980255127 elapsed_time_hours=23.013247 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 64%|██████▎   | 63500/100000 [23:11:37<13:17:05,  1.31s/it][DF-04-02 TRAIN] step=63500 train_loss=0.9285128712654114 train_action_token_accuracy=0.726190447807312 learning_rate=0.0005 gradient_norm=3.7547059059143066 elapsed_time_hours=23.19387 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 64%|██████▍   | 64000/100000 [23:22:28<13:05:52,  1.31s/it][DF-04-02 TRAIN] step=64000 train_loss=1.0673257112503052 train_action_token_accuracy=0.75 learning_rate=0.0005 gradient_norm=3.6940534114837646 elapsed_time_hours=23.37458 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 64%|██████▍   | 64500/100000 [23:33:18<12:55:07,  1.31s/it][DF-04-02 TRAIN] step=64500 train_loss=1.0243703126907349 train_action_token_accuracy=0.6785714030265808 learning_rate=0.0005 gradient_norm=3.7013449668884277 elapsed_time_hours=23.555087 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 65%|██████▌   | 65000/100000 [23:44:08<12:49:02,  1.32s/it][DF-04-02 TRAIN] step=65000 train_loss=1.0366405248641968 train_action_token_accuracy=0.726190447807312 learning_rate=0.0005 gradient_norm=4.231649398803711 elapsed_time_hours=23.735834 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 66%|██████▌   | 65500/100000 [23:54:59<12:37:11,  1.32s/it][DF-04-02 TRAIN] step=65500 train_loss=0.80738765001297 train_action_token_accuracy=0.75 learning_rate=0.0005 gradient_norm=3.7994751930236816 elapsed_time_hours=23.916513 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 66%|██████▌   | 66000/100000 [24:05:49<12:21:33,  1.31s/it][DF-04-02 TRAIN] step=66000 train_loss=0.7204549908638 train_action_token_accuracy=0.8095238208770752 learning_rate=0.0005 gradient_norm=3.5151023864746094 elapsed_time_hours=24.097033 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 66%|██████▋   | 66500/100000 [24:16:40<12:11:05,  1.31s/it][DF-04-02 TRAIN] step=66500 train_loss=0.8724564909934998 train_action_token_accuracy=0.7142857313156128 learning_rate=0.0005 gradient_norm=3.9271392822265625 elapsed_time_hours=24.27797 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 67%|██████▋   | 67000/100000 [24:27:31<12:01:28,  1.31s/it][DF-04-02 TRAIN] step=67000 train_loss=0.5763210654258728 train_action_token_accuracy=0.8333333134651184 learning_rate=0.0005 gradient_norm=3.2407543659210205 elapsed_time_hours=24.458664 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 68%|██████▊   | 67500/100000 [24:38:21<11:43:24,  1.30s/it][DF-04-02 TRAIN] step=67500 train_loss=0.8364160060882568 train_action_token_accuracy=0.7142857313156128 learning_rate=0.0005 gradient_norm=3.820997953414917 elapsed_time_hours=24.639226 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 68%|██████▊   | 68000/100000 [24:49:12<11:37:18,  1.31s/it][DF-04-02 TRAIN] step=68000 train_loss=0.6431182026863098 train_action_token_accuracy=0.7857142686843872 learning_rate=0.0005 gradient_norm=3.6930956840515137 elapsed_time_hours=24.820066 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 68%|██████▊   | 68500/100000 [25:00:03<11:28:20,  1.31s/it][DF-04-02 TRAIN] step=68500 train_loss=0.918398380279541 train_action_token_accuracy=0.738095223903656 learning_rate=0.0005 gradient_norm=3.7289066314697266 elapsed_time_hours=25.000953 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 69%|██████▉   | 69000/100000 [25:10:55<11:14:06,  1.30s/it][DF-04-02 TRAIN] step=69000 train_loss=1.0261472463607788 train_action_token_accuracy=0.7023809552192688 learning_rate=0.0005 gradient_norm=3.67177414894104 elapsed_time_hours=25.181985 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 70%|██████▉   | 69500/100000 [25:21:46<11:25:12,  1.35s/it][DF-04-02 TRAIN] step=69500 train_loss=1.1782069206237793 train_action_token_accuracy=0.6190476417541504 learning_rate=0.0005 gradient_norm=4.304985523223877 elapsed_time_hours=25.362787 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+
+ 70%|███████   | 70000/100000 [25:32:36<10:55:08,  1.31s/it][DF-04-02 TRAIN] step=70000 train_loss=0.7035846710205078 train_action_token_accuracy=0.8333333134651184 learning_rate=0.0005 gradient_norm=3.065859794616699 elapsed_time_hours=25.543446 peak_vram_allocated_gb=70.166649 peak_vram_reserved_gb=73.212891
+[DF-04-02 VAL] step=70000 val_loss=4.391997861812304 val_action_token_accuracy=0.48290512846146155 train_loss=0.7035846710205078 train_action_token_accuracy=0.8333333134651184 val_batches=239 overfitting_detected=True best_improved=False
+
