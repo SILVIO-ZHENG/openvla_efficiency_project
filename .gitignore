@@ -1,41 +1,41 @@
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Python Ã§Â¼â€œÃ¥Â­ËœÃ¦â€“â€¡Ã¤Â»Â¶
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡Python ÃƒÂ§Ã‚Â¼Ã¢â‚¬Å“ÃƒÂ¥Ã‚Â­Ã‹Å“ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶
 # English: Python cache files
 __pycache__/
 *.py[cod]
 *.pyo
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¨â„¢Å¡Ã¦â€¹Å¸Ã§Å½Â¯Ã¥Â¢Æ’
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ¨Ã¢â€žÂ¢Ã…Â¡ÃƒÂ¦Ã¢â‚¬Â¹Ã…Â¸ÃƒÂ§Ã…Â½Ã‚Â¯ÃƒÂ¥Ã‚Â¢Ã†â€™
 # English: Virtual environments
 .venv/
 venv/
 env/
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡PyCharm / IntelliJ Ã¦Å“Â¬Ã¥Å“Â°Ã©â€¦ÂÃ§Â½Â®
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡PyCharm / IntelliJ ÃƒÂ¦Ã…â€œÃ‚Â¬ÃƒÂ¥Ã…â€œÃ‚Â°ÃƒÂ©Ã¢â‚¬Â¦Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®
 # English: PyCharm / IntelliJ local settings
 .idea/
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã§Â³Â»Ã§Â»Å¸Ã¤Â¸Â´Ã¦â€”Â¶Ã¦â€“â€¡Ã¤Â»Â¶
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ§Ã‚Â³Ã‚Â»ÃƒÂ§Ã‚Â»Ã…Â¸ÃƒÂ¤Ã‚Â¸Ã‚Â´ÃƒÂ¦Ã¢â‚¬â€Ã‚Â¶ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶
 # English: System temporary files
 .DS_Store
 Thumbs.db
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã§Å½Â¯Ã¥Â¢Æ’Ã¥ÂËœÃ©â€¡ÂÃ¦â€“â€¡Ã¤Â»Â¶Ã¯Â¼Å’Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â Ã¨Â´Â¦Ã¥ÂÂ·Ã£â‚¬ÂÃ¨Â·Â¯Ã¥Â¾â€žÃ£â‚¬Âtoken
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ§Ã…Â½Ã‚Â¯ÃƒÂ¥Ã‚Â¢Ã†â€™ÃƒÂ¥Ã‚ÂÃ‹Å“ÃƒÂ©Ã¢â‚¬Â¡Ã‚ÂÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶ÃƒÂ¯Ã‚Â¼Ã…â€™ÃƒÂ¤Ã‚Â¸Ã‚ÂÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ¤Ã‚Â¼Ã‚Â ÃƒÂ¨Ã‚Â´Ã‚Â¦ÃƒÂ¥Ã‚ÂÃ‚Â·ÃƒÂ£Ã¢â€šÂ¬Ã‚ÂÃƒÂ¨Ã‚Â·Ã‚Â¯ÃƒÂ¥Ã‚Â¾Ã¢â‚¬Å¾ÃƒÂ£Ã¢â€šÂ¬Ã‚Âtoken
 # English: Environment files, do not upload accounts, paths, or tokens
 .env
 .env.*
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Jupyter Ã¤Â¸Â´Ã¦â€”Â¶Ã¦Â£â‚¬Ã¦Å¸Â¥Ã§â€šÂ¹
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡Jupyter ÃƒÂ¤Ã‚Â¸Ã‚Â´ÃƒÂ¦Ã¢â‚¬â€Ã‚Â¶ÃƒÂ¦Ã‚Â£Ã¢â€šÂ¬ÃƒÂ¦Ã…Â¸Ã‚Â¥ÃƒÂ§Ã¢â‚¬Å¡Ã‚Â¹
 # English: Jupyter temporary checkpoints
 .ipynb_checkpoints/
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Â¤Â§Ã¥Å¾â€¹Ã¦â€¢Â°Ã¦ÂÂ®Ã¦â€“â€¡Ã¤Â»Â¶Ã¤Â¸ÂÃ¨Â¦ÂÃ¤Â¸Å Ã¤Â¼Â Ã¥Ë†Â° GitHub
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ¥Ã‚Â¤Ã‚Â§ÃƒÂ¥Ã…Â¾Ã¢â‚¬Â¹ÃƒÂ¦Ã¢â‚¬Â¢Ã‚Â°ÃƒÂ¦Ã‚ÂÃ‚Â®ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶ÃƒÂ¤Ã‚Â¸Ã‚ÂÃƒÂ¨Ã‚Â¦Ã‚ÂÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ¤Ã‚Â¼Ã‚Â ÃƒÂ¥Ã‹â€ Ã‚Â° GitHub
 # English: Do not upload large dataset files to GitHub
 data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¦Â¨Â¡Ã¥Å¾â€¹Ã¦ÂÆ’Ã©â€¡ÂÃ¥â€™Å’ checkpoint Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â 
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ¦Ã‚Â¨Ã‚Â¡ÃƒÂ¥Ã…Â¾Ã¢â‚¬Â¹ÃƒÂ¦Ã‚ÂÃ†â€™ÃƒÂ©Ã¢â‚¬Â¡Ã‚ÂÃƒÂ¥Ã¢â‚¬â„¢Ã…â€™ checkpoint ÃƒÂ¤Ã‚Â¸Ã‚ÂÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ¤Ã‚Â¼Ã‚Â 
 # English: Do not upload model weights and checkpoints
 *.pt
 *.pth
@@ -46,7 +46,7 @@ checkpoints/
 /src/models/
 weights/
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Â®Å¾Ã©ÂªÅ’Ã¨Â¾â€œÃ¥â€¡ÂºÃ¤Â¸â‚¬Ã¨Ë†Â¬Ã¤Â¸ÂÃ¤Â¸Å Ã¤Â¼Â Ã¯Â¼Å’Ã©â„¢Â¤Ã©ÂÅ¾Ã¦ËœÂ¯Ã¥Â°ÂÃ§Å¡â€žÃ¦Å“â‚¬Ã§Â»Ë†Ã¨Â¡Â¨Ã¦Â Â¼Ã¦Ë†â€“Ã¥â€ºÂ¾
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ¥Ã‚Â®Ã…Â¾ÃƒÂ©Ã‚ÂªÃ…â€™ÃƒÂ¨Ã‚Â¾Ã¢â‚¬Å“ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ¤Ã‚Â¸Ã¢â€šÂ¬ÃƒÂ¨Ã‹â€ Ã‚Â¬ÃƒÂ¤Ã‚Â¸Ã‚ÂÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ¤Ã‚Â¼Ã‚Â ÃƒÂ¯Ã‚Â¼Ã…â€™ÃƒÂ©Ã¢â€žÂ¢Ã‚Â¤ÃƒÂ©Ã‚ÂÃ…Â¾ÃƒÂ¦Ã‹Å“Ã‚Â¯ÃƒÂ¥Ã‚Â°Ã‚ÂÃƒÂ§Ã…Â¡Ã¢â‚¬Å¾ÃƒÂ¦Ã…â€œÃ¢â€šÂ¬ÃƒÂ§Ã‚Â»Ã‹â€ ÃƒÂ¨Ã‚Â¡Ã‚Â¨ÃƒÂ¦Ã‚Â Ã‚Â¼ÃƒÂ¦Ã‹â€ Ã¢â‚¬â€œÃƒÂ¥Ã¢â‚¬ÂºÃ‚Â¾
 # English: Do not upload large experiment outputs, except small final tables or figures
 results/logs/*
 results/tmp/*
@@ -54,20 +54,19 @@ wandb/
 runs/
 mlruns/
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡GPU / HPC Ã¤Â½Å“Ã¤Â¸Å¡Ã¨Â¾â€œÃ¥â€¡ÂºÃ¦â€“â€¡Ã¤Â»Â¶
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡GPU / HPC ÃƒÂ¤Ã‚Â½Ã…â€œÃƒÂ¤Ã‚Â¸Ã…Â¡ÃƒÂ¨Ã‚Â¾Ã¢â‚¬Å“ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶
 # English: GPU / HPC job output files
 *.out
 *.err
 slurm-*.out
 
-# Ã¤Â¸Â­Ã¦â€“â€¡Ã¯Â¼Å¡Ã¥Å½â€¹Ã§Â¼Â©Ã¥Å’â€¦Ã¥â€™Å’Ã¥Â¤Â§Ã¥Å¾â€¹Ã¤ÂºÅ’Ã¨Â¿â€ºÃ¥Ë†Â¶Ã¦â€“â€¡Ã¤Â»Â¶
+# ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡ÃƒÂ¥Ã…Â½Ã¢â‚¬Â¹ÃƒÂ§Ã‚Â¼Ã‚Â©ÃƒÂ¥Ã…â€™Ã¢â‚¬Â¦ÃƒÂ¥Ã¢â‚¬â„¢Ã…â€™ÃƒÂ¥Ã‚Â¤Ã‚Â§ÃƒÂ¥Ã…Â¾Ã¢â‚¬Â¹ÃƒÂ¤Ã‚ÂºÃ…â€™ÃƒÂ¨Ã‚Â¿Ã¢â‚¬ÂºÃƒÂ¥Ã‹â€ Ã‚Â¶ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶
 # English: Archives and large binary files
 *.zip
 *.tar
 *.tar.gz
 *.7z
 *.rar
-/scripts/DF-04-02 Lora_Batch12/
 /scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/adapter_model.safetensors
 /scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/action_head.pt
 /scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/proprio_projector.pt
@@ -83,5 +82,16 @@ slurm-*.out
 /scripts/DF-04-03 Lora+OFT/output/runs/*/models/**/proprio_projector.pt
 
 # Keep the complete DF-04-02 workspace local.
-/scripts/DF-04-02 Lora_Batch12/
 # END DF-04-03 GIT ARTIFACT RULES
+# BEGIN DF-04-02 LARGE LOCAL ARTIFACT RULES
+# Track DF-04-02 code, configs, logs, metrics, and small metadata.
+# Keep only large trained model binaries local.
+/scripts/DF-04-02 Lora_Batch12/**/adapter_model.safetensors
+/scripts/DF-04-02 Lora_Batch12/**/action_head.pt
+/scripts/DF-04-02 Lora_Batch12/**/proprio_projector.pt
+/scripts/DF-04-02 Lora_Batch12/**/model*.safetensors
+/scripts/DF-04-02 Lora_Batch12/**/pytorch_model*.bin
+/scripts/DF-04-02 Lora_Batch12/**/optimizer.pt
+/scripts/DF-04-02 Lora_Batch12/**/scheduler.pt
+/scripts/DF-04-02 Lora_Batch12/**/rng_state*.pth
+# END DF-04-02 LARGE LOCAL ARTIFACT RULES
