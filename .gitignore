@@ -51,7 +51,6 @@ weights/
 results/logs/*
 results/tmp/*
 wandb/
-runs/
 mlruns/
 
 # ÃƒÂ¤Ã‚Â¸Ã‚Â­ÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¯Ã‚Â¼Ã…Â¡GPU / HPC ÃƒÂ¤Ã‚Â½Ã…â€œÃƒÂ¤Ã‚Â¸Ã…Â¡ÃƒÂ¨Ã‚Â¾Ã¢â‚¬Å“ÃƒÂ¥Ã¢â‚¬Â¡Ã‚ÂºÃƒÂ¦Ã¢â‚¬â€œÃ¢â‚¬Â¡ÃƒÂ¤Ã‚Â»Ã‚Â¶
@@ -95,3 +94,18 @@ slurm-*.out
 /scripts/DF-04-02 Lora_Batch12/**/scheduler.pt
 /scripts/DF-04-02 Lora_Batch12/**/rng_state*.pth
 # END DF-04-02 LARGE LOCAL ARTIFACT RULES
+
+
+
+# Track DF-04-02 output metadata, but keep large weights local.
+!/scripts/DF-04-02 Lora_Batch12/output/
+!/scripts/DF-04-02 Lora_Batch12/output/runs/
+!/scripts/DF-04-02 Lora_Batch12/output/runs/**
+/scripts/DF-04-02 Lora_Batch12/**/adapter_model.safetensors
+/scripts/DF-04-02 Lora_Batch12/**/action_head.pt
+/scripts/DF-04-02 Lora_Batch12/**/proprio_projector.pt
+/scripts/DF-04-02 Lora_Batch12/**/model*.safetensors
+/scripts/DF-04-02 Lora_Batch12/**/pytorch_model*.bin
+/scripts/DF-04-02 Lora_Batch12/**/optimizer.pt
+/scripts/DF-04-02 Lora_Batch12/**/scheduler.pt
+/scripts/DF-04-02 Lora_Batch12/**/rng_state*.pth

@@ -1,0 +1,21 @@
+{
+  "created_at": "04:28:52.554493+00:00",
+  "step": 10000,
+  "validation_type": "full",
+  "validation_completed": true,
+  "validation_stop_reason": "dataloader_exhausted",
+  "train_loss": 2.7119686603546143,
+  "train_action_token_accuracy": 0.4166666567325592,
+  "val_loss": 2.9782669634001024,
+  "val_action_token_accuracy": 0.4848045586324103,
+  "val_batches_count": 239,
+  "validation_time_seconds": 122.792822,
+  "overfitting": {
+    "overfitting_checked": false,
+    "overfitting_detected": false,
+    "overfitting_reason": "insufficient_validation_points",
+    "overfitting_points_used": 1
+  },
+  "best_val_loss": 2.9782669634001024,
+  "best_checkpoint_step": 10000
+}
