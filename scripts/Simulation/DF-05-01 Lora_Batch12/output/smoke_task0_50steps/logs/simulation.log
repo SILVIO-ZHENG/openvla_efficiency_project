@@ -1,0 +1,8 @@
+2026-07-11 10:09:01,951 | WARNING | No private macro file found!
+2026-07-11 10:09:01,951 | WARNING | It is recommended to use a private macro file
+2026-07-11 10:09:01,951 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-11 10:09:02,011 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2026-07-11 10:14:17,723 | WARNING | No private macro file found!
+2026-07-11 10:14:17,723 | WARNING | It is recommended to use a private macro file
+2026-07-11 10:14:17,723 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-11 10:14:17,763 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'

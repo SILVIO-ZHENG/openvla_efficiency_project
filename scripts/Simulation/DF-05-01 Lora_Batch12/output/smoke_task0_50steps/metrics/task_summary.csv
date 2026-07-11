@@ -1,0 +1,2 @@
+task_index,task_name,total_rollouts,success_count,failure_count,success_rate,timeout_count,timeout_rate,avg_success_steps,avg_all_steps,avg_episode_time_seconds,avg_inference_latency_ms,p95_inference_latency_ms,avg_end_to_end_latency_ms,p95_end_to_end_latency_ms,avg_control_frequency_hz,peak_vram_gb
+0,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket,1,0,1,0.0,1,1.0,,50.0,14.388142,138.1073595583439,125.39832461625338,174.43844363093376,162.4849397689104,5.732681278191974,14.849611282348633
