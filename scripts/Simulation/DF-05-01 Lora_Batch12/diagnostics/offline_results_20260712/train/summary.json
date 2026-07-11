@@ -1,0 +1,144 @@
+{
+  "status": "completed",
+  "created_at": "2026-07-11T22:11:33.845736+00:00",
+  "diagnostic": "DF-05-01 offline action diagnostic",
+  "run_id": "df_04_02_lora_libero10_seed42_rank32_bs12_100k",
+  "model_variant": "DF-04-02 LoRA Batch12",
+  "checkpoint_step": 10000,
+  "split_name": "train",
+  "seed": 42,
+  "requested_samples": 200,
+  "evaluated_samples": 200,
+  "split_transition_count_reported_by_pipeline": 88213,
+  "batch_size": 1,
+  "attention_implementation": "eager",
+  "torch_dtype": "torch.bfloat16",
+  "device": "cuda:0",
+  "elapsed_seconds": 37.93306467309594,
+  "paths": {
+    "simulation_config": "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/config/simulation_config.yaml",
+    "runtime_config": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/runtime_resolved_config.json",
+    "split_json": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/inputs/splits/libero_10_episode_split_seed42.json",
+    "dataset_statistics": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/best_adapter/dataset_statistics.json",
+    "adapter_config": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/best_adapter/adapter_config.json",
+    "adapter_weights": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/best_adapter/adapter_model.safetensors",
+    "proprio_projector": "/root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-02 Lora_Batch12/outputs/adapters/df_04_02_lora_libero10_seed42_rank32_bs12_100k/best_adapter/proprio_projector.pt",
+    "data_root": "/root/autodl-tmp/datasets/openvla_modified_libero_rlds"
+  },
+  "sha256": {
+    "simulation_config": "129237d659e9d246f35c4faf59f7370eb16e88642945f1eddd7b9bdb0c526b61",
+    "runtime_config": "8502a83eb6381d464563419e7e7c09ddeedcc436e8a1f3c7fb53de71b4acbc28",
+    "split_json": "050cb395f9db131c582b2de1d9334e463a8b5c9793b95bb3cdc7ac32ecbd9210",
+    "dataset_statistics": "8f8590b1e4b0047de7f7e5e78f4df2bb4e4325f580edb388dd3c61d060fffc5c",
+    "adapter_config": "2f0b4ca75bb9f0694c7279e1940b91ae09398568081eb5c84ad5fbfc3c0f94b2",
+    "adapter_weights": "344bed584f4b476c8f0bff40cb9c83feef2f71e68a539196a03c6f579d2de4ec",
+    "proprio_projector": "f76f9d40ff63b0987089ebacd4b849c3901d292b0fbd28331492a0c1bd97a4c7"
+  },
+  "definitions": {
+    "zero_bin": "Per-dimension OpenVLA bin containing raw physical action zero; not an assumed geometric center bin.",
+    "arm_noop": "All first six motion dimensions equal their zero bins.",
+    "full_noop": "arm_noop plus a gripper command matching the current open/closed state estimated from raw gripper qpos.",
+    "action_token_accuracy_excluding_stop": "Exact token accuracy over the seven action positions only.",
+    "whole_action_accuracy": "Fraction of samples where all seven predicted action bins match.",
+    "action_l1_raw": "Mean absolute error after q01/q99 unnormalization.",
+    "gripper_aperture_threshold": 0.041909234020859006
+  },
+  "zero_action": {
+    "dimension_names": [
+      "x",
+      "y",
+      "z",
+      "roll",
+      "pitch",
+      "yaw",
+      "gripper"
+    ],
+    "zero_bin_indices": [
+      115,
+      121,
+      114,
+      104,
+      123,
+      117,
+      127
+    ],
+    "zero_normalized_values": [
+      -0.0956848275083636,
+      -0.046204618460757074,
+      -0.10410094721895247,
+      -0.18421056452638118,
+      -0.03448276323535371,
+      -0.07852212698672434,
+      0.0
+    ],
+    "true_zero_bin_rate_per_dimension": [
+      0.285,
+      0.17,
+      0.17,
+      0.445,
+      0.33,
+      0.2,
+      0.465
+    ],
+    "pred_zero_bin_rate_per_dimension": [
+      0.675,
+      0.375,
+      0.415,
+      0.815,
+      0.78,
+      0.56,
+      0.485
+    ],
+    "true_arm_noop_rate": 0.005,
+    "pred_arm_noop_rate": 0.12,
+    "true_full_noop_rate": 0.005,
+    "pred_full_noop_rate": 0.105
+  },
+  "accuracy": {
+    "per_dimension_token_accuracy_excluding_stop": [
+      0.315,
+      0.25,
+      0.25,
+      0.485,
+      0.365,
+      0.335,
+      0.96
+    ],
+    "per_dimension_bin_accuracy_excluding_stop": [
+      0.315,
+      0.25,
+      0.25,
+      0.485,
+      0.365,
+      0.335,
+      0.96
+    ],
+    "action_token_accuracy_excluding_stop": 0.4228571428571429,
+    "action_bin_accuracy_excluding_stop": 0.4228571428571429,
+    "stop_token_accuracy": 1.0,
+    "whole_action_token_accuracy": 0.01,
+    "whole_action_accuracy": 0.01,
+    "pred_valid_action_token_rate": 0.9264285714285714,
+    "label_bin_consistency_rate": 1.0
+  },
+  "error": {
+    "action_l1_raw_7d": 0.03830695493506117,
+    "action_l1_raw_arm6": 0.03770125134580666,
+    "action_l1_raw_gripper": 0.04194117647058823,
+    "action_l1_normalized_7d": 0.072425573905476,
+    "action_l1_raw_per_dimension": [
+      0.053408833406156084,
+      0.054364283939310226,
+      0.08031040097012745,
+      0.012088302115406629,
+      0.013866702804706962,
+      0.012168984839132596,
+      0.04194117647058823
+    ]
+  },
+  "outputs": {
+    "transition_predictions_csv": "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/output/diagnostics/offline_action_train_200/transition_predictions.csv",
+    "dimension_summary_csv": "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/output/diagnostics/offline_action_train_200/dimension_summary.csv",
+    "summary_json": "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/output/diagnostics/offline_action_train_200/summary.json"
+  }
+}

@@ -1,0 +1,15 @@
+2026-07-11 11:55:22,527 | ERROR | DF-05-01 simulation failed.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/run_simulation.py", line 230, in main
+    from src.libero_env import LiberoEnvironment
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-01 Lora_Batch12/src/libero_env.py", line 11, in <module>
+    from libero.libero.envs import OffScreenRenderEnv
+  File "/root/autodl-tmp/LIBERO/libero/libero/envs/__init__.py", line 1, in <module>
+    from .bddl_base_domain import TASK_MAPPING
+  File "/root/autodl-tmp/LIBERO/libero/libero/envs/bddl_base_domain.py", line 3, in <module>
+    import robosuite.utils.transform_utils as T
+ModuleNotFoundError: No module named 'robosuite'
+2026-07-11 11:56:50,876 | WARNING | No private macro file found!
+2026-07-11 11:56:50,876 | WARNING | It is recommended to use a private macro file
+2026-07-11 11:56:50,876 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-11 11:56:50,934 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
