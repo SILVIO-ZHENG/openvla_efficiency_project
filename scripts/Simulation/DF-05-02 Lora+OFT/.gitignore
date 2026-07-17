@@ -1,0 +1,7 @@
+# Ignore generated Python cache files.
+__pycache__/
+*.py[cod]
+
+# Keep runtime videos outside Git while retaining the directory placeholder.
+output/videos/*
+!output/videos/.gitkeep
