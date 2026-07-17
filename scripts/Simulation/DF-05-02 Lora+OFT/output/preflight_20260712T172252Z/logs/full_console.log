@@ -1,0 +1,240 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+2026-07-13 00:58:19,840 | WARNING | No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+2026-07-13 00:58:19,840 | WARNING | It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+2026-07-13 00:58:19,840 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-13 00:58:19,882 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1640: DeprecationWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+07/13 [00:58:39] INFO     | >> Loading DF-04-03 best adapter from step 100000.                                                                                                                                           run_simulation.py:345
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.57it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.09it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.06it/s]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+07/13 [00:58:54] INFO     | >> DF-05-02 preflight: action_shape=(8, 7) latency_ms=846.168 zero_equivalent=0                                                                                                              run_simulation.py:307
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+2026-07-13 01:05:07,585 | WARNING | No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+2026-07-13 01:05:07,585 | WARNING | It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+2026-07-13 01:05:07,585 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-13 01:05:07,626 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1640: DeprecationWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+07/13 [01:05:26] INFO     | >> Loading DF-04-03 best adapter from step 100000.                                                                                                                                           run_simulation.py:345
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.65it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.03it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.32it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+07/13 [01:05:39] INFO     | >> Starting task=0 name=LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket instruction=put both the alphabet soup and the tomato sauce in the basket       simulation_runner.py:1526
+07/13 [01:05:43] INFO     | >> task_00_trial_000 step=25 inference_ms=145.781 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:05:44] INFO     | >> task_00_trial_000 step=50 inference_ms=131.258 chunk_index=1                                                                                                                           simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_00_trial_000 success=False steps=50 reason=timeout                                                                                                              simulation_runner.py:1579
+                 INFO     | >> Simulation finished: rollouts=1 success_rate=0.0 completed=True                                                                                                                           run_simulation.py:354
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+2026-07-13 01:10:19,925 | WARNING | No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+2026-07-13 01:10:19,925 | WARNING | It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+2026-07-13 01:10:19,925 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-13 01:10:19,986 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1640: DeprecationWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+07/13 [01:10:39] INFO     | >> Loading DF-04-03 best adapter from step 100000.                                                                                                                                           run_simulation.py:345
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.63it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  3.21it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.31it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00,  3.21it/s]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+07/13 [01:10:52] INFO     | >> Starting task=0 name=LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket instruction=put both the alphabet soup and the tomato sauce in the basket       simulation_runner.py:1526
+07/13 [01:10:55] INFO     | >> task_00_trial_000 step=25 inference_ms=135.306 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:10:56] INFO     | >> task_00_trial_000 step=50 inference_ms=131.868 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:10:57] INFO     | >> task_00_trial_000 step=75 inference_ms=126.679 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:10:59] INFO     | >> task_00_trial_000 step=100 inference_ms=131.797 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:11:00] INFO     | >> task_00_trial_000 step=125 inference_ms=126.837 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:11:01] INFO     | >> task_00_trial_000 step=150 inference_ms=126.970 chunk_index=5                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_00_trial_000 step=175 inference_ms=125.623 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:11:02] INFO     | >> task_00_trial_000 step=200 inference_ms=127.066 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:11:04] INFO     | >> task_00_trial_000 step=225 inference_ms=127.557 chunk_index=0                                                                                                                          simulation_runner.py:724
+07/13 [01:11:05] INFO     | >> task_00_trial_000 step=250 inference_ms=134.140 chunk_index=1                                                                                                                          simulation_runner.py:724
+07/13 [01:11:06] INFO     | >> Finished rollout=task_00_trial_000 success=True steps=267 reason=success                                                                                                              simulation_runner.py:1579
+                 INFO     | >> Simulation finished: rollouts=1 success_rate=1.0 completed=True                                                                                                                           run_simulation.py:354
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+2026-07-13 01:15:50,360 | WARNING | No private macro file found!
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+2026-07-13 01:15:50,360 | WARNING | It is recommended to use a private macro file
+[robosuite WARNING] To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+2026-07-13 01:15:50,360 | WARNING | To setup, run: python /root/miniconda3/envs/openvla310/lib/python3.10/site-packages/robosuite/scripts/setup_macros.py
+2026-07-13 01:15:50,426 | INFO | No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/torch/jit/_script.py:1640: DeprecationWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+07/13 [01:16:09] INFO     | >> Loading DF-04-03 best adapter from step 100000.                                                                                                                                           run_simulation.py:345
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:00,  2.51it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:00<00:00,  2.76it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  3.12it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.98it/s]
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+07/13 [01:16:22] INFO     | >> Starting task=0 name=LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket instruction=put both the alphabet soup and the tomato sauce in the basket       simulation_runner.py:1526
+07/13 [01:16:25] INFO     | >> task_00_trial_000 step=25 inference_ms=136.555 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:16:26] INFO     | >> task_00_trial_000 step=50 inference_ms=129.642 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:16:27] INFO     | >> task_00_trial_000 step=75 inference_ms=129.435 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:16:28] INFO     | >> task_00_trial_000 step=100 inference_ms=147.021 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:16:30] INFO     | >> task_00_trial_000 step=125 inference_ms=139.035 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:16:31] INFO     | >> task_00_trial_000 step=150 inference_ms=129.649 chunk_index=5                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_00_trial_000 step=175 inference_ms=128.818 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:16:32] INFO     | >> task_00_trial_000 step=200 inference_ms=137.586 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:16:34] INFO     | >> task_00_trial_000 step=225 inference_ms=152.584 chunk_index=0                                                                                                                          simulation_runner.py:724
+07/13 [01:16:35] INFO     | >> task_00_trial_000 step=250 inference_ms=129.055 chunk_index=1                                                                                                                          simulation_runner.py:724
+07/13 [01:16:36] INFO     | >> Finished rollout=task_00_trial_000 success=True steps=267 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:16:37] INFO     | >> Starting task=1 name=LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket instruction=put both the cream cheese box and the butter in the basket             simulation_runner.py:1526
+07/13 [01:16:40] INFO     | >> task_01_trial_000 step=25 inference_ms=133.848 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:16:41] INFO     | >> task_01_trial_000 step=50 inference_ms=132.946 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:16:42] INFO     | >> task_01_trial_000 step=75 inference_ms=128.320 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:16:43] INFO     | >> task_01_trial_000 step=100 inference_ms=137.835 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:16:44] INFO     | >> task_01_trial_000 step=125 inference_ms=134.345 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:16:45] INFO     | >> task_01_trial_000 step=150 inference_ms=128.848 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:16:46] INFO     | >> task_01_trial_000 step=175 inference_ms=128.598 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:16:47] INFO     | >> task_01_trial_000 step=200 inference_ms=129.645 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:16:48] INFO     | >> task_01_trial_000 step=225 inference_ms=129.302 chunk_index=0                                                                                                                          simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_01_trial_000 success=True steps=234 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:16:50] INFO     | >> Starting task=2 name=KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it instruction=turn on the stove and put the moka pot on it                                             simulation_runner.py:1526
+07/13 [01:16:52] INFO     | >> task_02_trial_000 step=25 inference_ms=128.412 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:16:53] INFO     | >> task_02_trial_000 step=50 inference_ms=129.292 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:16:54] INFO     | >> task_02_trial_000 step=75 inference_ms=128.717 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:16:55] INFO     | >> task_02_trial_000 step=100 inference_ms=139.144 chunk_index=3                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_02_trial_000 step=125 inference_ms=127.874 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:16:56] INFO     | >> task_02_trial_000 step=150 inference_ms=128.269 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:16:57] INFO     | >> task_02_trial_000 step=175 inference_ms=128.950 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:16:58] INFO     | >> task_02_trial_000 step=200 inference_ms=130.470 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:16:59] INFO     | >> task_02_trial_000 step=225 inference_ms=128.898 chunk_index=0                                                                                                                          simulation_runner.py:724
+07/13 [01:17:00] INFO     | >> Finished rollout=task_02_trial_000 success=True steps=249 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:17:01] INFO     | >> Starting task=3 name=KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it instruction=put the black bowl in the bottom drawer of the cabinet and close  simulation_runner.py:1526
+                          it                                                                                                                                                                                                                  
+07/13 [01:17:04] INFO     | >> task_03_trial_000 step=25 inference_ms=129.358 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:17:05] INFO     | >> task_03_trial_000 step=50 inference_ms=131.469 chunk_index=1                                                                                                                           simulation_runner.py:724
+                 INFO     | >> task_03_trial_000 step=75 inference_ms=133.275 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:17:06] INFO     | >> task_03_trial_000 step=100 inference_ms=129.523 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:17:07] INFO     | >> task_03_trial_000 step=125 inference_ms=135.409 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:17:08] INFO     | >> task_03_trial_000 step=150 inference_ms=129.078 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:17:09] INFO     | >> task_03_trial_000 step=175 inference_ms=129.938 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:17:10] INFO     | >> task_03_trial_000 step=200 inference_ms=129.346 chunk_index=7                                                                                                                          simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_03_trial_000 success=True steps=219 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:17:14] INFO     | >> Starting task=4 name=LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate instruction=put the white mug on the left plate and   simulation_runner.py:1526
+                          put the yellow and white mug on the right plate                                                                                                                                                                     
+07/13 [01:17:19] INFO     | >> task_04_trial_000 step=25 inference_ms=134.232 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:17:20] INFO     | >> task_04_trial_000 step=50 inference_ms=135.707 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:17:21] INFO     | >> task_04_trial_000 step=75 inference_ms=138.210 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:17:22] INFO     | >> task_04_trial_000 step=100 inference_ms=141.560 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:17:23] INFO     | >> task_04_trial_000 step=125 inference_ms=129.043 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:17:24] INFO     | >> task_04_trial_000 step=150 inference_ms=141.606 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:17:25] INFO     | >> task_04_trial_000 step=175 inference_ms=127.928 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:17:26] INFO     | >> task_04_trial_000 step=200 inference_ms=134.588 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:17:27] INFO     | >> task_04_trial_000 step=225 inference_ms=137.405 chunk_index=0                                                                                                                          simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_04_trial_000 success=True steps=230 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:17:29] INFO     | >> Starting task=5 name=STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy instruction=pick up the book and place it in the back compartment of the caddy   simulation_runner.py:1526
+07/13 [01:17:32] INFO     | >> task_05_trial_000 step=25 inference_ms=149.646 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:17:33] INFO     | >> task_05_trial_000 step=50 inference_ms=129.381 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:17:34] INFO     | >> task_05_trial_000 step=75 inference_ms=130.945 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:17:35] INFO     | >> task_05_trial_000 step=100 inference_ms=136.500 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:17:36] INFO     | >> task_05_trial_000 step=125 inference_ms=129.579 chunk_index=4                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_05_trial_000 step=150 inference_ms=132.371 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:17:37] INFO     | >> Finished rollout=task_05_trial_000 success=True steps=167 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:17:40] INFO     | >> Starting task=6 name=LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate instruction=put the white mug on the plate and put the simulation_runner.py:1526
+                          chocolate pudding to the right of the plate                                                                                                                                                                         
+07/13 [01:17:44] INFO     | >> task_06_trial_000 step=25 inference_ms=129.311 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:17:45] INFO     | >> task_06_trial_000 step=50 inference_ms=134.882 chunk_index=1                                                                                                                           simulation_runner.py:724
+                 INFO     | >> task_06_trial_000 step=75 inference_ms=143.836 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:17:46] INFO     | >> task_06_trial_000 step=100 inference_ms=134.279 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:17:47] INFO     | >> task_06_trial_000 step=125 inference_ms=129.064 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:17:48] INFO     | >> task_06_trial_000 step=150 inference_ms=129.492 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:17:49] INFO     | >> task_06_trial_000 step=175 inference_ms=143.200 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:17:50] INFO     | >> task_06_trial_000 step=200 inference_ms=129.411 chunk_index=7                                                                                                                          simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_06_trial_000 success=True steps=208 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:17:51] INFO     | >> Starting task=7 name=LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket instruction=put both the alphabet soup and the cream cheese box in the      simulation_runner.py:1526
+                          basket                                                                                                                                                                                                              
+07/13 [01:17:54] INFO     | >> task_07_trial_000 step=25 inference_ms=154.286 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:17:55] INFO     | >> task_07_trial_000 step=50 inference_ms=133.377 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:17:56] INFO     | >> task_07_trial_000 step=75 inference_ms=129.687 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:17:57] INFO     | >> task_07_trial_000 step=100 inference_ms=133.205 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:17:58] INFO     | >> task_07_trial_000 step=125 inference_ms=134.603 chunk_index=4                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_07_trial_000 step=150 inference_ms=136.859 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:17:59] INFO     | >> task_07_trial_000 step=175 inference_ms=135.022 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:18:00] INFO     | >> task_07_trial_000 step=200 inference_ms=129.325 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:18:01] INFO     | >> task_07_trial_000 step=225 inference_ms=129.414 chunk_index=0                                                                                                                          simulation_runner.py:724
+07/13 [01:18:02] INFO     | >> Finished rollout=task_07_trial_000 success=True steps=240 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:18:03] INFO     | >> Starting task=8 name=KITCHEN_SCENE8_put_both_moka_pots_on_the_stove instruction=put both moka pots on the stove                                                                       simulation_runner.py:1526
+07/13 [01:18:05] INFO     | >> task_08_trial_000 step=25 inference_ms=130.802 chunk_index=0                                                                                                                           simulation_runner.py:724
+                 INFO     | >> task_08_trial_000 step=50 inference_ms=129.813 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:18:06] INFO     | >> task_08_trial_000 step=75 inference_ms=130.221 chunk_index=2                                                                                                                           simulation_runner.py:724
+07/13 [01:18:07] INFO     | >> task_08_trial_000 step=100 inference_ms=137.958 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:18:08] INFO     | >> task_08_trial_000 step=125 inference_ms=143.176 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:18:09] INFO     | >> task_08_trial_000 step=150 inference_ms=129.089 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:18:10] INFO     | >> task_08_trial_000 step=175 inference_ms=128.489 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:18:11] INFO     | >> task_08_trial_000 step=200 inference_ms=132.001 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:18:12] INFO     | >> task_08_trial_000 step=225 inference_ms=129.923 chunk_index=0                                                                                                                          simulation_runner.py:724
+                 INFO     | >> task_08_trial_000 step=250 inference_ms=133.853 chunk_index=1                                                                                                                          simulation_runner.py:724
+07/13 [01:18:13] INFO     | >> task_08_trial_000 step=275 inference_ms=135.180 chunk_index=2                                                                                                                          simulation_runner.py:724
+07/13 [01:18:14] INFO     | >> task_08_trial_000 step=300 inference_ms=132.408 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:18:15] INFO     | >> task_08_trial_000 step=325 inference_ms=138.507 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:18:16] INFO     | >> task_08_trial_000 step=350 inference_ms=142.926 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:18:17] INFO     | >> task_08_trial_000 step=375 inference_ms=131.247 chunk_index=6                                                                                                                          simulation_runner.py:724
+                 INFO     | >> Finished rollout=task_08_trial_000 success=True steps=378 reason=success                                                                                                              simulation_runner.py:1579
+07/13 [01:18:19] INFO     | >> Starting task=9 name=KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it instruction=put the yellow and white mug in the microwave and close it                 simulation_runner.py:1526
+07/13 [01:18:22] INFO     | >> task_09_trial_000 step=25 inference_ms=132.873 chunk_index=0                                                                                                                           simulation_runner.py:724
+07/13 [01:18:23] INFO     | >> task_09_trial_000 step=50 inference_ms=129.895 chunk_index=1                                                                                                                           simulation_runner.py:724
+07/13 [01:18:24] INFO     | >> task_09_trial_000 step=75 inference_ms=138.684 chunk_index=2                                                                                                                           simulation_runner.py:724
+                 INFO     | >> task_09_trial_000 step=100 inference_ms=136.081 chunk_index=3                                                                                                                          simulation_runner.py:724
+07/13 [01:18:25] INFO     | >> task_09_trial_000 step=125 inference_ms=129.820 chunk_index=4                                                                                                                          simulation_runner.py:724
+07/13 [01:18:26] INFO     | >> task_09_trial_000 step=150 inference_ms=129.595 chunk_index=5                                                                                                                          simulation_runner.py:724
+07/13 [01:18:27] INFO     | >> task_09_trial_000 step=175 inference_ms=139.541 chunk_index=6                                                                                                                          simulation_runner.py:724
+07/13 [01:18:28] INFO     | >> task_09_trial_000 step=200 inference_ms=132.406 chunk_index=7                                                                                                                          simulation_runner.py:724
+07/13 [01:18:29] INFO     | >> task_09_trial_000 step=225 inference_ms=129.695 chunk_index=0                                                                                                                          simulation_runner.py:724
+07/13 [01:18:30] INFO     | >> Finished rollout=task_09_trial_000 success=True steps=249 reason=success                                                                                                              simulation_runner.py:1579
+                 INFO     | >> Simulation finished: rollouts=10 success_rate=1.0 completed=True                                                                                                                          run_simulation.py:354
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

@@ -1,0 +1,175 @@
+experiment:
+  task_id: DF-05-02
+  run_id: df_05_02_lora_oft_smoke_task0_1trial_50steps
+  description: Closed-loop LIBERO-10 evaluation of the DF-04-03 LoRA+OFT best adapter.
+  seed: 42
+model:
+  model_variant: DF-04-03 LoRA+OFT Batch12
+  model_family: OpenVLA
+  policy_type: lora_oft_l1_chunk
+  training_run_id: df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k
+  checkpoint_step: 100000
+  best_val_loss: 0.10628223688418949
+  training_objective: l1_regression
+  action_representation: continuous_actions
+  use_l1_regression: true
+  use_action_head: true
+  use_diffusion: false
+  use_film: false
+  strict_continuous_action_path: true
+  forbid_discrete_action_fallback: true
+  torch_dtype: bfloat16
+  device: cuda:0
+  attn_implementation: eager
+  local_files_only: true
+  trust_remote_code: false
+paths:
+  project_root: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT
+  libero_root: /root/autodl-tmp/LIBERO
+  openvla_source_root: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03
+    Lora+OFT/src
+  base_model_path: /root/autodl-tmp/hf_cache/hub/models--openvla--openvla-7b/snapshots/47a0ec7fc4ec123775a391911046cf33cf9ed83f
+  adapter_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03 Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/best_adapter
+  processor_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03 Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/best_adapter/processor
+  action_head_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03 Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/best_adapter/action_head.pt
+  proprio_projector_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03
+    Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/best_adapter/proprio_projector.pt
+  dataset_statistics_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03
+    Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/best_adapter/dataset_statistics.json
+  training_config_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03
+    Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/runtime_resolved_config.json
+  training_summary_path: /root/autodl-tmp/openvla_efficiency_project/scripts/DF-04-03
+    Lora+OFT/outputs/adapters/df_04_03_lora_oft_libero10_seed42_rank32_bs12_100k/training_summary.json
+  output_root: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT/output/smoke_task0_50steps
+  log_directory: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT/output/smoke_task0_50steps/logs
+  metrics_directory: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT/output/smoke_task0_50steps/metrics
+  video_directory: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT/output/smoke_task0_50steps/videos
+runtime:
+  expected_gpu_name: NVIDIA GeForce RTX 5090
+  enforce_expected_gpu: true
+  expected_git_branch: DF-05-02
+  enforce_expected_git_branch: false
+  expected_python_major_minor: '3.10'
+training_contract:
+  dataset_name: libero_10_no_noops
+  split_seed: 42
+  train_count: 330
+  val_count: 10
+  test_count: 39
+  per_device_batch_size: 12
+  max_steps: 100000
+  lora_rank: 32
+  lora_alpha: 16
+  lora_dropout: 0.0
+  normalization_type: NormalizationType.BOUNDS_Q99
+  episode_split_sha256: 050cb395f9db131c582b2de1d9334e463a8b5c9793b95bb3cdc7ac32ecbd9210
+  normalization_stats_sha256: c70512d198ed1be8fda4f3bebcd83057e38b816f9f070280cb443e9b6f2b2885
+input:
+  use_primary_image: true
+  use_wrist_image: true
+  use_proprio: true
+  num_images_in_input: 2
+  proprio_dim: 8
+  environment_render_resolution: 256
+  model_image_resolution: 224
+  center_crop: true
+  center_crop_scale: 0.9
+  rotate_primary_image_180: true
+  rotate_wrist_image_180: true
+  jpeg_roundtrip_resize: true
+simulation:
+  simulator: LIBERO
+  task_suite_name: libero_10
+  task_ids:
+  - 0
+  num_tasks: 1
+  num_trials_per_task: 1
+  max_steps_per_episode: 50
+  initial_wait_steps: 10
+  environment_seed: 0
+  deterministic_initial_states: true
+  stop_on_success: true
+  resume_from_existing_results: true
+  skip_completed_rollouts: true
+action:
+  action_dim: 7
+  action_chunk_size: 8
+  actions_executed_per_inference: 8
+  future_action_window_size: 7
+  clip_actions: true
+  action_min:
+  - -1.0
+  - -1.0
+  - -1.0
+  - -1.0
+  - -1.0
+  - -1.0
+  - -1.0
+  action_max:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  convert_gripper_to_libero_convention: true
+  binarize_gripper: true
+  reject_nan_or_inf: true
+  stop_on_invalid_action: true
+collapse_diagnostics:
+  enabled: true
+  diagnostic_only: true
+  record_predicted_action_chunks: true
+  record_executed_action_chunks: true
+  repeated_action_atol: 1.0e-06
+  repeated_chunk_atol: 1.0e-06
+  warn_consecutive_zero_equivalent_actions: 32
+  warn_consecutive_repeated_chunks: 4
+  terminate_on_collapse_warning: false
+timing:
+  synchronize_cuda_for_measurement: true
+  measure_inference_time: true
+  measure_end_to_end_time: true
+  measure_environment_step_time: true
+  measure_effective_control_frequency: true
+  enforce_real_time_control: false
+  target_control_frequency_hz: 10.0
+video:
+  enabled: true
+  fps: 30
+  save_success_videos: true
+  save_failure_videos: true
+  codec: mp4v
+  file_extension: .mp4
+  include_wrist_view: true
+  show_model_name: true
+  show_task_instruction: true
+  show_trial_index: true
+  show_step_number: true
+  show_inference_latency: true
+  show_success_status: true
+recording:
+  save_runtime_manifest: true
+  save_resolved_config: true
+  save_rollout_results: true
+  save_inference_events: true
+  save_failure_cases: true
+  save_task_summary: true
+  save_simulation_summary: true
+  compute_artifact_sha256: true
+logging:
+  log_file: /root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-05-02
+    Lora+OFT/output/smoke_task0_50steps/logs/simulation.log
+  log_level: INFO
+  log_every_environment_steps: 25
+  print_task_instruction: true
+  print_action_shape: false
+  print_action_values: false
+  print_timing_breakdown: true
+  flush_after_each_rollout: true
