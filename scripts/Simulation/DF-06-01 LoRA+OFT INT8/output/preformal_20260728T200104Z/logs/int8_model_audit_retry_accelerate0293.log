@@ -1,0 +1,33 @@
+Using LIBERO constants:
+  NUM_ACTIONS_CHUNK = 8
+  ACTION_DIM = 7
+  PROPRIO_DIM = 8
+  ACTION_PROPRIO_NORMALIZATION_TYPE = bounds_q99
+If needed, manually set the correct constants in `prismatic/vla/constants.py`!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:02<00:04,  2.17s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:04<00:01,  1.99s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.31s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:04<00:00,  1.51s/it]
+Traceback (most recent call last):
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-06-01 LoRA+OFT INT8/diagnostics/int8_model_audit.py", line 103, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-06-01 LoRA+OFT INT8/diagnostics/int8_model_audit.py", line 77, in main
+    policy = LoraOFTINT8Policy(config)
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-06-01 LoRA+OFT INT8/src/lora_oft_int8_policy.py", line 108, in __init__
+    self.model, self.action_model = self._load_model()
+  File "/root/autodl-tmp/openvla_efficiency_project/scripts/Simulation/DF-06-01 LoRA+OFT INT8/src/lora_oft_int8_policy.py", line 423, in _load_model
+    model = PeftModel.from_pretrained(
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/peft_model.py", line 427, in from_pretrained
+    model = cls(model, config, adapter_name)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/peft_model.py", line 138, in __init__
+    self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/lora/model.py", line 139, in __init__
+    super().__init__(model, config, adapter_name)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 166, in __init__
+    self.inject_adapter(self.model, adapter_name)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 372, in inject_adapter
+    self._create_and_replace(peft_config, adapter_name, target, target_name, parent, current_key=key)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/lora/model.py", line 223, in _create_and_replace
+    new_module = self._create_new_module(lora_config, adapter_name, target, **kwargs)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/lora/model.py", line 314, in _create_new_module
+    new_module = dispatcher(target, adapter_name, lora_config=lora_config, **kwargs)
+  File "/root/miniconda3/envs/openvla310/lib/python3.10/site-packages/peft/tuners/lora/bnb.py", line 262, in dispatch_bnb_8bit
+    "memory_efficient_backward": target.state.memory_efficient_backward,
+AttributeError: 'MatmulLtState' object has no attribute 'memory_efficient_backward'
