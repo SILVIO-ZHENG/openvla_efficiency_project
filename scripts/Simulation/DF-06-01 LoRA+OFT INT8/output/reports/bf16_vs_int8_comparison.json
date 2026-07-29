@@ -1,0 +1,207 @@
+{
+  "comparison": "DF-05-02 BF16 versus DF-06-01 INT8",
+  "bf16_run_id": "df_05_02_lora_oft_libero10_seed42_best_step100000",
+  "int8_run_id": "df_06_01_lora_oft_int8_libero10_seed42_best_step100000",
+  "checkpoint_step": 100000,
+  "total_rollouts": 500,
+  "aggregate_metrics": [
+    {
+      "metric": "overall_success_rate",
+      "bf16": 0.94,
+      "int8": 0.948,
+      "int8_minus_bf16": 0.008000000000000007,
+      "relative_change_percent": 0.8510638297872348
+    },
+    {
+      "metric": "macro_average_task_success_rate",
+      "bf16": 0.9400000000000001,
+      "int8": 0.9480000000000001,
+      "int8_minus_bf16": 0.008000000000000007,
+      "relative_change_percent": 0.8510638297872347
+    },
+    {
+      "metric": "overall_timeout_rate",
+      "bf16": 0.06,
+      "int8": 0.052,
+      "int8_minus_bf16": -0.008,
+      "relative_change_percent": -13.333333333333334
+    },
+    {
+      "metric": "avg_success_steps",
+      "bf16": 252.3808510638298,
+      "int8": 252.084388185654,
+      "int8_minus_bf16": -0.2964628781757881,
+      "relative_change_percent": -0.11746647058449354
+    },
+    {
+      "metric": "avg_all_steps",
+      "bf16": 268.438,
+      "int8": 266.016,
+      "int8_minus_bf16": -2.4219999999999686,
+      "relative_change_percent": -0.9022567594751745
+    },
+    {
+      "metric": "avg_inference_latency_ms",
+      "bf16": 135.88868377684457,
+      "int8": 199.35103390690037,
+      "int8_minus_bf16": 63.462350130055796,
+      "relative_change_percent": 46.701718175645304
+    },
+    {
+      "metric": "p95_inference_latency_ms",
+      "bf16": 148.8451637327671,
+      "int8": 209.4669491052627,
+      "int8_minus_bf16": 60.621785372495594,
+      "relative_change_percent": 40.728085382293266
+    },
+    {
+      "metric": "avg_amortized_inference_ms_per_action",
+      "bf16": 17.21350480612962,
+      "int8": 25.26509968248992,
+      "int8_minus_bf16": 8.051594876360301,
+      "relative_change_percent": 46.77487221250363
+    },
+    {
+      "metric": "avg_end_to_end_latency_ms",
+      "bf16": 294.48014247742697,
+      "int8": 345.0414519549298,
+      "int8_minus_bf16": 50.561309477502846,
+      "relative_change_percent": 17.169683854448206
+    },
+    {
+      "metric": "avg_amortized_end_to_end_ms_per_action",
+      "bf16": 37.30285117905224,
+      "int8": 43.72942797128182,
+      "int8_minus_bf16": 6.426576792229582,
+      "relative_change_percent": 17.228111495773508
+    },
+    {
+      "metric": "avg_control_frequency_hz",
+      "bf16": 26.807602325088734,
+      "int8": 22.867895748755835,
+      "int8_minus_bf16": -3.939706576332899,
+      "relative_change_percent": -14.696228810607955
+    },
+    {
+      "metric": "peak_vram_allocated_gb",
+      "bf16": 15.193336009979248,
+      "int8": 9.263237476348877,
+      "int8_minus_bf16": -5.930098533630371,
+      "relative_change_percent": -39.03091809287558
+    },
+    {
+      "metric": "peak_vram_reserved_gb",
+      "bf16": 15.5078125,
+      "int8": 9.787109375,
+      "int8_minus_bf16": -5.720703125,
+      "relative_change_percent": -36.88916876574307
+    },
+    {
+      "metric": "zero_equivalent_arm_action_rate",
+      "bf16": 0.0,
+      "int8": 0.0,
+      "int8_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "zero_equivalent_full_noop_rate",
+      "bf16": 0.0,
+      "int8": 0.0,
+      "int8_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "repeated_action_count",
+      "bf16": 0.0,
+      "int8": 0.0,
+      "int8_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "repeated_chunk_count",
+      "bf16": 0.0,
+      "int8": 0.0,
+      "int8_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "collapse_warning_count",
+      "bf16": 0.0,
+      "int8": 0.0,
+      "int8_minus_bf16": 0.0,
+      "relative_change_percent": null
+    }
+  ],
+  "per_task_success_rate": [
+    {
+      "task_index": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "bf16_success_rate": 0.98,
+      "int8_success_rate": 1.0,
+      "int8_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 1,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "bf16_success_rate": 0.98,
+      "int8_success_rate": 0.94,
+      "int8_minus_bf16": -0.040000000000000036
+    },
+    {
+      "task_index": 2,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "bf16_success_rate": 0.96,
+      "int8_success_rate": 1.0,
+      "int8_minus_bf16": 0.040000000000000036
+    },
+    {
+      "task_index": 3,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "bf16_success_rate": 0.96,
+      "int8_success_rate": 0.98,
+      "int8_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 4,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "bf16_success_rate": 0.96,
+      "int8_success_rate": 0.9,
+      "int8_minus_bf16": -0.05999999999999994
+    },
+    {
+      "task_index": 5,
+      "task_name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "bf16_success_rate": 0.88,
+      "int8_success_rate": 0.92,
+      "int8_minus_bf16": 0.040000000000000036
+    },
+    {
+      "task_index": 6,
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "bf16_success_rate": 0.88,
+      "int8_success_rate": 0.92,
+      "int8_minus_bf16": 0.040000000000000036
+    },
+    {
+      "task_index": 7,
+      "task_name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "bf16_success_rate": 1.0,
+      "int8_success_rate": 1.0,
+      "int8_minus_bf16": 0.0
+    },
+    {
+      "task_index": 8,
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "bf16_success_rate": 0.82,
+      "int8_success_rate": 0.86,
+      "int8_minus_bf16": 0.040000000000000036
+    },
+    {
+      "task_index": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "bf16_success_rate": 0.98,
+      "int8_success_rate": 0.96,
+      "int8_minus_bf16": -0.020000000000000018
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Add only the two tested INT8 dependencies to the existing openvla310 environment.
+# Keep Transformers 4.40.1, PEFT 0.11.1, and PyTorch 2.11.0+cu128 unchanged.
+bitsandbytes==0.49.2
+accelerate==0.29.3
