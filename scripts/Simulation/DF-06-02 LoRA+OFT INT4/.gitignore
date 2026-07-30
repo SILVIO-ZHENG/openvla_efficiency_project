@@ -1,0 +1,7 @@
+# Ignore generated Python cache files.
+__pycache__/
+*.py[cod]
+
+# Exclude videos from formal and staged simulation runs.
+output/**/videos/*
+!output/**/videos/.gitkeep

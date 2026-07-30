@@ -1,0 +1,207 @@
+{
+  "comparison": "DF-05-02 BF16 versus DF-06-02 NF4",
+  "bf16_run_id": "df_05_02_lora_oft_libero10_seed42_best_step100000",
+  "nf4_run_id": "df_06_02_lora_oft_nf4_libero10_seed42_best_step100000",
+  "checkpoint_step": 100000,
+  "total_rollouts": 500,
+  "aggregate_metrics": [
+    {
+      "metric": "overall_success_rate",
+      "bf16": 0.94,
+      "nf4": 0.932,
+      "nf4_minus_bf16": -0.007999999999999896,
+      "relative_change_percent": -0.8510638297872231
+    },
+    {
+      "metric": "macro_average_task_success_rate",
+      "bf16": 0.9400000000000001,
+      "nf4": 0.932,
+      "nf4_minus_bf16": -0.008000000000000007,
+      "relative_change_percent": -0.8510638297872347
+    },
+    {
+      "metric": "overall_timeout_rate",
+      "bf16": 0.06,
+      "nf4": 0.068,
+      "nf4_minus_bf16": 0.008000000000000007,
+      "relative_change_percent": 13.333333333333346
+    },
+    {
+      "metric": "avg_success_steps",
+      "bf16": 252.3808510638298,
+      "nf4": 250.75107296137338,
+      "nf4_minus_bf16": -1.629778102456413,
+      "relative_change_percent": -0.6457613941733736
+    },
+    {
+      "metric": "avg_all_steps",
+      "bf16": 268.438,
+      "nf4": 269.06,
+      "nf4_minus_bf16": 0.6220000000000141,
+      "relative_change_percent": 0.23171086060841392
+    },
+    {
+      "metric": "avg_inference_latency_ms",
+      "bf16": 135.88868377684457,
+      "nf4": 154.7742449146187,
+      "nf4_minus_bf16": 18.88556113777412,
+      "relative_change_percent": 13.897817399414842
+    },
+    {
+      "metric": "p95_inference_latency_ms",
+      "bf16": 148.8451637327671,
+      "nf4": 157.68324621021748,
+      "nf4_minus_bf16": 8.83808247745037,
+      "relative_change_percent": 5.937769327405252
+    },
+    {
+      "metric": "avg_amortized_inference_ms_per_action",
+      "bf16": 17.21350480612962,
+      "nf4": 19.601899835391908,
+      "nf4_minus_bf16": 2.3883950292622877,
+      "relative_change_percent": 13.87512337645379
+    },
+    {
+      "metric": "avg_end_to_end_latency_ms",
+      "bf16": 294.48014247742697,
+      "nf4": 299.642987993047,
+      "nf4_minus_bf16": 5.162845515620006,
+      "relative_change_percent": 1.7532066753926399
+    },
+    {
+      "metric": "avg_amortized_end_to_end_ms_per_action",
+      "bf16": 37.30285117905224,
+      "nf4": 37.94928439326198,
+      "nf4_minus_bf16": 0.6464332142097433,
+      "relative_change_percent": 1.7329324536263702
+    },
+    {
+      "metric": "avg_control_frequency_hz",
+      "bf16": 26.807602325088734,
+      "nf4": 26.350958021689422,
+      "nf4_minus_bf16": -0.4566443033993117,
+      "relative_change_percent": -1.7034134491466506
+    },
+    {
+      "metric": "peak_vram_allocated_gb",
+      "bf16": 15.193336009979248,
+      "nf4": 6.287960529327393,
+      "nf4_minus_bf16": -8.905375480651855,
+      "relative_change_percent": -58.6136940221861
+    },
+    {
+      "metric": "peak_vram_reserved_gb",
+      "bf16": 15.5078125,
+      "nf4": 6.953125,
+      "nf4_minus_bf16": -8.5546875,
+      "relative_change_percent": -55.16372795969773
+    },
+    {
+      "metric": "zero_equivalent_arm_action_rate",
+      "bf16": 0.0,
+      "nf4": 0.0,
+      "nf4_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "zero_equivalent_full_noop_rate",
+      "bf16": 0.0,
+      "nf4": 0.0,
+      "nf4_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "repeated_action_count",
+      "bf16": 0.0,
+      "nf4": 0.0,
+      "nf4_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "repeated_chunk_count",
+      "bf16": 0.0,
+      "nf4": 0.0,
+      "nf4_minus_bf16": 0.0,
+      "relative_change_percent": null
+    },
+    {
+      "metric": "collapse_warning_count",
+      "bf16": 0.0,
+      "nf4": 0.0,
+      "nf4_minus_bf16": 0.0,
+      "relative_change_percent": null
+    }
+  ],
+  "per_task_success_rate": [
+    {
+      "task_index": 0,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+      "bf16_success_rate": 0.98,
+      "nf4_success_rate": 1.0,
+      "nf4_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 1,
+      "task_name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+      "bf16_success_rate": 0.98,
+      "nf4_success_rate": 0.98,
+      "nf4_minus_bf16": 0.0
+    },
+    {
+      "task_index": 2,
+      "task_name": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+      "bf16_success_rate": 0.96,
+      "nf4_success_rate": 0.98,
+      "nf4_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 3,
+      "task_name": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+      "bf16_success_rate": 0.96,
+      "nf4_success_rate": 0.98,
+      "nf4_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 4,
+      "task_name": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+      "bf16_success_rate": 0.96,
+      "nf4_success_rate": 0.88,
+      "nf4_minus_bf16": -0.07999999999999996
+    },
+    {
+      "task_index": 5,
+      "task_name": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+      "bf16_success_rate": 0.88,
+      "nf4_success_rate": 0.96,
+      "nf4_minus_bf16": 0.07999999999999996
+    },
+    {
+      "task_index": 6,
+      "task_name": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+      "bf16_success_rate": 0.88,
+      "nf4_success_rate": 0.9,
+      "nf4_minus_bf16": 0.020000000000000018
+    },
+    {
+      "task_index": 7,
+      "task_name": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+      "bf16_success_rate": 1.0,
+      "nf4_success_rate": 0.96,
+      "nf4_minus_bf16": -0.040000000000000036
+    },
+    {
+      "task_index": 8,
+      "task_name": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+      "bf16_success_rate": 0.82,
+      "nf4_success_rate": 0.72,
+      "nf4_minus_bf16": -0.09999999999999998
+    },
+    {
+      "task_index": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "bf16_success_rate": 0.98,
+      "nf4_success_rate": 0.96,
+      "nf4_minus_bf16": -0.020000000000000018
+    }
+  ]
+}
